@@ -1,0 +1,456 @@
+html, body { overflow-x: hidden; }
+
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #07141d, #0f1c24, #09131a);
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* HEADER PRINCIPAL */
+header {
+    width: 100%;
+    height: 70px;
+    background: rgba(10,10,10,.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    z-index: 30;
+}
+
+header .logo {
+    font-size: 22px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+header nav a {
+    color: #ccc;
+    margin-left: 15px;
+    margin-right: 70px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+header nav a:hover { color: white; }
+
+/* MINI HEADER */
+.mini-header {
+    margin-top: 70px;
+    padding: 10px 40px;
+    width: 100%;
+    background: #0a131b;
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.mini-header a {
+    color: #cfd6e0;
+    text-decoration: none;
+    font-size: 14px;
+}
+.mini-header a:hover { color: #9b5dff; }
+
+/* HERO */
+.hero {
+    width: 100%;
+    height: 650px;
+    margin-top: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+
+    padding: 0 120px;
+    background: linear-gradient(to bottom right, #08121a, #0b1d2b);
+    transition: opacity .8s;
+}
+.slide.active { opacity: 1; }
+
+/* HERO CONTENT */
+.hero-content {
+    width: 50%;
+}
+.hero-sub {
+    opacity: .7;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.hero-title {
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1.1;
+}
+.hero-title span {
+    color: #9b5dff;
+    text-shadow: 0 0 12px #9b5dff;
+}
+.hero-text {
+    margin: 25px 0;
+    opacity: .85;
+    max-width: 500px;
+    font-size: 18px;
+}
+
+/* BOTON */
+.hero-btn {
+    background: #9b5dff;
+    padding: 12px 35px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    cursor: default;
+}
+
+/* IMAGEN DEL SLIDE */
+.sli {
+    width: 480px;
+    height: auto;
+    filter: drop-shadow(0 0 12px #0005);
+}
+
+/* CORREO */
+.correo {
+    position: absolute;
+    bottom: 10px;
+    left: 120px;
+    opacity: .75;
+    font-size: 15px;
+}
+
+/* DOTS */
+.hero-dots {
+    position: absolute;
+    bottom: 50px;
+    left: 120px;
+    display: flex;
+    gap: 15px;
+}
+.dot {
+    width: 30px;
+    height: 7px;
+    background: #3e4450;
+    border-radius: 10px;
+}
+.dot.active {
+    background: #9b5dff;
+    width: 45px;
+}
+
+/* SERVICIOS */
+.servicios {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.titulo-seccion {
+    display: inline-block;
+    border: 2px solid white;
+    padding: 12px 25px;
+    margin-bottom: 40px;
+}
+
+.servicios-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.serv-card {
+    background: rgba(255,255,255,.06);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+/* ICONOS */
+.icon-box {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* MODS */
+.mods { padding: 80px 0; text-align: center; }
+
+.grid-mods {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    justify-items: center;
+}
+.grid-mods img {
+    width: 170px;
+    height: 170px;
+    border-radius: 6px;
+}
+
+/* CONTACTO */
+.proyectos {
+    padding: 80px 0 150px;
+    text-align: center;
+}
+
+.cards {
+	display:flex;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    gap: 40px;
+	color:white;
+	justify-content:center;
+}
+
+.card {
+    background: rgba(255,255,255,.06);
+    border: 2px solid white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 28%;
+}
+
+/* FOOTER */
+footer {
+    padding: 40px;
+    background: #07141d;
+    text-align: center;
+    color: #bbb;
+}
+
+/* MODPACKS */
+.modpacks {
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.grid-modpacks {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.grid-modpacks img {
+    width: 600px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* ========================================================= */
+/* ==================== NUEVO CSS PORTFOLIO ================ */
+/* ========================================================= */
+
+/* HERO PORTFOLIO */
+.hero-portfolio {
+    padding-top: 160px;
+    padding-bottom: 100px;
+    text-align: center;
+    background: linear-gradient(to bottom right, #08121a, #0b1d2b);
+}
+
+.hero-portfolio h1 {
+    font-size: 55px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.hero-portfolio p {
+    opacity: 0.8;
+    font-size: 18px;
+}
+
+/* WORKFLOW */
+.workflow {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.workflow-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.workflow-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.workflow-card h3 {
+    color: #9b5dff;
+    margin-bottom: 10px;
+}
+
+/* PORTFOLIO CARDS */
+.portfolio-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.portfolio-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.12);
+}
+
+.p-hover {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.portfolio-card:hover .p-hover {
+    opacity: 1;
+}
+
+.p-hover h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.p-btn {
+    background: #9b5dff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* CONTACTO FINAL */
+.contacto-final {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.boton-contacto {
+    background: #9b5dff;
+    padding: 12px 35px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+/* ===================== */
+/*   SOBRE MI PAGE       */
+/* ===================== */
+
+.hero-sobre-mi {
+    padding-top: 160px;
+    padding-bottom: 100px;
+    text-align: center;
+    background: linear-gradient(to bottom right, #08121a, #0b1d2b);
+}
+
+.hero-sobre-mi h1 {
+    font-size: 55px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.hero-sobre-mi p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.sobre-mi-contenido {
+    padding: 80px 0;
+}
+
+.sobre-mi-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.sobre-mi-img img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,.1);
+}
+
+.sobre-mi-texto h2 {
+    color: #9b5dff;
+    margin-bottom: 10px;
+}
+
+.sobre-mi-texto p {
+    opacity: 0.9;
+    margin-bottom: 18px;
+}
+
+.sobre-mi-texto ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+.sobre-mi-texto ul li {
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.boton-contacto {
+    background: #9b5dff;
+    padding: 12px 35px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
