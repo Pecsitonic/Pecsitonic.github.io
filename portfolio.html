@@ -5,21 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pecsitonic | Portfolio</title>
     <link rel="stylesheet" href="estilos.css">
+
+    <!-- Google Translate – compatible con GitHub Pages -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es',
+            includedLanguages: 'es,en,pt,fr,it,de',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+    /* Ocultar barra superior de Google */
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    body { top: 0 !important; }
+
+    /* Estilo limpio del selector */
+    #google_translate_element select {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+        cursor: pointer;
+    }
+    option {
+        color: black;
+    }
+    </style>
 </head>
+
 <body>
 
 <header>
+    <!-- Selector de idioma -->
+    <div id="google_translate_element"></div>
+
     <div class="logo">PECSITONIC</div>
     <nav>
         <a href="index.html">Inicio</a>
         <a href="index.html">Servicios</a>
-		<a href="portfolio.html">Proyectos</a>
-		<a href="sobremi.html">Sobre mí</a>
-		<a href="index.html">Contacto</a>
+        <a href="portfolio.html">Proyectos</a>
+        <a href="sobremi.html">Sobre mí</a>
+        <a href="index.html">Contacto</a>
     </nav>
 </header>
 
-<!-- ================= HERO PORTFOLIO ================= -->
+<!-- ================= HERO ================= -->
 <section class="hero-portfolio">
     <h1>MI PORTFOLIO</h1>
     <p>Proyectos destacados, estilo de trabajo y trabajos 100% personalizados.</p>
@@ -30,7 +67,6 @@
     <h2 class="titulo-seccion">MI FORMA DE TRABAJAR</h2>
 
     <div class="workflow-grid">
-
         <div class="workflow-card">
             <h3>1. Consulta inicial (Pago)</h3>
             <p>Se reserva con un 50% adelantado para asegurar el proyecto.</p>
@@ -46,10 +82,10 @@
             <p>Ajustes menores incluidos para pulir el resultado final.</p>
         </div>
 
-        <div class=""> <h3>4. Entrega final</h3>
+        <div class="workflow-card">
+            <h3>4. Entrega final</h3>
             <p>Pago restante del 50% y entrega del contenido optimizado listo para usar.</p>
         </div>
-
     </div>
 </section>
 
@@ -97,11 +133,9 @@
 <!-- ================= CONTACTO ================= -->
 <section class="contacto-final">
     <h2 class="titulo-seccion">¿Querés aparecer acá?</h2>
-    <p>Todos los proyectos son 100% personalizados y **pagos**. Hablemos sobre tu idea.</p>
+    <p>Todos los proyectos son 100% personalizados y pagos. Hablemos sobre tu idea.</p>
 
-    <a class="boton-contacto" href="mailto:contactopecsitonic@gmail.com">
-        Contactar
-    </a>
+    <a class="boton-contacto" href="mailto:contactopecsitonic@gmail.com">Contactar</a>
 </section>
 
 <footer>

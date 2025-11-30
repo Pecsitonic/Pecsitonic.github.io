@@ -5,24 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pecsitonic | Web Oficial</title>
     <link rel="stylesheet" href="estilos.css">
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'es,en,pt,fr,it,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0 !important; }
+
+        #google_translate_element select {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+        }
+        option { color: black; }
+    </style>
+
 </head>
 <body>
 
 <header>
+
+    <!-- SELECTOR DE IDIOMA -->
+    <div id="google_translate_element"></div>
+
     <div class="logo">PECSITONIC</div>
+
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
-		<a href="portfolio.html">Proyectos</a>
-		<a href="sobremi.html">Sobre mí</a>
-		<a href="#proyectos">Contacto</a>
+        <a href="portfolio.html">Proyectos</a>
+        <a href="sobremi.html">Sobre mí</a>
+        <a href="#proyectos">Contacto</a>
     </nav>
 </header>
 
-<!-- MINI HEADER SECUNDARIO -->
-<div class="mini-header">
-
-</div>
+<!-- MINI HEADER -->
+<div class="mini-header"></div>
 
 <!-- ============ HERO SLIDER ============ -->
 <section class="hero" id="inicio">
@@ -85,7 +118,7 @@
 
         <div class="serv-card">
             <img class="icon-box" src="server.png">
-            <h3>Servidores Minecraft/hytale</h3>
+            <h3>Servidores Minecraft/Hytale</h3>
             <p>Setup completo, rendimiento y optimización.</p>
         </div>
 
