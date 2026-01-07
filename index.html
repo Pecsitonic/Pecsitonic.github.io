@@ -1,258 +1,397 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pecsitonic | Web Oficial</title>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pecsitonic | Web Oficial</title>
 
-    <!-- Google Translate -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es',
-                includedLanguages: 'es,en,pt,fr,it,de',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
+  <meta name="theme-color" content="#07141d" />
+  <link rel="stylesheet" href="estilos.css" />
 
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0 !important; }
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,pt,fr,it,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        #google_translate_element select {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 6px;
-            backdrop-filter: blur(4px);
-            cursor: pointer;
-        }
-        option { color: black; }
-    </style>
+  <style>
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    body { top: 0 !important; }
 
+    #google_translate_element select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      outline: none;
+    }
+    #google_translate_element select:hover {
+      border-color: rgba(155,93,255,0.55);
+      box-shadow: 0 0 0 3px rgba(155,93,255,0.12);
+    }
+    option { color: black; }
+  </style>
 </head>
+
 <body>
 
-<header>
-
-    <!-- SELECTOR DE IDIOMA -->
+<header id="topHeader">
+  <div class="header-left">
     <div id="google_translate_element"></div>
-
     <div class="logo">PECSITONIC</div>
+  </div>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="portfolio.html">Proyectos</a>
-        <a href="sobremi.html">Sobre mí</a>
-        <a href="#proyectos">Contacto</a>
-    </nav>
+  <nav class="nav" id="mainNav">
+    <a href="#inicio" class="nav-link">Inicio</a>
+    <a href="sobremi.html" class="nav-link">Sobre mí</a>
+    <a href="hytale.html" class="nav-link">Hytale</a>
+    <a href="#proyectos" class="nav-link">Contacto</a>
+  </nav>
+
+  <!-- Menú mobile -->
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <!-- MINI HEADER -->
-<div class="mini-header"></div>
+<div class="mini-header">
+  <div class="mini-pill">Mods y contenido</div>
+  <div class="mini-pill">Servidores</div>
+  <div class="mini-pill">3D y branding</div>
+
+  <div class="mini-right">
+    <span class="mini-status">
+      <span class="dot-online"></span> Disponible para proyectos
+    </span>
+    <a class="mini-mail" href="mailto:contactopecsitonic@gmail.com">contactopecsitonic@gmail.com</a>
+  </div>
+</div>
 
 <!-- ============ HERO SLIDER ============ -->
 <section class="hero" id="inicio">
 
-    <div class="hero-slider">
+  <div class="hero-slider" id="heroSlider" aria-label="Slider principal">
 
-        <!-- SLIDE 1 -->
-        <div class="slide active">
-            <div class="hero-content">
-                <h3 class="hero-sub">¿Buscás algo profesional y único?</h3>
-                <h1 class="hero-title">Bienvenido <br>a <span>Pecsitonic</span></h1>
-                <p class="hero-text">Desarrollo de mods, diseño visual, servidores Minecraft, animación 3D y branding.</p>
-                <a class="hero-btn">Ver</a>
-            </div>
+    <!-- SLIDE 1 -->
+    <div class="slide active">
+      <div class="hero-content">
+        <h3 class="hero-sub">¿Buscás algo profesional y único?</h3>
+        <h1 class="hero-title">Bienvenido <br>a <span>Pecsitonic</span></h1>
+        <p class="hero-text">
+          Desarrollo de mods, diseño visual, servidores Minecraft, modelado 3D y branding.
+        </p>
+      </div>
 
-            <img class="sli" src="slider01.png">
-        </div>
-
-        <!-- SLIDE 2 -->
-        <div class="slide">
-            <div class="hero-content">
-                <h3 class="hero-sub">Mods exclusivos y de calidad</h3>
-                <h1 class="hero-title">Diseños únicos <br>para tu comunidad</h1>
-                <p class="hero-text">Modelos 3D, texturas, NPCs, modpacks y estructuras personalizadas.</p>
-                <a class="hero-btn">Ver</a>
-            </div>
-
-            <img class="sli" src="slider02.png">
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="slide">
-            <div class="hero-content">
-                <h3 class="hero-sub">Branding profesional</h3>
-                <h1 class="hero-title">Logos, banners <br>y miniaturas</h1>
-                <p class="hero-text">Perfectos para Twitch, YouTube, Discord y páginas web.</p>
-                <a class="hero-btn">Ver</a>
-            </div>
-
-            <img class="sli" src="slider03.png">
-        </div>
-
+      <img class="sli" src="slider01.png" alt="Trabajo de Pecsitonic">
     </div>
 
-    <div class="hero-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+    <!-- SLIDE 2 -->
+    <div class="slide">
+      <div class="hero-content">
+        <h3 class="hero-sub">Contenido a medida para comunidades</h3>
+        <h1 class="hero-title">Diseños únicos <br>para tu servidor</h1>
+        <p class="hero-text">
+          Modelos 3D, animaciones, NPCs, modpacks, estructuras y optimización.
+        </p>
+      </div>
+
+      <img class="sli" src="slider02.png" alt="Modelado y animaciones">
     </div>
 
-    <p class="correo">contactopecsitonic@gmail.com</p>
+    <!-- SLIDE 3 -->
+    <div class="slide">
+      <div class="hero-content">
+        <h3 class="hero-sub">Identidad visual consistente</h3>
+        <h1 class="hero-title">Logos, banners <br>y miniaturas</h1>
+        <p class="hero-text">
+          Para YouTube, Twitch, Discord y páginas web. Estética limpia y pensada para tu marca.
+        </p>
+      </div>
 
+      <img class="sli" src="slider03.png" alt="Branding y miniaturas">
+    </div>
+
+    <!-- Botones (manual) -->
+    <button class="hero-arrow hero-prev" id="heroPrev" type="button" aria-label="Anterior">‹</button>
+    <button class="hero-arrow hero-next" id="heroNext" type="button" aria-label="Siguiente">›</button>
+
+  </div>
+
+  <div class="hero-dots" id="heroDots" aria-label="Controles del slider">
+    <button class="dot active" aria-label="Slide 1" aria-selected="true" data-dot="0"></button>
+    <button class="dot" aria-label="Slide 2" aria-selected="false" data-dot="1"></button>
+    <button class="dot" aria-label="Slide 3" aria-selected="false" data-dot="2"></button>
+  </div>
+
+  <p class="correo">contactopecsitonic@gmail.com</p>
 </section>
 
 <!-- ============ SERVICIOS ============ -->
-<section id="servicios" class="servicios">
-    <h2 class="titulo-seccion">SERVICIOS</h2>
+<section id="servicios" class="servicios reveal">
+  <h2 class="titulo-seccion">SERVICIOS</h2>
 
-    <div class="servicios-grid">
+  <div class="servicios-grid">
 
-        <div class="serv-card">
-            <img class="icon-box" src="server.png">
-            <h3>Servidores Minecraft/Hytale</h3>
-            <p>Setup completo, rendimiento y optimización.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="modpack.png">
-            <h3>Modpacks</h3>
-            <p>Creación personalizada para tu comunidad.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="npc.png">
-            <h3>NPCs Custom</h3>
-            <p>NPCs configurados a medida.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="rol.png">
-            <h3>Diseño Visual</h3>
-            <p>Rangos, títulos y estética del servidor.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="modcustom.png">
-            <h3>Mods Custom</h3>
-            <p>Mods personalizados para Minecraft o Hytale.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="clip.png">
-            <h3>Diseño Multimedia</h3>
-            <p>Banners, miniaturas y logos básicos.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="pixel.png">
-            <h3>Pixel Art</h3>
-            <p>Sprites y animaciones.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="block.png">
-            <h3>Blockbench</h3>
-            <p>Modelos lowpoly y animaciones.</p>
-        </div>
-
-        <div class="serv-card">
-            <img class="icon-box" src="bot.png">
-            <h3>Bots Discord</h3>
-            <p>Roles, comandos y automatización.</p>
-        </div>
-
+    <div class="serv-card">
+      <img class="icon-box" src="server.png" alt="Servidores">
+      <h3>Servidores Minecraft/Hytale</h3>
+      <p>Setup completo, rendimiento, permisos y optimización general.</p>
     </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="modpack.png" alt="Modpacks">
+      <h3>Modpacks</h3>
+      <p>Curado de mods, compatibilidad, performance y configuración.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="npc.png" alt="NPCs custom">
+      <h3>NPCs Custom</h3>
+      <p>NPCs configurados a medida para misiones, roles y eventos.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="rol.png" alt="Diseño visual">
+      <h3>Diseño Visual</h3>
+      <p>Rangos, títulos y estética general del servidor.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="modcustom.png" alt="Mods custom">
+      <h3>Mods Custom</h3>
+      <p>Mods personalizados, sistemas de gameplay y contenido único.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="clip.png" alt="Diseño multimedia">
+      <h3>Diseño Multimedia</h3>
+      <p>Miniaturas, banners y piezas visuales para redes.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="pixel.png" alt="Pixel art">
+      <h3>Pixel Art</h3>
+      <p>Sprites, íconos y recursos para packs o interfaces.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="block.png" alt="Blockbench">
+      <h3>Blockbench</h3>
+      <p>Modelos lowpoly y animaciones para entidades o props.</p>
+    </div>
+
+    <div class="serv-card">
+      <img class="icon-box" src="bot.png" alt="Bots discord">
+      <h3>Bots Discord</h3>
+      <p>Roles, comandos y automatización para comunidades.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- ============ FEATURED MODS ============ -->
-<section id="mods" class="mods">
-    <h2 class="titulo-seccion">FEATURED MODS</h2>
+<section id="mods" class="mods reveal">
+  <h2 class="titulo-seccion">FEATURED MODS</h2>
 
-    <div class="grid-mods">
+  <div class="grid-mods">
+    <a href="https://www.curseforge.com/minecraft/mc-mods/mobstein-upgrade-useless-animals" target="_blank" rel="noopener">
+      <img src="01.png" alt="Mobstein">
+    </a>
 
-        <a href="https://www.curseforge.com/minecraft/mc-mods/mobstein-upgrade-useless-animals" target="_blank">
-            <img src="01.png">
-        </a>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/phenominae" target="_blank" rel="noopener">
+      <img src="02.png" alt="Phenominae">
+    </a>
 
-        <a href="https://www.curseforge.com/minecraft/mc-mods/phenominae" target="_blank">
-            <img src="02.png">
-        </a>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/morebatsvariants" target="_blank" rel="noopener">
+      <img src="06.png" alt="More Bats Variants">
+    </a>
 
-        <a href="https://www.curseforge.com/minecraft/mc-mods/morebatsvariants" target="_blank">
-            <img src="06.png">
-        </a>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/grothic-mobs" target="_blank" rel="noopener">
+      <img src="04.png" alt="Unicorns Legends">
+    </a>
 
-        <a href="https://www.curseforge.com/minecraft/mc-mods/unicorns-legends" target="_blank">
-            <img src="04.png">
-        </a>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/djfurniture" target="_blank" rel="noopener">
+      <img src="05.png" alt="DJFurniture">
+    </a>
 
-        <a href="https://www.curseforge.com/minecraft/mc-mods/djfurniture" target="_blank">
-            <img src="05.png">
-        </a>
-
-        <a href="https://www.curseforge.com/minecraft/mc-mods/frutigeraerodecor" target="_blank">
-            <img src="03.png">
-        </a>
-
-    </div>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/frutigeraerodecor" target="_blank" rel="noopener">
+      <img src="03.png" alt="Frutiger Aero Decor">
+    </a>
+  </div>
 </section>
 
 <!-- ============ MODPACKS ============ -->
-<section id="modpacks" class="modpacks">
-    <h2 class="titulo-seccion">MODPACKS</h2>
+<section id="modpacks" class="modpacks reveal">
+  <h2 class="titulo-seccion">SERVIDORES</h2>
 
-    <div class="grid-modpacks">
-        <img src="frostonic.png">
-        <img src="frostonic2.png">
-    </div>
+  <div class="grid-modpacks">
+    <img src="frostonic.png" alt="Frostonic">
+    <img src="frostonic2.png" alt="Frostonic 2">
+  </div>
 </section>
 
 <!-- ============ CONTACTO ============ -->
-<section id="proyectos" class="proyectos">
-    <h2 class="titulo-seccion">Contacto</h2>
+<section id="proyectos" class="proyectos reveal">
+  <h2 class="titulo-seccion">Contacto</h2>
 
-    <div class="cards">
+  <div class="cards">
+    <a href="https://www.youtube.com/@PecsiTonicDev" target="_blank" rel="noopener" class="card card-link">
+      YOUTUBE
+      <span class="card-sub">Contenido y proyectos</span>
+    </a>
 
-        <a href="https://www.youtube.com/@PecsiTonicDev" target="_blank" class="card card-link">
-            YOUTUBE
-        </a>
+    <a href="https://discord.com/invite/WJeUWhCEnX" target="_blank" rel="noopener" class="card card-link">
+      DISCORD
+      <span class="card-sub">Comunidad y soporte</span>
+    </a>
 
-        <a href="https://discord.com/invite/WJeUWhCEnX" target="_blank" class="card card-link">
-            DISCORD
-        </a>
-
-    </div>
+    <a href="https://x.com/Pecsitonic" target="_blank" rel="noopener" class="card card-link">
+      X (twitter)
+      <span class="card-sub">Contacto al md</span>
+    </a>
+  </div>
 </section>
 
 <footer>
-    Pecsitonic © 2025 — All Rights Reserved.
+  Pecsitonic © 2025 — All Rights Reserved.
 </footer>
 
 <script>
+/* =========================
+   SLIDER (auto + dots + botones + teclado + swipe)
+========================= */
 let index = 0;
 const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+const dots = document.querySelectorAll(".dot[data-dot]");
+const slider = document.getElementById("heroSlider");
+const prevBtn = document.getElementById("heroPrev");
+const nextBtn = document.getElementById("heroNext");
 
-function changeSlide() {
-    slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
+let timer = null;
+const intervalMs = 4500;
 
-    index = (index + 1) % slides.length;
+function showSlide(i) {
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => {
+    d.classList.remove("active");
+    d.setAttribute("aria-selected", "false");
+  });
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
+  index = (i + slides.length) % slides.length;
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+  dots[index].setAttribute("aria-selected", "true");
 }
 
-setInterval(changeSlide, 4500);
+function nextSlide() {
+  showSlide(index + 1);
+}
+function prevSlide() {
+  showSlide(index - 1);
+}
+
+function startAuto() {
+  stopAuto();
+  timer = setInterval(nextSlide, intervalMs);
+}
+function stopAuto() {
+  if (timer) clearInterval(timer);
+  timer = null;
+}
+function restartAuto() {
+  startAuto();
+}
+
+/* Dots */
+dots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const i = Number(dot.dataset.dot);
+    showSlide(i);
+    restartAuto();
+  });
+});
+
+/* Botones */
+nextBtn.addEventListener("click", () => { nextSlide(); restartAuto(); });
+prevBtn.addEventListener("click", () => { prevSlide(); restartAuto(); });
+
+/* Pausa al hover */
+slider.addEventListener("mouseenter", stopAuto);
+slider.addEventListener("mouseleave", startAuto);
+
+/* Teclado */
+window.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") { nextSlide(); restartAuto(); }
+  if (e.key === "ArrowLeft")  { prevSlide(); restartAuto(); }
+});
+
+/* Swipe mobile */
+let x0 = null;
+slider.addEventListener("touchstart", (e) => {
+  x0 = e.touches[0].clientX;
+}, { passive: true });
+
+slider.addEventListener("touchend", (e) => {
+  if (x0 === null) return;
+  const x1 = e.changedTouches[0].clientX;
+  const dx = x1 - x0;
+  if (Math.abs(dx) > 50) {
+    if (dx < 0) nextSlide();
+    else prevSlide();
+    restartAuto();
+  }
+  x0 = null;
+}, { passive: true });
+
+showSlide(0);
+startAuto();
+
+/* =========================
+   HEADER SCROLLED
+========================= */
+const header = document.getElementById("topHeader");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) header.classList.add("scrolled");
+  else header.classList.remove("scrolled");
+});
+
+/* =========================
+   REVEAL SUAVE
+========================= */
+const revealEls = document.querySelectorAll(".reveal");
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("reveal-show");
+  });
+}, { threshold: 0.10 });
+
+revealEls.forEach(el => io.observe(el));
+
+/* =========================
+   NAV MOBILE
+========================= */
+const navToggle = document.getElementById("navToggle");
+const nav = document.getElementById("mainNav");
+
+navToggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
 </script>
 
 </body>

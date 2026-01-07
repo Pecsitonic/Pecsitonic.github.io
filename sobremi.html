@@ -1,108 +1,289 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pecsitonic | Sobre mí</title>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pecsitonic | Sobre mí</title>
 
-    <!-- Google Translate -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es',
-                includedLanguages: 'es,en,pt,fr,it,de',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
+  <meta name="theme-color" content="#07141d" />
+  <link rel="stylesheet" href="sobre.css" />
 
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0 !important; }
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,pt,fr,it,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        #google_translate_element select {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 6px;
-            backdrop-filter: blur(4px);
-            cursor: pointer;
-        }
-        option { color: black; }
-    </style>
-
+  <style>
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    body { top: 0 !important; }
+    #google_translate_element select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      outline: none;
+    }
+    option { color: black; }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <!-- Selector de idioma -->
+<header id="topHeader">
+  <div class="header-left">
     <div id="google_translate_element"></div>
-
     <div class="logo">PECSITONIC</div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="index.html">Servicios</a>
-        <a href="portfolio.html">Proyectos</a>
-        <a href="sobremi.html">Sobre mí</a>
-        <a href="index.html">Contacto</a>
-    </nav>
+  </div>
+
+  <nav class="nav" id="mainNav">
+    <a href="index.html#inicio" class="nav-link">Inicio</a>
+    <a href="sobremi.html" class="nav-link active">Sobre mí</a>
+    <a href="hytale.html" class="nav-link">Hytale</a>
+    <a href="index.html#proyectos" class="nav-link">Contacto</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<!-- =============== HERO =============== -->
-<section class="hero-sobre-mi">
-    <h1>SOBRE MÍ</h1>
-    <p>Conocé quién está detrás de Pecsitonic.</p>
+<div class="mini-header">
+  <div class="mini-pill">Mods</div>
+  <div class="mini-pill">Servidores</div>
+  <div class="mini-pill">3D y branding</div>
+
+  <div class="mini-right">
+    <span class="mini-status">
+      <span class="dot-online"></span> Disponible para proyectos
+    </span>
+    <a class="mini-mail" href="mailto:contactopecsitonic@gmail.com">contactopecsitonic@gmail.com</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-text">
+        <h1>Sobre mí</h1>
+
+        <p class="lead">
+          Soy Pecsitonic. Me dedico al desarrollo de mods, configuración de servidores, diseño visual y modelado 3D
+          orientado a comunidades y creadores que buscan un resultado profesional, funcional y con identidad.
+        </p>
+
+        <div class="hero-note">
+          Trabajo con objetivos claros y entregables reales: que el servidor sea estable, que el contenido sea usable,
+          y que todo mantenga coherencia (desde lo técnico hasta lo visual).
+        </div>
+
+        <div class="quick-stats">
+          <div class="stat">
+            <div class="stat-title">Enfoque</div>
+            <div class="stat-value">Gameplay + estabilidad</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Formato</div>
+            <div class="stat-value">Entregas por etapas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Comunicación</div>
+            <div class="stat-value">Avances constantes</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="profile-top">
+          <div class="profile-img">
+            <img src="pecsitonic.png" alt="Pecsitonic" />
+          </div>
+
+          <div class="profile-meta">
+            <div class="profile-name">Pecsitonic</div>
+            <div class="profile-role">Mods · Servidores · 3D · Branding</div>
+          </div>
+        </div>
+
+        <div class="focus">
+          <h3>En qué me enfoco</h3>
+          <ul>
+            <li>Mods y contenido personalizado para gameplay.</li>
+            <li>Servidores modded: estabilidad, rendimiento y configuración.</li>
+            <li>Modelos lowpoly y animaciones para entidades/props.</li>
+            <li>Branding para canales y comunidades: estética y coherencia.</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- BANNER SIN IMAGEN (Aurora borrosa) -->
+    <div class="hero-banner aurora-banner" aria-label="Trabajo y herramientas">
+      <div class="banner-overlay">
+        <div class="banner-title">Proceso claro, entregas limpias</div>
+        <div class="banner-sub">Organización, compatibilidad y estética coherente para proyectos reales.</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- =============== CONTENIDO =============== -->
-<section class="sobre-mi-contenido">
+<!-- PERFIL -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Perfil</h2>
+      <p class="section-desc">Una base simple y ordenada para entender cómo trabajo y para quién es.</p>
+    </div>
 
-    <div class="sobre-mi-grid">
+    <div class="grid-2">
+      <div class="card">
+        <h3>Cómo trabajo</h3>
+        <p>
+          Trabajo de forma independiente y organizada. Prefiero mantener comunicación constante,
+          mostrar avances y dejar todo documentado para que el proyecto sea fácil de mantener.
+        </p>
+        <p class="small">
+          Si el proyecto es grande, lo ordeno por etapas: base, contenido, pulido y entrega final.
+        </p>
+      </div>
 
-        <div class="sobre-mi-texto">
+      <div class="card">
+        <h3>Para quién es</h3>
+        <p>
+          Para servidores, streamers, comunidades y creadores que quieren diferenciarse con contenido propio,
+          una estética consistente y una base técnica estable.
+        </p>
+        <p class="small">
+          Si ya tienes algo armado, también puedo hacer mejoras puntuales sin romper lo que ya funciona.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <h2>¿Quién soy?</h2>
-            <p>
-                Me dedico al desarrollo de mods, diseño visual, branding digital, animación 3D, servidores Minecraft y proyectos creativos hechos a medida.
-            </p>
-            <p>
-                Trabajo de forma independiente, organizada y manteniendo siempre comunicación y avances constantes con mis clientes.
-            </p>
-            <p>
-                Tengo dos canales de YouTube dedicados a la creación de contenido.
-            </p>
+<!-- HABILIDADES -->
+<section class="section muted-section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Habilidades</h2>
+      <p class="section-desc">Servicios que suelo cubrir y que mejor se integran entre sí.</p>
+    </div>
 
-            <h2>Experiencia y habilidades</h2>
-            <ul>
-                <li>Desarrollo de mods personalizados</li>
-                <li>Creación de modpacks optimizados</li>
-                <li>Blockbench (modelado y animación lowpoly)</li>
-                <li>Diseño gráfico (banners, logos, miniaturas)</li>
-                <li>Configuración de NPCs y sistemas de servidores</li>
-                <li>Pixel art y animaciones básicas</li>
-                <li>Branding para creadores de contenido</li>
-                <li>Manejo de bots en Discord</li>
-            </ul>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Mods y sistemas</h3>
+        <p>Contenido y mecánicas personalizadas. Integración con gameplay y enfoque en claridad y jugabilidad.</p>
+      </div>
 
-            <h2>Mi objetivo</h2>
-            <p>
-                Ayudar a creadores, streamers, comunidades y servidores a tener una identidad visual y técnica única, profesional y llamativa.
-            </p>
+      <div class="card">
+        <h3>Servidores y modpacks</h3>
+        <p>Configuración, compatibilidad, rendimiento y resolución de problemas en entornos modded.</p>
+      </div>
 
-            <a class="boton-contacto" href="mailto:contactopecsitonic@gmail.com">Contactar</a>
+      <div class="card">
+        <h3>3D y animaciones</h3>
+        <p>Modelado lowpoly y animaciones funcionales (idle, walk y acciones). Assets orientados a juego.</p>
+      </div>
+
+      <div class="card">
+        <h3>Diseño visual</h3>
+        <p>Banners, miniaturas, logos y recursos para redes con una línea consistente y profesional.</p>
+      </div>
+
+      <div class="card">
+        <h3>Pixel art</h3>
+        <p>Sprites, iconos, recursos UI y piezas simples para packs o sistemas internos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Discord</h3>
+        <p>Estructura de servidor, roles, orden, automatizaciones y base sólida para comunidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJETIVO + CONTACTO -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Objetivo</h2>
+      <p class="section-desc">Que el proyecto se note sólido: por dentro y por fuera.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Qué busco lograr</h3>
+        <p>
+          Ayudar a que un proyecto se vea y se sienta real: identidad visual clara, contenido propio y una base técnica
+          que aguante cuando entra gente.
+        </p>
+        <p class="small">
+          Lo importante es que lo que se hace, se pueda usar y mantener.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Contacto directo</h3>
+        <p>
+          Si quieres que te ayude, envíame un mensaje con lo básico: qué quieres construir, en qué etapa estás
+          y qué necesitas.
+        </p>
+
+        <div class="contact-row">
+          <a class="cta" href="mailto:contactopecsitonic@gmail.com">Email</a>
+          <a class="cta" target="_blank" rel="noopener" href="https://discord.com/invite/WJeUWhCEnX">Discord</a>
+          <a class="cta" target="_blank" rel="noopener" href="https://www.youtube.com/@PecsiTonicDev">YouTube</a>
+		  <a class="cta" target="_blank" rel="noopener" href="https://x.com/Pecsitonic">X(twitter)</a>
 
         </div>
 
+        <p class="contact-foot">
+          Respondo con una propuesta clara: alcance, entregables y forma de trabajo.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
 <footer>
-    Pecsitonic © 2025 — All Rights Reserved.
+  Pecsitonic © 2025 — All Rights Reserved.
 </footer>
+
+<script>
+  /* HEADER SCROLLED */
+  const header = document.getElementById("topHeader");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  });
+
+  /* NAV MOBILE */
+  const navToggle = document.getElementById("navToggle");
+  const nav = document.getElementById("mainNav");
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+</script>
 
 </body>
 </html>
