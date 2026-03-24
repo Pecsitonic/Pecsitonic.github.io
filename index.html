@@ -1,398 +1,1632 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pecsitonic | Web Oficial</title>
-
-  <meta name="theme-color" content="#07141d" />
-  <link rel="stylesheet" href="estilos2.css" />
-
-  <!-- Fuente -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'es,en,pt,fr,it,de',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <title>Pecsitonic Portfolio</title>
   <style>
-    .goog-te-banner-frame.skiptranslate { display: none !important; }
-    body { top: 0 !important; }
 
-    #google_translate_element select {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: white;
-      padding: 6px 10px;
-      border-radius: 10px;
-      backdrop-filter: blur(6px);
+    :root {
+      --bg: #090a0d;
+      --bg-2: #101217;
+      --panel: #161a20;
+      --panel-2: #1b2027;
+      --panel-3: #232a33;
+      --line: #303948;
+      --line-soft: rgba(255,255,255,0.08);
+      --text: #f5f7fb;
+      --muted: #b7bfca;
+      --accent: #ff8d1a;
+      --accent-2: #ffb347;
+      --accent-3: #8e53ff;
+      --green: #8ee26f;
+      --danger: #ff5c87;
+      --shadow: 0 18px 42px rgba(0,0,0,.38);
+      --radius: 16px;
+      --radius-lg: 22px;
+      --max: 1220px;
+      --top-h: 76px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top center, rgba(255,141,26,.10), transparent 22%),
+        linear-gradient(180deg, #0a0c10 0%, #0c0f13 30%, #10141a 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wallpaper {
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.70), rgba(0,0,0,.74)),
+        url('bg-reference.jpg') center top / cover no-repeat;
+      opacity: .42;
+      pointer-events: none;
+    }
+
+    .side-art {
+      position: fixed;
+      top: var(--top-h);
+      bottom: 0;
+      width: clamp(100px, 12vw, 185px);
+      z-index: -4;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.96) contrast(1.04);
+      opacity: .92;
+      pointer-events: none;
+    }
+
+    .side-art.left {
+      left: 0;
+      background-image:
+        linear-gradient(180deg, rgba(10,12,16,.15), rgba(10,12,16,.2)),
+        url('side-left.jpg');
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+
+    .side-art.right {
+      right: 0;
+      background-image:
+        linear-gradient(180deg, rgba(10,12,16,.15), rgba(10,12,16,.2)),
+        url('side-right.jpg');
+      border-left: 1px solid rgba(255,255,255,.08);
+    }
+
+    .wrap,
+    .topbar-inner,
+    .footer-shell,
+    .footer-bottom-inner {
+      width: min(calc(100% - 34px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      min-height: var(--top-h);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.88), rgba(11,13,17,.92));
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    }
+
+    .topbar-inner {
+      min-height: var(--top-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: .03em;
+    }
+
+    .brand-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      font-size: .98rem;
+      color: #191919;
+      background: linear-gradient(135deg, var(--accent), #ffd06d);
+      box-shadow: 0 10px 24px rgba(255,141,26,.22);
+    }
+
+    .brand-copy small {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 2px;
+    }
+
+    .brand-copy strong {
+      font-size: 1.16rem;
+      letter-spacing: -.02em;
+    }
+
+    .translate-btn {
+      min-height: 42px;
+      padding: 0 14px;
+      font-size: .88rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.11);
+      color: var(--text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-weight: 700;
+      color: #edf1f7;
+      opacity: .92;
+      font-size: .96rem;
+      transition: .18s ease;
+    }
+
+    .nav a:hover { color: #ffd48e; transform: translateY(-1px); }
+
+    .nav-cta {
+      padding: 11px 14px;
+      border-radius: 11px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .hero-zone {
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 34%),
+        linear-gradient(180deg, rgba(255,141,26,.06), transparent 20%),
+        linear-gradient(180deg, #12161b 0%, #11151a 100%);
+      overflow: hidden;
+    }
+
+    .hero-zone::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .16;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,.15));
+      pointer-events: none;
+    }
+
+    .hero {
+      padding: 70px 0 54px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 24px;
+      align-items: stretch;
+      position: relative;
+      z-index: 2;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+    }
+
+    .hero-copy {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 192, 77, .30);
+      background: rgba(255,141,26,.08);
+      color: #ffe0ad;
+      font-size: .79rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 4vw, 4.7rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+      max-width: 11ch;
+      margin-bottom: 16px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.03rem;
+      max-width: 63ch;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      border: 0;
       cursor: pointer;
-      outline: none;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: .95rem;
+      transition: .2s ease;
     }
-    #google_translate_element select:hover {
-      border-color: rgba(155,93,255,0.55);
-      box-shadow: 0 0 0 3px rgba(155,93,255,0.12);
+
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+    .btn-primary {
+      color: #171717;
+      background: linear-gradient(135deg, var(--accent), #ffc65d);
+      box-shadow: 0 10px 24px rgba(255,141,26,.18);
     }
-    option { color: black; }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.11);
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-stats div {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .mini-stats strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff3d6;
+      font-size: 1rem;
+    }
+
+    .mini-stats span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .hero-feature {
+      padding: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-screen {
+      min-height: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,141,26,.28), transparent 18%),
+        radial-gradient(circle at 80% 16%, rgba(142,83,255,.26), transparent 20%),
+        radial-gradient(circle at 56% 72%, rgba(142,226,111,.14), transparent 22%),
+        linear-gradient(145deg, #2b3038 0%, #171b20 46%, #101317 100%);
+    }
+
+    .hero-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: .35;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,.45));
+    }
+
+    .hero-screen .screen-backdrop {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.25)),
+        url('hero-reference.jpg') center / cover no-repeat;
+      opacity: .34;
+      mix-blend-mode: screen;
+    }
+
+    .tool-orbit {
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      width: 210px;
+      height: 140px;
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .tool-orbit::before {
+      content: "";
+      position: absolute;
+      inset: 18px 28px 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.08);
+      opacity: .45;
+    }
+
+    .orbit-track {
+      position: absolute;
+      inset: 0;
+      animation: orbitSpin 14s linear infinite;
+      transform-origin: 50% 50%;
+    }
+
+    .orbit-track img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      transform: translate(-50%, -50%) translateY(-54px);
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+    }
+
+    .orbit-track.t1 { animation-duration: 11s; transform: rotate(0deg); }
+    .orbit-track.t2 { animation-duration: 13s; transform: rotate(72deg); }
+    .orbit-track.t3 { animation-duration: 15s; transform: rotate(144deg); }
+    .orbit-track.t4 { animation-duration: 17s; transform: rotate(216deg); }
+    .orbit-track.t5 { animation-duration: 19s; transform: rotate(288deg); }
+
+    @keyframes orbitSpin {
+      from { transform: rotate(var(--start, 0deg)); }
+      to { transform: rotate(calc(var(--start, 0deg) + 360deg)); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: linear-gradient(180deg, rgba(8,9,11,.22), rgba(8,9,11,.82));
+      backdrop-filter: blur(9px);
+    }
+
+    .hero-overlay h2 {
+      font-size: 1.35rem;
+      margin-bottom: 7px;
+      letter-spacing: -.03em;
+    }
+
+    .hero-overlay p {
+      color: #d4dbe4;
+      font-size: .96rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .hero-tags span,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.09);
+      color: #edf2f7;
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .02em;
+    }
+
+    .section {
+      padding: 70px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      color: #ffcd7f;
+      font-size: .78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.9rem, 2.7vw, 3rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+      margin-bottom: 6px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 66ch;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      overflow: hidden;
+      transition: .2s ease;
+    }
+
+    .card:hover { transform: translateY(-5px); border-color: rgba(255,192,77,.25); }
+
+    .card-visual {
+      min-height: 240px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: transparent;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      overflow: hidden;
+    }
+
+    .card-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 24%, rgba(255,141,26,.12), transparent 20%),
+        radial-gradient(circle at 74% 18%, rgba(142,83,255,.10), transparent 20%);
+      pointer-events: none;
+    }
+
+    .project-cover {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 26px rgba(0,0,0,.28));
+    }
+
+    .card-badge {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      z-index: 2;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(8,10,12,.70);
+      border: 1px solid rgba(255,255,255,.09);
+      backdrop-filter: blur(7px);
+      font-weight: 800;
+      font-size: .83rem;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin: 10px 0 10px;
+      letter-spacing: -.03em;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .list-clean {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: #edf1f7;
+      font-size: .96rem;
+    }
+
+    .list-clean li::before {
+      content: "✔";
+      color: var(--green);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 20px;
+    }
+
+    .box { padding: 24px; }
+
+    .copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill {
+      padding: 16px;
+      border-radius: 15px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .skill h3,
+    .contact-panel h3,
+    .footer-column h4 {
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+      letter-spacing: -.02em;
+    }
+
+    .skill ul,
+    .simple-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: #e8edf4;
+      font-size: .95rem;
+    }
+
+    .skill li::before,
+    .simple-list li::before {
+      content: "•";
+      color: var(--accent-2);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .contact-panel {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      background:
+        radial-gradient(circle at right center, rgba(255,141,26,.11), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.018));
+    }
+
+    .contact-panel p { color: var(--muted); max-width: 64ch; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 12px; justify-content: end; }
+
+    .footer-portal {
+      position: relative;
+      z-index: 2;
+      margin-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, #101218 0%, #0a0c10 100%);
+      overflow: hidden;
+    }
+
+    .footer-bar {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, #191d24, #13171c);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .footer-bar-inner {
+      width: min(calc(100% - 34px), var(--max));
+      margin: 0 auto;
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-title {
+      font-size: 2rem;
+      letter-spacing: -.05em;
+      font-weight: 900;
+      color: #dfe7f2;
+    }
+
+    .footer-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-tabs span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.04);
+      font-size: .82rem;
+      font-weight: 800;
+      color: #e7edf7;
+    }
+
+    .footer-shell {
+      padding: 28px 0 0;
+      position: relative;
+    }
+
+    .footer-gallery {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .art-slot {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(145deg, #252a31, #171b20);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .art-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .art-slot::after {
+      content: attr(data-name);
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      padding: 6px 8px;
+      font-size: .74rem;
+      font-weight: 800;
+      color: #f0f4fa;
+      border-radius: 8px;
+      background: rgba(8,10,12,.70);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(5px);
+      text-align: center;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 22px;
+      padding-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-column {
+      padding: 6px 0;
+    }
+
+    .footer-column p,
+    .footer-column li,
+    .footer-column a {
+      color: #c3cad4;
+      font-size: .96rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-column a:hover { color: #ffd086; }
+
+    .footer-highlight {
+      color: #ffcf86;
+      font-weight: 800;
+    }
+
+    .studio-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,141,26,.09);
+      border: 1px solid rgba(255,192,77,.24);
+      color: #ffe0ae;
+      font-weight: 800;
+      font-size: .84rem;
+    }
+
+    .footer-city {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 94px;
+      pointer-events: none;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,.2) 30%, rgba(0,0,0,.42) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 220' preserveAspectRatio='none'><path fill='%23000000' d='M0 220V162h20v16h13v-34h18v18h16v-48h28v66h16v-24h18v-15h16v39h18v-52h24v15h12v37h25v-88h31v33h22v55h13v-40h17v-20h17v60h23v-34h18v34h20v-55h26v18h18v37h14v-22h18v22h21v-72h14v21h18v51h16v-31h26v31h25v-58h20v20h18v38h18v-30h20v30h25v-62h18v62h24v-22h19v22h20v-77h16v18h18v59h16v-44h18v44h16v-31h18v31h24v-63h18v23h18v40h19v-22h18v22h21v-46h18v46h19v-62h23v16h18v46h15v-26h18v26h28v-81h18v18h20v63h19v-39h18v39h15v-29h20v29h26v-72h20v20h20v52h16v-18h17v18h22v-50h18v19h16v31h23v-72h20v18h18v54h16v-34h18v34h18v-48h18v18h20v30h22v-65h25v15h15v50h24v-19h18v19h24v-36h18v36h18v-66h24v22h18v44h15v-29h18v29h23v-56h20v18h18v38h22v-31h18v31h18v-70h18v20h18v50h15v-26h20v26h21v-46h18v46h24v-62h23v20h18v42h14v-28h19v28h21v-54h19v19h16v35h20v-64h16v64h20v-26h18v26h16v-34h20v34h25v-58h18v58h22v-38h18v38h26V220z'/></svg>") center bottom / cover no-repeat;
+      opacity: .98;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: rgba(0,0,0,.34);
+      position: relative;
+      z-index: 3;
+    }
+
+    .footer-bottom-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      z-index: 100;
+      background: rgba(4,6,10,.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal.show { display: grid; }
+
+    .modal-box {
+      width: min(560px, 100%);
+      border-radius: 22px;
+      padding: 26px;
+      background: linear-gradient(180deg, #1a1f27, #12161c);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 28px 60px rgba(0,0,0,.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,141,26,.14), transparent 28%);
+      pointer-events: none;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .modal-box h3 {
+      font-size: 1.55rem;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .modal-box p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: .98rem;
+    }
+
+    .modal-box .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 4px;
+    }
+
+    .modal-box .contact-list li {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #e7edf6;
+      line-height: 1.45;
+    }
+
+    .modal-box .contact-list a { color: #ffd087; font-weight: 800; }
+
+    @media (max-width: 1280px) {
+      .side-art { display: none; }
+      .wrap,
+      .topbar-inner,
+      .footer-shell,
+      .footer-bottom-inner,
+      .footer-bar-inner { width: min(calc(100% - 28px), 1120px); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .about-grid,
+      .projects,
+      .contact-panel,
+      .footer-links-grid { grid-template-columns: 1fr; }
+
+      .footer-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .mini-stats,
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cta-group { justify-content: start; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero { padding: 42px 0 38px; }
+      .hero-copy,
+      .box,
+      .contact-panel,
+      .modal-box { padding: 20px; }
+      .hero-overlay { left: 14px; right: 14px; bottom: 14px; }
+      .tool-orbit {
+        width: 170px;
+        height: 120px;
+        top: 18px;
+      }
+      .orbit-track img {
+        width: 34px;
+        height: 34px;
+        transform: translate(-50%, -50%) translateY(-45px);
+      }
+      .mini-stats,
+      .grid-2,
+      .footer-gallery { grid-template-columns: 1fr; }
+      .footer-title { font-size: 1.55rem; }
+      .footer-bottom-inner { padding: 14px 0; }
+    }
   </style>
 </head>
-
 <body>
+  <div class="wallpaper"></div>
+  <div class="side-art left"></div>
+  <div class="side-art right"></div>
 
-<header id="topHeader">
-  <div class="header-left">
-    <div id="google_translate_element"></div>
-    <div class="logo">PECSITONIC</div>
-  </div>
-
-  <nav class="nav" id="mainNav">
-    <a href="#inicio" class="nav-link">Inicio</a>
-    <a href="sobremi.html" class="nav-link">Sobre mí</a>
-    <a href="hytale.html" class="nav-link">Hytale</a>
-    <a href="#proyectos" class="nav-link">Contacto</a>
-  </nav>
-
-  <!-- Menú mobile -->
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-<!-- MINI HEADER -->
-<div class="mini-header">
-  <div class="mini-pill">Mods y contenido</div>
-  <div class="mini-pill">Servidores</div>
-  <div class="mini-pill">3D y branding</div>
-
-  <div class="mini-right">
-    <span class="mini-status">
-      <span class="dot-online"></span> Disponible para proyectos
-    </span>
-    <a class="mini-mail" href="mailto:contactopecsitonic@gmail.com">contactopecsitonic@gmail.com</a>
-  </div>
-</div>
-
-<!-- ============ HERO SLIDER ============ -->
-<section class="hero" id="inicio">
-
-  <div class="hero-slider" id="heroSlider" aria-label="Slider principal">
-
-    <!-- SLIDE 1 -->
-    <div class="slide active">
-      <div class="hero-content">
-        <h3 class="hero-sub">¿Buscás algo profesional y único?</h3>
-        <h1 class="hero-title">Bienvenido <br>a <span>Pecsitonic</span></h1>
-        <p class="hero-text">
-          Desarrollo de mods, diseño visual, servidores Minecraft, modelado 3D y branding.
-        </p>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <a href="#inicio" class="brand">
+          <div class="brand-copy">
+            <small></small>
+            <strong>Pecsitonic!</strong>
+          </div>
+        </a>
+        <button class="btn btn-secondary translate-btn" id="translateToggle">Translate · ES</button>
       </div>
 
-      <img class="sli" src="slider01.png" alt="Trabajo de Pecsitonic">
+      <nav class="nav">
+        <a href="#proyectos" data-i18n="nav.projects">Projects</a>
+        <a href="#perfil" data-i18n="nav.profile">Profile</a>
+        <a href="#contacto" data-i18n="nav.contact">Contact</a>
+        <button class="btn btn-secondary nav-cta" data-open="supportModal" data-i18n="nav.support">Want to support me?</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-zone" id="inicio">
+      <div class="wrap hero">
+        <article class="panel hero-copy">
+          <div class="eyebrow" data-i18n="hero.eyebrow">Games · apps · digital design</div>
+          <h1>Pecsitonic</h1>
+
+          <p class="lead" data-i18n="hero.lead1">
+            Creative developer focused on <strong>game mods</strong>, mobile applications and digital products with their own identity. I work between concept, visual design, user experience and technical execution to build projects that feel solid, clear and memorable.
+          </p>
+
+          <p class="lead" data-i18n="hero.lead2">
+            Right now I’m building content for Minecraft / Hytale modding, moving forward with <strong>SpaceMonkis</strong> as an upcoming mobile game, and also creating tools and apps meant for real use, with a carefully crafted aesthetic from the very first glance.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#proyectos" data-i18n="hero.ctaProjects">View projects</a>
+            <button class="btn btn-secondary" data-open="commissionModal" data-i18n="hero.ctaCommission">Open for commissions</button>
+          </div>
+
+          <div class="mini-stats">
+            <div>
+              <strong data-i18n="stats.mods.title">Game mods</strong>
+              <span data-i18n="stats.mods.text">Mechanics, atmosphere and visual direction</span>
+            </div>
+            <div>
+              <strong data-i18n="stats.apps.title">Mobile apps</strong>
+              <span data-i18n="stats.apps.text">Clean interfaces and useful solutions</span>
+            </div>
+            <div>
+              <strong data-i18n="stats.studio.title">Peshi Studios</strong>
+              <span data-i18n="stats.studio.text">Creative studio for original projects</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="panel hero-feature">
+          <div class="hero-screen">
+            <div class="screen-backdrop"></div>
+
+            <div class="tool-orbit" aria-hidden="true">
+              <div class="orbit-track t1" style="--start:0deg;"><img src="im1.png" alt=""></div>
+              <div class="orbit-track t2" style="--start:72deg;"><img src="im2.png" alt=""></div>
+              <div class="orbit-track t3" style="--start:144deg;"><img src="im3.png" alt=""></div>
+              <div class="orbit-track t4" style="--start:216deg;"><img src="im4.png" alt=""></div>
+              <div class="orbit-track t5" style="--start:288deg;"><img src="im5.png" alt=""></div>
+            </div>
+
+            <div class="hero-overlay">
+              <h2 data-i18n="tools.title">What tools do I work with?</h2>
+              <p data-i18n="tools.desc">
+                I work with Photoshop, Blender, Krita, Blockbench, Unity and AI tools as productive support to speed up iterations, explore ideas and improve results without losing creative judgment or visual direction.
+              </p>
+              <div class="hero-tags">
+                <span>Photoshop</span>
+                <span>Krita</span>
+                <span>Blender</span>
+                <span>Unity</span>
+                <span>Blockbench</span>
+                <span data-i18n="tools.tag.ai">Applied AI</span>
+                <span data-i18n="tools.tag.mobile">Mobile</span>
+                <span data-i18n="tools.tag.pixel">Pixel Art</span>
+                <span data-i18n="tools.tag.web">Web / UI</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker" data-i18n="projects.kicker">Selected work</span>
+            <h2 data-i18n="projects.title">Main projects</h2>
+            <p data-i18n="projects.desc">
+              A selection of work that represents the way I build products: strong visual identity, clear intent and execution designed to give every project its own presence.
+            </p>
+          </div>
+        </div>
+
+        <div class="projects">
+          <article class="panel card">
+            <div class="card-visual">
+              <img class="project-cover" src="imagemod.png" alt="Game mods showcase">
+              <div class="card-badge" data-i18n="card.mods.badge">Game mods</div>
+            </div>
+            <div class="card-body">
+              <div class="hero-tags">
+                <span class="chip">Minecraft</span>
+                <span class="chip">Hytale</span>
+                <span class="chip">Gameplay</span>
+              </div>
+              <h3 data-i18n="card.mods.title">Mod development</h3>
+              <p data-i18n="card.mods.desc">
+                Design and production of content for games, with a focus on original mechanics, creatures, atmosphere and systems that give the experience real personality.
+              </p>
+              <ul class="list-clean">
+                <li data-i18n="card.mods.li1">Concept and creature design</li>
+                <li data-i18n="card.mods.li2">Visual direction and original assets</li>
+                <li data-i18n="card.mods.li3">Coherence between aesthetics and gameplay</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="panel card">
+            <div class="card-visual">
+              <img class="project-cover" src="imagespacemonkis.png" alt="SpaceMonkis showcase">
+              <div class="card-badge" data-i18n="card.space.badge">Game in development</div>
+            </div>
+            <div class="card-body">
+              <div class="hero-tags">
+                <span class="chip">SpaceMonkis</span>
+                <span class="chip">Mobile Game</span>
+                <span class="chip">Original IP</span>
+              </div>
+              <h3 data-i18n="card.space.title">SpaceMonkis</h3>
+              <p data-i18n="card.space.desc">
+                Upcoming mobile game where I’m focusing visual identity, product design, brand building and an experience meant to feel fun, clear and recognizable.
+              </p>
+              <ul class="list-clean">
+                <li data-i18n="card.space.li1">Project universe and visual concept</li>
+                <li data-i18n="card.space.li2">Experience built for mobile</li>
+                <li data-i18n="card.space.li3">Original identity with room to grow</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="panel card">
+            <div class="card-visual">
+              <img class="project-cover" src="imagewebpage.png" alt="Digital products showcase">
+              <div class="card-badge" data-i18n="card.web.badge">Apps and utilities</div>
+            </div>
+            <div class="card-body">
+              <div class="hero-tags">
+                <span class="chip">My Library</span>
+                <span class="chip" data-i18n="card.web.tag1">Web App</span>
+                <span class="chip" data-i18n="card.web.tag2">Utilities</span>
+              </div>
+              <h3 data-i18n="card.web.title">Digital products</h3>
+              <p data-i18n="card.web.desc">
+                Development of useful and organized tools, such as <strong>My Library</strong>, made to keep track of watched series, anime and movies, plus a media downloader with <strong>MP3 / MP4 / OGG</strong> support and an interface designed to stay simple and direct.
+              </p>
+              <ul class="list-clean">
+                <li data-i18n="card.web.li1">Practical focus and real usability</li>
+                <li data-i18n="card.web.li2">Light, easy-to-understand interfaces</li>
+                <li data-i18n="card.web.li3">Functional design with a polished presentation</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="perfil">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker" data-i18n="profile.kicker">Professional profile</span>
+            <h2 data-i18n="profile.title">How I work</h2>
+            <p data-i18n="profile.desc">
+              My profile combines development, design and product thinking. I like building projects that not only work well, but also carry style, identity and a distinct feel from the very first look.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel box copy">
+            <p data-i18n="about.p1">
+              I’m comfortable moving between the initial idea, visual construction, functional logic and final refinement. That mix allows me to keep a coherent direction without losing sight of either the technical or visual side.
+            </p>
+            <p data-i18n="about.p2">
+              I use AI tools as support inside the workflow whenever they truly add value: to iterate faster, sketch, explore variations, organize ideas or optimize production. The final creative decision always comes from my own judgment.
+            </p>
+            <p data-i18n="about.p3">
+              Everything is designed with a personal identity in mind. I want every project to feel intentional, worked on and professional, not just technically correct.
+            </p>
+            <div class="studio-badge" data-i18n="about.studio">Peshi Studios · Game studio and creative projects</div>
+          </article>
+
+          <article class="panel box">
+            <div class="grid-2">
+              <div class="skill">
+                <h3 data-i18n="skills.visual.title">Design and visuals</h3>
+                <ul>
+                  <li>Photoshop</li>
+                  <li>Blender</li>
+                  <li>Blockbench</li>
+                  <li data-i18n="skills.visual.li4">Interface design</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3 data-i18n="skills.dev.title">Development</h3>
+                <ul>
+                  <li data-i18n="skills.dev.li1">Mobile apps</li>
+                  <li data-i18n="skills.dev.li2">Web development</li>
+                  <li data-i18n="skills.dev.li3">Game mods</li>
+                  <li data-i18n="skills.dev.li4">Digital tools</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3 data-i18n="skills.focus.title">Approach</h3>
+                <ul>
+                  <li data-i18n="skills.focus.li1">Creative direction</li>
+                  <li data-i18n="skills.focus.li2">Problem solving</li>
+                  <li data-i18n="skills.focus.li3">Constant iteration</li>
+                  <li data-i18n="skills.focus.li4">User-oriented improvement</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3 data-i18n="skills.ai.title">Applied AI</h3>
+                <ul>
+                  <li data-i18n="skills.ai.li1">Visual and concept exploration</li>
+                  <li data-i18n="skills.ai.li2">Production support</li>
+                  <li data-i18n="skills.ai.li3">Time optimization</li>
+                  <li data-i18n="skills.ai.li4">Faster iterations</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="wrap">
+        <div class="panel contact-panel">
+          <div>
+            <span class="section-kicker" data-i18n="contact.kicker">Contact</span>
+            <h3 data-i18n="contact.title">Available for collaborations, commissions and serious proposals</h3>
+            <p data-i18n="contact.desc">
+              If you want to work with me on a mod, an app, a digital tool, assets, UI, or a creative proposal that needs a real mix of design, identity and execution, this portfolio is meant to be the starting point.
+            </p>
+          </div>
+          <div class="cta-group">
+            <button class="btn btn-primary" data-open="commissionModal" data-i18n="contact.cta.work">Let’s work together</button>
+            <button class="btn btn-secondary" data-open="supportModal" data-i18n="contact.cta.support">Want to support me?</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-portal">
+    <div class="footer-bar">
+      <div class="footer-bar-inner">
+        <div class="footer-title" data-i18n="footer.title">FEATURED ARTWORK</div>
+        <div class="footer-tabs">
+          <span data-i18n="footer.tab1">Games</span>
+          <span data-i18n="footer.tab2">Art</span>
+          <span data-i18n="footer.tab3">Mobile</span>
+          <span data-i18n="footer.tab4">Mods</span>
+          <span data-i18n="footer.tab5">Studio</span>
+        </div>
+      </div>
     </div>
 
-    <!-- SLIDE 2 -->
-    <div class="slide">
-      <div class="hero-content">
-        <h3 class="hero-sub">Contenido a medida para comunidades</h3>
-        <h1 class="hero-title">Diseños únicos <br>para tu servidor</h1>
-        <p class="hero-text">
-          Modelos 3D, animaciones, NPCs, modpacks, estructuras y optimización.
-        </p>
+    <div class="footer-shell">
+      <section class="footer-gallery" aria-label="Featured art gallery">
+        <div class="art-slot" data-name="image1"><img src="image1.png" alt="Artwork 1"></div>
+        <div class="art-slot" data-name="image2"><img src="image2.png" alt="Artwork 2"></div>
+        <div class="art-slot" data-name="image3"><img src="image3.png" alt="Artwork 3"></div>
+        <div class="art-slot" data-name="image4"><img src="image4.png" alt="Artwork 4"></div>
+        <div class="art-slot" data-name="image5"><img src="image5.png" alt="Artwork 5"></div>
+        <div class="art-slot" data-name="image6"><img src="image6.png" alt="Artwork 6"></div>
+        <div class="art-slot" data-name="image7"><img src="image7.png" alt="Artwork 7"></div>
+        <div class="art-slot" data-name="image8"><img src="image8.png" alt="Artwork 8"></div>
+        <div class="art-slot" data-name="image9"><img src="image9.png" alt="Artwork 9"></div>
+      </section>
+
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h4 data-i18n="footer.about.title">About my work</h4>
+          <p data-i18n="footer.about.desc">
+            I build projects through a mix of design, execution and visual criteria. I care about giving each product a recognizable identity and a strong presentation.
+          </p>
+          <div class="studio-badge">Peshi Studios</div>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer.areas.title">Main areas</h4>
+          <ul>
+            <li><a href="#proyectos" data-i18n="footer.areas.li1">Game mods</a></li>
+            <li><a href="#proyectos" data-i18n="footer.areas.li2">Mobile / PC games</a></li>
+            <li><a href="#proyectos" data-i18n="footer.areas.li3">Apps and utilities</a></li>
+            <li><a href="#perfil" data-i18n="footer.areas.li4">Original visual design</a></li>
+            <li><a href="#perfil" data-i18n="footer.areas.li5">Workflow with AI tools</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer.direct.title">Direct contact</h4>
+          <ul>
+            <li><a href="https://discord.com/invite/WJeUWhCEnX" target="_blank" rel="noopener noreferrer" data-i18n="footer.direct.li1">Discord server</a></li>
+            <li><span class="footer-highlight" data-i18n="footer.direct.li2a">Discord DM:</span> pecsitonic_</li>
+            <li><a href="mailto:contactopecsitonic@gmail.com">contactopecsitonic@gmail.com</a></li>
+            <li><button class="btn btn-secondary" style="margin-top:6px;" data-open="commissionModal" data-i18n="footer.direct.li4">Commissions open</button></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer.support.title">Support and studio</h4>
+          <ul>
+            <li><button class="btn btn-primary" data-open="supportModal" data-i18n="footer.support.li1">Want to support me?</button></li>
+            <li data-i18n="footer.support.li2">Pecsitonic / Peshi Studios</li>
+            <li data-i18n="footer.support.li3">Portfolio and original projects</li>
+            <li data-i18n="footer.support.li4">Webcore / portal-inspired design</li>
+          </ul>
+        </div>
       </div>
 
-      <img class="sli" src="slider02.png" alt="Modelado y animaciones">
+      <div class="footer-city"></div>
     </div>
 
-    <!-- SLIDE 3 -->
-    <div class="slide">
-      <div class="hero-content">
-        <h3 class="hero-sub">Identidad visual consistente</h3>
-        <h1 class="hero-title">Logos, banners <br>y miniaturas</h1>
-        <p class="hero-text">
-          Para YouTube, Twitch, Discord y páginas web. Estética limpia y pensada para tu marca.
-        </p>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span data-i18n="footer.bottom.left">© 2026 Pecsitonic · Personal portfolio · Peshi Studios</span>
+        <span data-i18n="footer.bottom.right">Contact: Discord <strong>pecsitonic_</strong> · Mail <strong>contactopecsitonic@gmail.com</strong></span>
       </div>
-
-      <img class="sli" src="slider03.png" alt="Branding y miniaturas">
     </div>
+  </footer>
 
-    <!-- Botones (manual) -->
-    <button class="hero-arrow hero-prev" id="heroPrev" type="button" aria-label="Anterior">‹</button>
-    <button class="hero-arrow hero-next" id="heroNext" type="button" aria-label="Siguiente">›</button>
-
+  <div class="modal" id="supportModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" data-close>&times;</button>
+      <h3 data-i18n="modal.support.title">Want to support me?</h3>
+      <p data-i18n="modal.support.desc">
+        If you like what I do and want to support my work, you can message me directly and we can coordinate it there.
+      </p>
+      <ul class="contact-list">
+        <li data-i18n="modal.support.li1"><strong>Support me on PayPal.</strong></li>
+        <li data-i18n="modal.support.li2"><strong>Contact me via Discord DM:</strong> pecsitonic_</li>
+        <li data-i18n="modal.support.li3"><strong>Discord server:</strong> <a href="https://discord.com/invite/WJeUWhCEnX" target="_blank" rel="noopener noreferrer">discord.com/invite/WJeUWhCEnX</a></li>
+        <li data-i18n="modal.support.li4"><strong>Mail:</strong> <a href="mailto:contactopecsitonic@gmail.com">contactopecsitonic@gmail.com</a></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="hero-dots" id="heroDots" aria-label="Controles del slider">
-    <button class="dot active" aria-label="Slide 1" aria-selected="true" data-dot="0"></button>
-    <button class="dot" aria-label="Slide 2" aria-selected="false" data-dot="1"></button>
-    <button class="dot" aria-label="Slide 3" aria-selected="false" data-dot="2"></button>
+  <div class="modal" id="commissionModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" data-close>&times;</button>
+      <h3 data-i18n="modal.commission.title">Let’s work together</h3>
+      <p data-i18n="modal.commission.desc">
+        I’m looking for <strong>commissions and collaborations</strong> to work with you on game mods, apps, interfaces, visual pieces, creative ideas or digital projects that need strong identity and careful execution.
+      </p>
+      <ul class="contact-list">
+        <li data-i18n="modal.commission.li1"><strong>Discord DM:</strong> pecsitonic_</li>
+        <li data-i18n="modal.commission.li2"><strong>Server:</strong> <a href="https://discord.com/invite/WJeUWhCEnX" target="_blank" rel="noopener noreferrer">discord.com/invite/WJeUWhCEnX</a></li>
+        <li data-i18n="modal.commission.li3"><strong>Mail:</strong> <a href="mailto:contactopecsitonic@gmail.com">contactopecsitonic@gmail.com</a></li>
+        <li data-i18n="modal.commission.li4"><strong>Studio:</strong> Peshi Studios</li>
+      </ul>
+    </div>
   </div>
 
-  <p class="correo">contactopecsitonic@gmail.com</p>
-</section>
+  <script>
+    (() => {
+      const openers = document.querySelectorAll('[data-open]');
+      const closers = document.querySelectorAll('[data-close]');
+      const modals = document.querySelectorAll('.modal');
+      const translateToggle = document.getElementById('translateToggle');
 
-<!-- ============ SERVICIOS ============ -->
-<section id="servicios" class="servicios reveal">
-  <h2 class="titulo-seccion">SERVICIOS</h2>
+      const translations = {
+        en: {
+          "nav.projects": "Projects",
+          "nav.profile": "Profile",
+          "nav.contact": "Contact",
+          "nav.support": "Want to support me?",
+          "hero.eyebrow": "Games · apps · digital design",
+          "hero.lead1": "Creative developer focused on <strong>game mods</strong>, mobile applications and digital products with their own identity. I work between concept, visual design, user experience and technical execution to build projects that feel solid, clear and memorable.",
+          "hero.lead2": "Right now I’m building content for Minecraft / Hytale modding, moving forward with <strong>SpaceMonkis</strong> as an upcoming mobile game, and also creating tools and apps meant for real use, with a carefully crafted aesthetic from the very first glance.",
+          "hero.ctaProjects": "View projects",
+          "hero.ctaCommission": "Open for commissions",
+          "stats.mods.title": "Game mods",
+          "stats.mods.text": "Mechanics, atmosphere and visual direction",
+          "stats.apps.title": "Mobile apps",
+          "stats.apps.text": "Clean interfaces and useful solutions",
+          "stats.studio.title": "Peshi Studios",
+          "stats.studio.text": "Creative studio for original projects",
+          "tools.title": "What tools do I work with?",
+          "tools.desc": "I work with Photoshop, Blender, Krita, Blockbench, Unity and AI tools as productive support to speed up iterations, explore ideas and improve results without losing creative judgment or visual direction.",
+          "tools.tag.ai": "Applied AI",
+          "tools.tag.mobile": "Mobile",
+          "tools.tag.pixel": "Pixel Art",
+          "tools.tag.web": "Web / UI",
+          "projects.kicker": "Selected work",
+          "projects.title": "Main projects",
+          "projects.desc": "A selection of work that represents the way I build products: strong visual identity, clear intent and execution designed to give every project its own presence.",
+          "card.mods.badge": "Game mods",
+          "card.mods.title": "Mod development",
+          "card.mods.desc": "Design and production of content for games, with a focus on original mechanics, creatures, atmosphere and systems that give the experience real personality.",
+          "card.mods.li1": "Concept and creature design",
+          "card.mods.li2": "Visual direction and original assets",
+          "card.mods.li3": "Coherence between aesthetics and gameplay",
+          "card.space.badge": "Game in development",
+          "card.space.title": "SpaceMonkis",
+          "card.space.desc": "Upcoming mobile game where I’m focusing visual identity, product design, brand building and an experience meant to feel fun, clear and recognizable.",
+          "card.space.li1": "Project universe and visual concept",
+          "card.space.li2": "Experience built for mobile",
+          "card.space.li3": "Original identity with room to grow",
+          "card.web.badge": "Apps and utilities",
+          "card.web.tag1": "Web App",
+          "card.web.tag2": "Utilities",
+          "card.web.title": "Digital products",
+          "card.web.desc": "Development of useful and organized tools, such as <strong>My Library</strong>, made to keep track of watched series, anime and movies, plus a media downloader with <strong>MP3 / MP4 / OGG</strong> support and an interface designed to stay simple and direct.",
+          "card.web.li1": "Practical focus and real usability",
+          "card.web.li2": "Light, easy-to-understand interfaces",
+          "card.web.li3": "Functional design with a polished presentation",
+          "profile.kicker": "Professional profile",
+          "profile.title": "How I work",
+          "profile.desc": "My profile combines development, design and product thinking. I like building projects that not only work well, but also carry style, identity and a distinct feel from the very first look.",
+          "about.p1": "I’m comfortable moving between the initial idea, visual construction, functional logic and final refinement. That mix allows me to keep a coherent direction without losing sight of either the technical or visual side.",
+          "about.p2": "I use AI tools as support inside the workflow whenever they truly add value: to iterate faster, sketch, explore variations, organize ideas or optimize production. The final creative decision always comes from my own judgment.",
+          "about.p3": "Everything is designed with a personal identity in mind. I want every project to feel intentional, worked on and professional, not just technically correct.",
+          "about.studio": "Peshi Studios · Game studio and creative projects",
+          "skills.visual.title": "Design and visuals",
+          "skills.visual.li4": "Interface design",
+          "skills.dev.title": "Development",
+          "skills.dev.li1": "Mobile apps",
+          "skills.dev.li2": "Web development",
+          "skills.dev.li3": "Game mods",
+          "skills.dev.li4": "Digital tools",
+          "skills.focus.title": "Approach",
+          "skills.focus.li1": "Creative direction",
+          "skills.focus.li2": "Problem solving",
+          "skills.focus.li3": "Constant iteration",
+          "skills.focus.li4": "User-oriented improvement",
+          "skills.ai.title": "Applied AI",
+          "skills.ai.li1": "Visual and concept exploration",
+          "skills.ai.li2": "Production support",
+          "skills.ai.li3": "Time optimization",
+          "skills.ai.li4": "Faster iterations",
+          "contact.kicker": "Contact",
+          "contact.title": "Available for collaborations, commissions and serious proposals",
+          "contact.desc": "If you want to work with me on a mod, an app, a digital tool, assets, UI, or a creative proposal that needs a real mix of design, identity and execution, this portfolio is meant to be the starting point.",
+          "contact.cta.work": "Let’s work together",
+          "contact.cta.support": "Want to support me?",
+          "footer.title": "FEATURED ARTWORK",
+          "footer.tab1": "Games",
+          "footer.tab2": "Art",
+          "footer.tab3": "Mobile",
+          "footer.tab4": "Mods",
+          "footer.tab5": "Studio",
+          "footer.about.title": "About my work",
+          "footer.about.desc": "I build projects through a mix of design, execution and visual criteria. I care about giving each product a recognizable identity and a strong presentation.",
+          "footer.areas.title": "Main areas",
+          "footer.areas.li1": "Game mods",
+          "footer.areas.li2": "Mobile / PC games",
+          "footer.areas.li3": "Apps and utilities",
+          "footer.areas.li4": "Original visual design",
+          "footer.areas.li5": "Workflow with AI tools",
+          "footer.direct.title": "Direct contact",
+          "footer.direct.li1": "Discord server",
+          "footer.direct.li2a": "Discord DM:",
+          "footer.direct.li4": "Commissions open",
+          "footer.support.title": "Support and studio",
+          "footer.support.li1": "Want to support me?",
+          "footer.support.li2": "Pecsitonic / Peshi Studios",
+          "footer.support.li3": "Portfolio and original projects",
+          "footer.support.li4": "Webcore / portal-inspired design",
+          "footer.bottom.left": "© 2026 Pecsitonic · Personal portfolio · Peshi Studios",
+          "footer.bottom.right": "Contact: Discord <strong>pecsitonic_</strong> · Mail <strong>contactopecsitonic@gmail.com</strong>",
+          "modal.support.title": "Want to support me?",
+          "modal.support.desc": "If you like what I do and want to support my work, you can message me directly and we can coordinate it there.",
+          "modal.support.li1": "<strong>Support me on PayPal.</strong>",
+          "modal.support.li2": "<strong>Contact me via Discord DM:</strong> pecsitonic_",
+          "modal.support.li3": "<strong>Discord server:</strong> <a href='https://discord.com/invite/WJeUWhCEnX' target='_blank' rel='noopener noreferrer'>discord.com/invite/WJeUWhCEnX</a>",
+          "modal.support.li4": "<strong>Mail:</strong> <a href='mailto:contactopecsitonic@gmail.com'>contactopecsitonic@gmail.com</a>",
+          "modal.commission.title": "Let’s work together",
+          "modal.commission.desc": "I’m looking for <strong>commissions and collaborations</strong> to work with you on game mods, apps, interfaces, visual pieces, creative ideas or digital projects that need strong identity and careful execution.",
+          "modal.commission.li1": "<strong>Discord DM:</strong> pecsitonic_",
+          "modal.commission.li2": "<strong>Server:</strong> <a href='https://discord.com/invite/WJeUWhCEnX' target='_blank' rel='noopener noreferrer'>discord.com/invite/WJeUWhCEnX</a>",
+          "modal.commission.li3": "<strong>Mail:</strong> <a href='mailto:contactopecsitonic@gmail.com'>contactopecsitonic@gmail.com</a>",
+          "modal.commission.li4": "<strong>Studio:</strong> Peshi Studios"
+        },
+        es: {
+          "nav.projects": "Proyectos",
+          "nav.profile": "Perfil",
+          "nav.contact": "Contacto",
+          "nav.support": "¿Quieres apoyarme?",
+          "hero.eyebrow": "Videojuegos · apps · diseño digital",
+          "hero.lead1": "Desarrollador creativo enfocado en <strong>mods de videojuegos</strong>, aplicaciones móviles y productos digitales con identidad propia. Trabajo entre la idea, el diseño visual, la experiencia de usuario y la ejecución técnica para construir proyectos que se sientan sólidos, claros y memorables.",
+          "hero.lead2": "Actualmente desarrollo contenido para el apartado de mods de Minecraft / Hytale, avanzo en <strong>SpaceMonkis</strong> como próximo videojuego para celulares, y también construyo herramientas y apps pensadas para un uso real, con una estética cuidada desde el primer vistazo.",
+          "hero.ctaProjects": "Ver proyectos",
+          "hero.ctaCommission": "Comisiones abiertas",
+          "stats.mods.title": "Mods de videojuegos",
+          "stats.mods.text": "Mecánicas, ambientación y dirección visual",
+          "stats.apps.title": "Apps móviles",
+          "stats.apps.text": "Interfaces claras y soluciones útiles",
+          "stats.studio.title": "Peshi Studios",
+          "stats.studio.text": "Estudio creativo para proyectos propios",
+          "tools.title": "¿Qué herramientas de trabajo uso?",
+          "tools.desc": "Trabajo con Photoshop, Blender, Krita, Blockbench, Unity y herramientas de IA como apoyo productivo para acelerar iteraciones, explorar ideas y mejorar resultados sin perder criterio creativo ni dirección visual.",
+          "tools.tag.ai": "IA aplicada",
+          "tools.tag.mobile": "Mobile",
+          "tools.tag.pixel": "Pixel Art",
+          "tools.tag.web": "Web / UI",
+          "projects.kicker": "Trabajo seleccionado",
+          "projects.title": "Proyectos principales",
+          "projects.desc": "Una selección de trabajos que representan mi manera de construir productos: identidad visual fuerte, intención clara y una ejecución pensada para que cada proyecto tenga presencia propia.",
+          "card.mods.badge": "Mods de videojuegos",
+          "card.mods.title": "Desarrollo de mods",
+          "card.mods.desc": "Diseño y producción de contenido para videojuegos, con foco en mecánicas originales, criaturas, ambientación y sistemas que aporten personalidad real a la experiencia.",
+          "card.mods.li1": "Diseño de conceptos y criaturas",
+          "card.mods.li2": "Dirección visual y assets propios",
+          "card.mods.li3": "Coherencia entre estética y jugabilidad",
+          "card.space.badge": "Videojuego en desarrollo",
+          "card.space.title": "SpaceMonkis",
+          "card.space.desc": "Próximo videojuego para celulares en el que concentro propuesta visual, diseño de producto, construcción de marca y una experiencia pensada para sentirse entretenida, clara y reconocible.",
+          "card.space.li1": "Universo visual y concepto del proyecto",
+          "card.space.li2": "Experiencia orientada a mobile",
+          "card.space.li3": "Identidad propia con potencial de expansión",
+          "card.web.badge": "Apps y utilidades",
+          "card.web.tag1": "Aplicación web",
+          "card.web.tag2": "Utilidades",
+          "card.web.title": "Productos digitales",
+          "card.web.desc": "Desarrollo de herramientas útiles y ordenadas, como <strong>My Library</strong>, para guardar series, anime y películas vistas, y un descargador multimedia con soporte <strong>MP3 / MP4 / OGG</strong> con una interfaz pensada para ser simple y directa.",
+          "card.web.li1": "Enfoque práctico y experiencia de uso",
+          "card.web.li2": "Interfaces ligeras y fáciles de entender",
+          "card.web.li3": "Diseño funcional con presentación cuidada",
+          "profile.kicker": "Perfil profesional",
+          "profile.title": "Cómo trabajo",
+          "profile.desc": "Mi perfil combina desarrollo, diseño y criterio de producto. Me interesa construir proyectos que funcionen bien, pero que también tengan estética, identidad y una sensación propia desde el primer vistazo.",
+          "about.p1": "Me muevo con comodidad entre la idea inicial, la construcción visual, la lógica funcional y el refinamiento final. Esa mezcla me permite mantener una dirección coherente sin perder de vista lo técnico ni lo visual.",
+          "about.p2": "Uso herramientas de IA como apoyo dentro del flujo de trabajo cuando realmente aportan valor: para iterar más rápido, bocetar, explorar variantes, ordenar ideas u optimizar producción. La decisión creativa final siempre parte de mi criterio.",
+          "about.p3": "Todo el diseño está pensado desde una identidad propia. Busco que cada proyecto se vea trabajado, intencional y profesional, no solo correcto a nivel técnico.",
+          "about.studio": "Peshi Studios · Estudio de videojuegos y proyectos creativos",
+          "skills.visual.title": "Diseño y visual",
+          "skills.visual.li4": "Diseño de interfaces",
+          "skills.dev.title": "Desarrollo",
+          "skills.dev.li1": "Apps para celulares",
+          "skills.dev.li2": "Desarrollo web",
+          "skills.dev.li3": "Mods de videojuegos",
+          "skills.dev.li4": "Herramientas digitales",
+          "skills.focus.title": "Enfoque",
+          "skills.focus.li1": "Dirección creativa",
+          "skills.focus.li2": "Resolución de problemas",
+          "skills.focus.li3": "Iteración constante",
+          "skills.focus.li4": "Mejora orientada al usuario",
+          "skills.ai.title": "IA aplicada",
+          "skills.ai.li1": "Exploración visual y conceptual",
+          "skills.ai.li2": "Apoyo de producción",
+          "skills.ai.li3": "Optimización de tiempos",
+          "skills.ai.li4": "Iteraciones más rápidas",
+          "contact.kicker": "Contacto",
+          "contact.title": "Disponible para colaboraciones, comisiones y propuestas serias",
+          "contact.desc": "Si te interesa trabajar conmigo en un mod, una app, una herramienta digital, assets, UI o en una propuesta creativa donde haga falta una mezcla real entre diseño, identidad y ejecución, este portfolio está pensado como punto de partida.",
+          "contact.cta.work": "Trabajemos juntos",
+          "contact.cta.support": "¿Quieres apoyarme?",
+          "footer.title": "ARTE DESTACADO",
+          "footer.tab1": "Games",
+          "footer.tab2": "Art",
+          "footer.tab3": "Mobile",
+          "footer.tab4": "Mods",
+          "footer.tab5": "Studio",
+          "footer.about.title": "Sobre mi trabajo",
+          "footer.about.desc": "Desarrollo proyectos con una mezcla de diseño, ejecución y criterio visual. Me interesa que cada producto tenga una identidad reconocible y una presentación fuerte.",
+          "footer.areas.title": "Áreas principales",
+          "footer.areas.li1": "Mods de videojuegos",
+          "footer.areas.li2": "Videojuegos mobile / PC",
+          "footer.areas.li3": "Aplicaciones y utilidades",
+          "footer.areas.li4": "Diseño visual propio",
+          "footer.areas.li5": "Flujo con herramientas de IA",
+          "footer.direct.title": "Contacto directo",
+          "footer.direct.li1": "Servidor de Discord",
+          "footer.direct.li2a": "MD Discord:",
+          "footer.direct.li4": "Comisiones abiertas",
+          "footer.support.title": "Apoyo y estudio",
+          "footer.support.li1": "¿Quieres apoyarme?",
+          "footer.support.li2": "Pecsitonic / Peshi Studios",
+          "footer.support.li3": "Portfolio y proyectos originales",
+          "footer.support.li4": "Diseño con inspiración webcore / portal",
+          "footer.bottom.left": "© 2026 Pecsitonic · Portfolio personal · Peshi Studios",
+          "footer.bottom.right": "Contacto: Discord <strong>pecsitonic_</strong> · Mail <strong>contactopecsitonic@gmail.com</strong>",
+          "modal.support.title": "¿Quieres apoyarme?",
+          "modal.support.desc": "Si te gusta lo que hago y querés apoyar mi trabajo, podés escribirme y coordinamos directamente.",
+          "modal.support.li1": "<strong>Apoyame en PayPal.</strong>",
+          "modal.support.li2": "<strong>Contactame al MD en Discord:</strong> pecsitonic_",
+          "modal.support.li3": "<strong>Servidor de Discord:</strong> <a href='https://discord.com/invite/WJeUWhCEnX' target='_blank' rel='noopener noreferrer'>discord.com/invite/WJeUWhCEnX</a>",
+          "modal.support.li4": "<strong>Mail:</strong> <a href='mailto:contactopecsitonic@gmail.com'>contactopecsitonic@gmail.com</a>",
+          "modal.commission.title": "Trabajemos juntos",
+          "modal.commission.desc": "Estoy buscando <strong>comisiones y colaboraciones</strong> para trabajar contigo en mods de videojuegos, apps, interfaces, piezas visuales, ideas creativas o proyectos digitales que necesiten una identidad fuerte y una ejecución cuidada.",
+          "modal.commission.li1": "<strong>Discord MD:</strong> pecsitonic_",
+          "modal.commission.li2": "<strong>Servidor:</strong> <a href='https://discord.com/invite/WJeUWhCEnX' target='_blank' rel='noopener noreferrer'>discord.com/invite/WJeUWhCEnX</a>",
+          "modal.commission.li3": "<strong>Mail:</strong> <a href='mailto:contactopecsitonic@gmail.com'>contactopecsitonic@gmail.com</a>",
+          "modal.commission.li4": "<strong>Estudio:</strong> Peshi Studios"
+        }
+      };
 
-  <div class="servicios-grid">
+      const applyTranslations = (lang) => {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key] !== undefined) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
 
-    <div class="serv-card">
-      <img class="icon-box" src="server.png" alt="Servidores">
-      <h3>Servidores Minecraft/Hytale</h3>
-      <p>Setup completo, rendimiento, permisos y optimización general.</p>
-    </div>
+        if (translateToggle) {
+          translateToggle.textContent = lang === 'en' ? 'Translate · ES' : 'Traducir · EN';
+        }
 
-    <div class="serv-card">
-      <img class="icon-box" src="modpack.png" alt="Modpacks">
-      <h3>Modpacks</h3>
-      <p>Curado de mods, compatibilidad, performance y configuración.</p>
-    </div>
+        localStorage.setItem('pecsitonic_lang', lang);
+      };
 
-    <div class="serv-card">
-      <img class="icon-box" src="npc.png" alt="NPCs custom">
-      <h3>NPCs Custom</h3>
-      <p>NPCs configurados a medida para misiones, roles y eventos.</p>
-    </div>
+      const savedLang = localStorage.getItem('pecsitonic_lang') || 'en';
+      applyTranslations(savedLang);
 
-    <div class="serv-card">
-      <img class="icon-box" src="rol.png" alt="Diseño visual">
-      <h3>Diseño Visual</h3>
-      <p>Rangos, títulos y estética general del servidor.</p>
-    </div>
+      translateToggle?.addEventListener('click', () => {
+        const nextLang = document.documentElement.lang === 'en' ? 'es' : 'en';
+        applyTranslations(nextLang);
+      });
 
-    <div class="serv-card">
-      <img class="icon-box" src="modcustom.png" alt="Mods custom">
-      <h3>Mods Custom</h3>
-      <p>Mods personalizados, sistemas de gameplay y contenido único.</p>
-    </div>
+      const openModal = (id) => {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
 
-    <div class="serv-card">
-      <img class="icon-box" src="clip.png" alt="Diseño multimedia">
-      <h3>Diseño Multimedia</h3>
-      <p>Miniaturas, banners y piezas visuales para redes.</p>
-    </div>
+      const closeModal = (modal) => {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
 
-    <div class="serv-card">
-      <img class="icon-box" src="pixel.png" alt="Pixel art">
-      <h3>Pixel Art</h3>
-      <p>Sprites, íconos y recursos para packs o interfaces.</p>
-    </div>
+      openers.forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.open));
+      });
 
-    <div class="serv-card">
-      <img class="icon-box" src="block.png" alt="Blockbench">
-      <h3>Blockbench</h3>
-      <p>Modelos lowpoly y animaciones para entidades o props.</p>
-    </div>
+      closers.forEach(btn => {
+        btn.addEventListener('click', () => closeModal(btn.closest('.modal')));
+      });
 
-    <div class="serv-card">
-      <img class="icon-box" src="bot.png" alt="Bots discord">
-      <h3>Bots Discord</h3>
-      <p>Roles, comandos y automatización para comunidades.</p>
-    </div>
+      modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal(modal);
+        });
+      });
 
-  </div>
-</section>
-
-<!-- ============ FEATURED MODS ============ -->
-<section id="mods" class="mods reveal">
-  <h2 class="titulo-seccion">FEATURED MODS</h2>
-
-  <div class="grid-mods">
-    <a href="https://www.curseforge.com/minecraft/mc-mods/mobstein-upgrade-useless-animals" target="_blank" rel="noopener">
-      <img src="01.png" alt="Mobstein">
-    </a>
-
-    <a href="https://www.curseforge.com/minecraft/mc-mods/phenominae" target="_blank" rel="noopener">
-      <img src="02.png" alt="Phenominae">
-    </a>
-
-    <a href="https://www.curseforge.com/minecraft/mc-mods/morebatsvariants" target="_blank" rel="noopener">
-      <img src="06.png" alt="More Bats Variants">
-    </a>
-
-    <a href="https://www.curseforge.com/minecraft/mc-mods/grothic-mobs" target="_blank" rel="noopener">
-      <img src="04.png" alt="Unicorns Legends">
-    </a>
-
-    <a href="https://www.curseforge.com/minecraft/mc-mods/djfurniture" target="_blank" rel="noopener">
-      <img src="05.png" alt="DJFurniture">
-    </a>
-
-    <a href="https://www.curseforge.com/minecraft/mc-mods/frutigeraerodecor" target="_blank" rel="noopener">
-      <img src="03.png" alt="Frutiger Aero Decor">
-    </a>
-  </div>
-</section>
-
-<!-- ============ MODPACKS ============ -->
-<section id="modpacks" class="modpacks reveal">
-  <h2 class="titulo-seccion">SERVIDORES</h2>
-
-  <div class="grid-modpacks">
-    <img src="frostonic.png" alt="Frostonic">
-    <img src="frostonic2.png" alt="Frostonic 2">
-  </div>
-</section>
-
-<!-- ============ CONTACTO ============ -->
-<section id="proyectos" class="proyectos reveal">
-  <h2 class="titulo-seccion">Contacto</h2>
-
-  <div class="cards">
-    <a href="https://www.youtube.com/@PecsiTonicDev" target="_blank" rel="noopener" class="card card-link">
-      YOUTUBE
-      <span class="card-sub">Contenido y proyectos</span>
-    </a>
-
-    <a href="https://discord.com/invite/WJeUWhCEnX" target="_blank" rel="noopener" class="card card-link">
-      DISCORD
-      <span class="card-sub">Comunidad y soporte</span>
-    </a>
-
-    <a href="https://x.com/Pecsitonic" target="_blank" rel="noopener" class="card card-link">
-      X (twitter)
-      <span class="card-sub">Contacto al md</span>
-    </a>
-  </div>
-</section>
-
-<footer>
-  Pecsitonic © 2025 — All Rights Reserved.
-</footer>
-
-<script>
-/* =========================
-   SLIDER (auto + dots + botones + teclado + swipe)
-========================= */
-let index = 0;
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot[data-dot]");
-const slider = document.getElementById("heroSlider");
-const prevBtn = document.getElementById("heroPrev");
-const nextBtn = document.getElementById("heroNext");
-
-let timer = null;
-const intervalMs = 4500;
-
-function showSlide(i) {
-  slides.forEach(s => s.classList.remove("active"));
-  dots.forEach(d => {
-    d.classList.remove("active");
-    d.setAttribute("aria-selected", "false");
-  });
-
-  index = (i + slides.length) % slides.length;
-  slides[index].classList.add("active");
-  dots[index].classList.add("active");
-  dots[index].setAttribute("aria-selected", "true");
-}
-
-function nextSlide() {
-  showSlide(index + 1);
-}
-function prevSlide() {
-  showSlide(index - 1);
-}
-
-function startAuto() {
-  stopAuto();
-  timer = setInterval(nextSlide, intervalMs);
-}
-function stopAuto() {
-  if (timer) clearInterval(timer);
-  timer = null;
-}
-function restartAuto() {
-  startAuto();
-}
-
-/* Dots */
-dots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const i = Number(dot.dataset.dot);
-    showSlide(i);
-    restartAuto();
-  });
-});
-
-/* Botones */
-nextBtn.addEventListener("click", () => { nextSlide(); restartAuto(); });
-prevBtn.addEventListener("click", () => { prevSlide(); restartAuto(); });
-
-/* Pausa al hover */
-slider.addEventListener("mouseenter", stopAuto);
-slider.addEventListener("mouseleave", startAuto);
-
-/* Teclado */
-window.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight") { nextSlide(); restartAuto(); }
-  if (e.key === "ArrowLeft")  { prevSlide(); restartAuto(); }
-});
-
-/* Swipe mobile */
-let x0 = null;
-slider.addEventListener("touchstart", (e) => {
-  x0 = e.touches[0].clientX;
-}, { passive: true });
-
-slider.addEventListener("touchend", (e) => {
-  if (x0 === null) return;
-  const x1 = e.changedTouches[0].clientX;
-  const dx = x1 - x0;
-  if (Math.abs(dx) > 50) {
-    if (dx < 0) nextSlide();
-    else prevSlide();
-    restartAuto();
-  }
-  x0 = null;
-}, { passive: true });
-
-showSlide(0);
-startAuto();
-
-/* =========================
-   HEADER SCROLLED
-========================= */
-const header = document.getElementById("topHeader");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 10) header.classList.add("scrolled");
-  else header.classList.remove("scrolled");
-});
-
-/* =========================
-   REVEAL SUAVE
-========================= */
-const revealEls = document.querySelectorAll(".reveal");
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("reveal-show");
-  });
-}, { threshold: 0.10 });
-
-revealEls.forEach(el => io.observe(el));
-
-/* =========================
-   NAV MOBILE
-========================= */
-const navToggle = document.getElementById("navToggle");
-const nav = document.getElementById("mainNav");
-
-navToggle.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-});
-</script>
-
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          modals.forEach(m => m.classList.contains('show') && closeModal(m));
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
