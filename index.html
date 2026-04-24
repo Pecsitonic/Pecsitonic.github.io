@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pecsitonic Official Homepage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.55;
+      color: #5e5964;
+      background:
+        linear-gradient(to right, #f3d9dd 0, #f3d9dd 58px, #f8f8f8 58px, #f8f8f8 calc(100% - 58px), #f3d9dd calc(100% - 58px), #f3d9dd 100%);
+    }
+
+    a {
+      color: #8b2746;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: 860px;
+      margin: 0 auto;
+      background: #f8f8f8;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .topbar {
+      height: 34px;
+      border-bottom: 1px solid #bdbdbd;
+      background: linear-gradient(to bottom, #ededed, #dadada);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      color: #666;
+      font-size: 11px;
+    }
+
+    .topbar-left,
+    .topbar-right {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .container {
+      width: 760px;
+      margin: 0 auto;
+      padding: 8px 0 18px;
+      position: relative;
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: 1fr 158px;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .hero {
+      border: 1px solid #b8b1b4;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset;
+    }
+
+    .hero-image {
+      position: relative;
+      height: 470px;
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.06)),
+        url("hero.png") center center / cover no-repeat;
+    }
+
+    .hero-inner {
+      position: absolute;
+      inset: 0;
+      padding: 22px 20px;
+    }
+
+    .hero-top {
+      width: 255px;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .logo-text h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 0 #111, 0 0 6px rgba(115, 34, 190, 0.65);
+    }
+
+    .logo-text p {
+      margin: 6px 0 0;
+      color: #7f90aa;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+
+    .official-title {
+      width: 210px;
+      text-align: center;
+      margin: 4px 0 12px;
+      font-size: 26px;
+      color: #8d9fbe;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: 1px 1px 0 #fff, 2px 2px 0 #222;
+    }
+
+    .mini-banner {
+      width: 210px;
+      height: 32px;
+      border: 1px solid #a54f5b;
+      background: linear-gradient(to right, #b3122c, #d74a63, #b3132c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-side-image {
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      width: 145px;
+      height: 160px;
+      border: 1px solid #c8bec4;
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("side-image.png") center/cover no-repeat;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.18);
+    }
+
+    .commission-nav {
+      border: 1px solid #b8b1b4;
+      border-radius: 4px;
+      background: #f7f7f7;
+      padding: 8px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+    }
+
+    .commission-nav-title {
+      margin: 0 0 7px;
+      font-size: 14px;
+      text-align: center;
+      color: #4b454e;
+      font-weight: normal;
+    }
+
+    .commission-button {
+      width: 100%;
+      display: block;
+      border: 1px solid #8f1931;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      padding: 8px 8px;
+      margin-bottom: 7px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.25;
+      text-shadow: none;
+      background: #b40d2c;
+      box-shadow: none;
+    }
+
+    .commission-button.dark {
+      background: #211d24;
+      border-color: #4d4650;
+    }
+
+    .commission-button:hover,
+    .commission-button.active {
+      filter: brightness(1.05);
+      transform: none;
+    }
+
+    .intro-bar {
+      margin-top: 8px;
+      border: 1px solid #bfb8bc;
+      border-radius: 6px;
+      background: #fbfbfb;
+      padding: 9px 12px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .counter {
+      display: inline-flex;
+      border: 1px solid #4d4d4d;
+      background: #111;
+      color: #fff;
+      font-family: "Courier New", monospace;
+      font-size: 15px;
+      letter-spacing: 2px;
+      padding: 3px 8px;
+      width: fit-content;
+    }
+
+    .intro-text {
+      font-size: 11px;
+      color: #7a757d;
+      text-align: center;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .content {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .sidebar,
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .box {
+      border: 1px solid #c2bcc0;
+      border-radius: 4px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .mail-banner {
+      height: 76px;
+      background:
+        linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
+        url("mail-banner.png") center/cover no-repeat;
+      position: relative;
+    }
+
+    .menu-title {
+      padding: 8px 10px 6px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 27px;
+      color: #4c474f;
+      letter-spacing: 0.4px;
+    }
+
+    .menu-buttons {
+      padding: 0 10px 10px;
+    }
+
+    .menu-buttons a,
+    .menu-buttons button {
+      display: block;
+      width: 100%;
+      margin-bottom: 7px;
+      padding: 7px 10px;
+      background: linear-gradient(to bottom, #a30722, #780017);
+      color: #fff;
+      border: 1px solid #b98d96;
+      text-align: center;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .menu-buttons a:last-child,
+    .menu-buttons button:last-child {
+      margin-bottom: 0;
+    }
+
+    .side-description {
+      padding: 0 12px 12px;
+      color: #77717a;
+      font-size: 11px;
+    }
+
+    .recruit-box {
+      padding: 10px;
+    }
+
+    .recruit-box h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      font-family: Georgia, serif;
+      color: #5c545e;
+    }
+
+    .recruit-box p {
+      margin: 0;
+      color: #77717a;
+    }
+
+    .webcore-player {
+      border: 1px solid #8aa1c7;
+      background: #d9e7ff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset;
+    }
+
+    .webcore-topbar {
+      height: 28px;
+      background: linear-gradient(to bottom, #7ea6e5, #5b82c5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 11px;
+    }
+
+    .window-icons {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .window-icons span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.22);
+      font-size: 8px;
+      color: #fff;
+    }
+
+    .webcore-body {
+      padding: 10px;
+      background: linear-gradient(to bottom, #eef5ff, #dbe9ff);
+    }
+
+    .old-emoticons {
+      font-size: 11px;
+      color: #5d6884;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .player-contact-card {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 8px;
+      align-items: center;
+      padding: 7px;
+      margin-bottom: 7px;
+      border: 1px solid #b8cbea;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .contact-avatar {
+      width: 34px;
+      height: 34px;
+      border: 1px solid #d17a9f;
+      background: linear-gradient(to bottom, #ffd7e7, #e9aac8);
+    }
+
+    .player-contact-card strong {
+      display: block;
+      color: #44526d;
+      font-size: 11px;
+      margin-bottom: 1px;
+    }
+
+    .player-contact-card span {
+      color: #6a7591;
+      font-size: 10px;
+      display: block;
+    }
+
+    .player-screen {
+      margin-top: 8px;
+      border: 1px solid #7c7c7c;
+      background: #000;
+    }
+
+    .player-screen-image {
+      height: 103px;
+      background:
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)),
+        url("player-screen.png") center/cover no-repeat;
+      position: relative;
+    }
+
+    .player-screen-image::after {
+      content: "♪ NOW PLAYING";
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.45);
+    }
+
+    .player-bottom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 7px;
+      background: linear-gradient(to bottom, #fcfcfc, #d8d8d8);
+      border-top: 1px solid #8d8d8d;
+    }
+
+    .player-controls {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .control-btn {
+      width: 22px;
+      height: 22px;
+      border: 1px solid #909090;
+      background: linear-gradient(to bottom, #fff, #d8d8d8);
+    }
+
+    .seekbar {
+      flex: 1;
+      height: 8px;
+      border: 1px solid #999;
+      background: linear-gradient(to right, #7fd56d 0 56%, #efefef 56% 100%);
+    }
+
+    .player-mini-text {
+      color: #626262;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 10px;
+      background: linear-gradient(to bottom, #fdfdfd, #ece8ea);
+      border-bottom: 1px solid #d7d1d4;
+    }
+
+    .news-header h2 {
+      margin: 0;
+      font-size: 20px;
+      font-family: Georgia, serif;
+      color: #4b454e;
+      letter-spacing: 0.3px;
+    }
+
+    .mini-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mini-links span {
+      font-size: 10px;
+      padding: 2px 6px;
+      border: 1px solid #d0b080;
+      background: linear-gradient(to bottom, #fff6d8, #edd39e);
+      color: #866f45;
+    }
+
+    .news-list {
+      padding: 0 10px 8px;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px dotted #cfc8cd;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-thumb {
+      height: 95px;
+      border: 1px solid #ccc3c8;
+      background:
+        linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)),
+        url("news1.png") center/cover no-repeat;
+    }
+
+    .news-item.alt-1 .news-thumb {
+      background:
+        linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)),
+        url("news2.png") center/cover no-repeat;
+    }
+
+    .news-item.alt-2 .news-thumb {
+      background:
+        linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)),
+        url("news3.png") center/cover no-repeat;
+    }
+
+    .news-date {
+      margin: 0 0 4px;
+      font-size: 11px;
+      color: #b2183e;
+      font-weight: bold;
+    }
+
+    .news-title {
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: #6a626e;
+      font-weight: bold;
+    }
+
+    .news-item p {
+      margin: 0 0 6px;
+      color: #726b75;
+    }
+
+    .news-item a {
+      font-size: 11px;
+      color: #a30d34;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 10px 12px 12px;
+      border-top: 1px solid #efebed;
+    }
+
+    .section:first-of-type {
+      border-top: none;
+    }
+
+    .section h3,
+    .section h2 {
+      margin: 0 0 7px;
+      font-size: 18px;
+      font-family: Georgia, serif;
+      color: #5a525d;
+      font-weight: normal;
+    }
+
+    .section p {
+      margin: 0 0 9px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 0;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border: 1px solid #d4cfd3;
+      background: #f8f6f7;
+      color: #6e6770;
+      font-size: 11px;
+    }
+
+    .simple-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .simple-card {
+      border: 1px solid #d7d1d4;
+      background: #fcfcfc;
+      padding: 8px;
+    }
+
+    .simple-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #5b5460;
+      font-size: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 88px;
+      border: 1px solid #d2ccd0;
+      background: linear-gradient(to bottom, #eef5ff, #faf1f7);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(0.88);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 6px;
+      font-size: 11px;
+      color: #fff;
+      background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+    }
+
+    .project-block {
+      border: 1px solid #d7d1d4;
+      background: #fcfcfc;
+      padding: 9px;
+      margin-bottom: 8px;
+    }
+
+    .project-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-block h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      color: #5e5662;
+    }
+
+    .project-block p {
+      margin: 0 0 7px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a,
+    .retro-button {
+      padding: 4px 8px;
+      border: 1px solid #c7b1b9;
+      background: #f7edf1;
+      color: #8a2345;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tools-split {
+      display: grid;
+      grid-template-columns: 1fr 215px;
+      gap: 10px;
+      align-items: start;
+      margin-top: 10px;
+    }
+
+    .art-compressed {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .tiny-panel {
+      border: 1px solid #c8c1c6;
+      background: #fbfbfb;
+      padding: 8px;
+    }
+
+    .tiny-panel h4 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      color: #5e5662;
+    }
+
+    .tiny-panel p {
+      margin: 0;
+      font-size: 11px;
+      color: #726b75;
+    }
+
+    .accordion-wrap {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .retro-accordion {
+      border: 1px solid #d1c9ce;
+      background: #fbfbfb;
+    }
+
+    .retro-accordion summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      background: linear-gradient(to bottom, #fefefe, #ece8ea);
+      color: #5d5560;
+      font-weight: bold;
+      position: relative;
+      user-select: none;
+    }
+
+    .retro-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .retro-accordion summary::before {
+      content: "►";
+      margin-right: 7px;
+      color: #8c2746;
+    }
+
+    .retro-accordion[open] summary::before {
+      content: "▼";
+    }
+
+    .retro-accordion .accordion-content {
+      padding: 10px;
+      border-top: 1px solid #e6dfe3;
+    }
+
+    .commission-page {
+      margin-top: 10px;
+      border: 1px solid #bfb8bc;
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .commission-page-head {
+      background: linear-gradient(to bottom, #fbfbfb, #ece8ea);
+      border-bottom: 1px solid #d7d1d4;
+      padding: 10px 12px;
+      display: grid;
+      grid-template-columns: 120px 1fr 120px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-button {
+      border: 1px solid #565057;
+      background: linear-gradient(to bottom, #2d2a2f, #100f11);
+      color: #fff;
+      padding: 6px 10px;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+
+    .commission-title {
+      text-align: center;
+    }
+
+    .commission-title h2 {
+      margin: 0;
+      color: #4b454e;
+      font-size: 26px;
+      font-weight: normal;
+      letter-spacing: 0.2px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .commission-title p {
+      margin: 2px 0 0;
+      color: #7a737d;
+      font-size: 11px;
+    }
+
+    .commission-status {
+      text-align: right;
+      color: #8b2746;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .commission-body {
+      padding: 14px;
+    }
+
+    .dotted-separator {
+      border: 0;
+      border-top: 1px dotted #bfb8bc;
+      margin: 4px 0 14px;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .price-grid {
+      border: 1px solid #d1c9ce;
+      background: #fbfbfb;
+      overflow: hidden;
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 90px 90px;
+      align-items: center;
+      min-height: 58px;
+      border-bottom: 1px solid #e5dfe3;
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row.header {
+      min-height: 34px;
+      background: linear-gradient(to bottom, #fdfdfd, #ece8ea);
+      color: #5a525d;
+      font-weight: bold;
+      font-size: 11px;
+    }
+
+    .price-cell {
+      padding: 9px 10px;
+      border-right: 1px solid #e5dfe3;
+      font-size: 11px;
+    }
+
+    .price-cell:last-child {
+      border-right: none;
+    }
+
+    .price-name {
+      color: #6826a0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .price-amount {
+      color: #fff;
+      background: #231032;
+      display: inline-block;
+      padding: 4px 8px;
+      min-width: 70px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .service-note {
+      border: 1px solid #d1c9ce;
+      background: #fbfbfb;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #5f5862;
+    }
+
+    .plan-card {
+      min-height: 156px;
+      border: 1px solid #c2bcc0;
+      background: linear-gradient(to bottom, #ffffff, #f7f5f6);
+      padding: 10px;
+      position: relative;
+      box-shadow: 2px 2px 0 #e7e0e4;
+    }
+
+    .plan-card::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 1px dotted #ded6db;
+      pointer-events: none;
+    }
+
+    .plan-top {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 7px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .plan-icon {
+      width: 46px;
+      height: 46px;
+      border: 1px solid #d4cfd3;
+      background: #1a161b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7220bd;
+      font-size: 28px;
+      font-family: Georgia, serif;
+    }
+
+    .plan-card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #66289d;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .plan-card ul {
+      margin: 0 0 10px 17px;
+      padding: 0;
+      color: #5f5862;
+      font-size: 11px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: linear-gradient(to bottom, #382247, #1b1027);
+      color: #fff;
+      border: 1px solid #9079a5;
+      padding: 4px 9px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 1;
+    }
+
+    .commission-subtitle {
+      margin: 16px 0 8px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      color: #4b454e;
+      font-weight: normal;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .featured-card {
+      border: 1px solid #c2bcc0;
+      background: #fbfbfb;
+      overflow: hidden;
+      box-shadow: 2px 2px 0 #e7e0e4;
+    }
+
+    .featured-preview {
+      height: 116px;
+      border-bottom: 1px solid #c2bcc0;
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-models.png") center/cover no-repeat;
+    }
+
+    .featured-preview.mods {
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-mods.png") center/cover no-repeat;
+    }
+
+    .featured-preview.anim {
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-animation.png") center/cover no-repeat;
+    }
+
+    .featured-preview.web {
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-web.png") center/cover no-repeat;
+    }
+
+    .featured-preview.thumb {
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-thumbnail.png") center/cover no-repeat;
+    }
+
+    .featured-preview.illu {
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-illustration.png") center/cover no-repeat;
+    }
+
+    .featured-info {
+      padding: 8px 9px 10px;
+    }
+
+    .featured-info h3 {
+      margin: 0 0 4px;
+      font-family: Georgia, serif;
+      color: #66289d;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .featured-info p {
+      margin: 0;
+      color: #5f5862;
+      font-size: 11px;
+    }
+
+    .process-box {
+      margin-top: 12px;
+      border: 1px solid #d1c9ce;
+      background: #fbfbfb;
+      padding: 10px;
+    }
+
+    .process-box h3 {
+      margin: 0 0 7px;
+      font-family: Georgia, serif;
+      font-weight: normal;
+      color: #5a525d;
+      font-size: 18px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }
+
+    .step {
+      border: 1px solid #ded6db;
+      background: #fff;
+      padding: 7px;
+      font-size: 10px;
+    }
+
+    .step strong {
+      display: block;
+      color: #8b2746;
+      margin-bottom: 3px;
+      font-size: 11px;
+    }
+
+    .model-preview-card {
+      margin-top: 12px;
+      border: 1px solid #d1c9ce;
+      background: linear-gradient(to bottom, #fbfbfb, #f4f0f2);
+      padding: 10px;
+    }
+
+    .model-preview-card h3 {
+      margin: 0 0 7px;
+      color: #5a525d;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    .model-preview-card p {
+      margin: 0 0 7px;
+    }
+
+    .sketchfab-preview {
+      width: min(420px, 100%);
+      aspect-ratio: 1 / 1;
+      height: auto;
+      border: 1px solid #c2bcc0;
+      background: #111;
+      overflow: hidden;
+      margin: 8px auto 0;
+    }
+
+    .sketchfab-preview iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+
+    .footer {
+      margin-top: 10px;
+      border: 1px solid #c2bcc0;
+      border-radius: 4px;
+      background: #fff;
+      padding: 10px;
+      text-align: center;
+      color: #7a737d;
+      font-size: 11px;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: min(900px, 92vw);
+      max-height: 90vh;
+      background: #fff;
+      border: 1px solid #d2ccd0;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+      padding: 10px;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .lightbox-description {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #5e5964;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #999;
+      background: #fff;
+      color: #7a2343;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        width: 100%;
+      }
+
+      .container {
+        width: calc(100% - 20px);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .hero-row,
+      .content,
+      .tools-split {
+        grid-template-columns: 1fr;
+      }
+
+      .commission-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .commission-nav-title {
+        grid-column: 1 / -1;
+      }
+
+      .commission-button {
+        margin-bottom: 0;
+      }
+
+      .hero-image {
+        height: 430px;
+      }
+
+      .hero-side-image {
+        width: 120px;
+        height: 138px;
+      }
+
+      .gallery,
+      .plans-grid,
+      .price-grid,
+      .featured-grid,
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .simple-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .commission-page-head {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .commission-status {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        background: #f8f8f8;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .container {
+        width: calc(100% - 12px);
+        padding: 6px 0 14px;
+      }
+
+      .hero-image {
+        height: 390px;
+      }
+
+      .intro-bar,
+      .commission-nav,
+      .gallery,
+      .news-item,
+      .plans-grid,
+      .price-grid,
+      .featured-grid,
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side-image {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        width: 105px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="topbar-left">
+        <span>Pecsitonic · Peshi Studios</span>
+        <span>Comisiones · Colaboraciones</span>
+      </div>
+      <div class="topbar-right">
+        <span>Proyectos · Flujo de trabajo</span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-row">
+        <section class="hero">
+          <div class="hero-image">
+            <div class="hero-inner">
+              <div class="hero-top">
+                <div class="site-logo">
+                  <div class="logo-text">
+                    <h1>Pecsitonic</h1>
+                    <p>Peshi studio - Portfolio</p>
+                  </div>
+                </div>
+
+                <div class="official-title">Official Homepage</div>
+                <div class="mini-banner">software · apps · diseño digital</div>
+              </div>
+
+              <div class="hero-side-image" title="Pecsitonic"></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="commission-nav" aria-label="Navegación de comisiones">
+          <p class="commission-nav-title">Comisiones</p>
+          <button class="commission-button" type="button" data-open-view="modelsView">▶ Modelos, mods y animación</button>
+          <button class="commission-button dark" type="button" data-open-view="webView">▶ Web, thumbnails e ilustración</button>
+        </aside>
+      </div>
+
+      <div id="homeView" class="view active">
+        <section class="intro-bar">
+          <div class="counter">HOMEPAGE</div>
+          <div class="intro-text">
+            Desarrollador creativo enfocado principalmente en hacer mods para minecraft, en las paginas Curseforge y Modrinth.<br>
+            Actualmente hago paginas como pequeños proyectos, desde hace 2 años tuve la idea de crear un videojuego para celulares "SpaceMonkis" y en 2026 lo empece a desarrollar, junto a mi equipo de desarrollo "Peshi Studios".
+          </div>
+        </section>
+
+        <div class="content">
+          <aside class="sidebar">
+            <div class="box">
+              <div class="mail-banner"></div>
+            </div>
+
+            <div class="box">
+              <div class="menu-title">◆ Contenidos ◆</div>
+              <div class="menu-buttons">
+                <a href="#presentacion">Presentación</a>
+                <a href="#herramientas">Herramientas</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#perfil">Perfil</a>
+                <a href="#contacto">Contacto</a>
+                <button type="button" data-open-view="modelsView">Ver comisiones</button>
+              </div>
+              <div class="side-description">
+                Portfolio personal, apps, arte digital, interfaces y mini proyectos.
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="recruit-box">
+                <h3>Comisiones abiertas</h3>
+                <p>
+                  Disponible para colaboraciones, comisiones y propuestas serias. Si te interesa trabajar conmigo en un mod, una app, modelos 3d, una herramienta digital, assets o UI, puedes contactarme por Discord o por email.
+                </p>
+              </div>
+            </div>
+
+            <div class="webcore-player">
+              <div class="webcore-topbar">
+                <span>Pecsitonic Player.exe</span>
+                <div class="window-icons">
+                  <span>_</span>
+                  <span>□</span>
+                  <span>X</span>
+                </div>
+              </div>
+
+              <div class="webcore-body">
+                <div class="old-emoticons">(^_^) &nbsp; (≧▽≦) &nbsp; (T_T) &nbsp; x_x &nbsp; ♪</div>
+
+                <div class="player-contact-card">
+                  <div class="contact-avatar"></div>
+                  <div>
+                    <strong>Pecsitonic</strong>
+                    <span>Languages: English And Spanish</span>
+                  </div>
+                </div>
+
+                <div class="player-contact-card">
+                  <div class="contact-avatar"></div>
+                  <div>
+                    <strong>Discord</strong>
+                    <span>pecsitonic_</span>
+                  </div>
+                </div>
+
+                <div class="player-contact-card">
+                  <div class="contact-avatar"></div>
+                  <div>
+                    <strong>Mail</strong>
+                    <span>contactopecsitonic@gmail.com</span>
+                  </div>
+                </div>
+
+                <div class="player-screen">
+                  <div class="player-screen-image"></div>
+                  <div class="player-bottom">
+                    <div class="player-controls">
+                      <div class="control-btn"></div>
+                      <div class="control-btn"></div>
+                      <div class="control-btn"></div>
+                      <div class="seekbar"></div>
+                    </div>
+                    <div class="player-mini-text">
+                      <span>webcore_mix.mp3</span>
+                      <span>02:06</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <main class="main">
+            <div class="box">
+              <div class="news-header">
+                <h2>WHAT'S NEW</h2>
+                <div class="mini-links">
+                  <span>RSS</span>
+                  <span>XML</span>
+                </div>
+              </div>
+
+              <div class="news-list">
+                <article class="news-item">
+                  <div class="news-thumb"></div>
+                  <div>
+                    <div class="news-date">09.06 update</div>
+                    <div class="news-title">Ver proyectos</div>
+                    <p>Mods · apps · Art · Projects</p>
+                    <a href="#proyectos">Ir a proyectos »</a>
+                  </div>
+                </article>
+
+                <article class="news-item alt-1">
+                  <div class="news-thumb"></div>
+                  <div>
+                    <div class="news-date">08.30 update</div>
+                    <div class="news-title">INFO - Peshi Studios</div>
+                    <p>Peshi Studios · Estudio creativo orientado a videojuegos</p>
+                    <a href="#perfil">Más información »</a>
+                  </div>
+                </article>
+
+                <article class="news-item alt-2">
+                  <div class="news-thumb"></div>
+                  <div>
+                    <div class="news-date">08.20 update</div>
+                    <div class="news-title">Contactame</div>
+                    <p>Formas de contactarme</p>
+                    <a href="#contacto">Contacto directo »</a>
+                  </div>
+                </article>
+              </div>
+
+              <section class="section" id="presentacion">
+                <h3>Pecsitonic</h3>
+                <p><strong>Desarrollador creativo enfocado en mods de videojuegos, actualmente también trabajando en aplicaciones para Android.</strong></p>
+                <p>Desarrollador independiente dispuesto a colaboraciones, y comisiones.</p>
+                <div class="project-links">
+                  <a href="#proyectos">Ver proyectos</a>
+                  <button class="retro-button" type="button" data-open-view="modelsView">Comisiones abiertas</button>
+                </div>
+                <div class="tags">
+                  <span class="tag">Mods de videojuegos</span>
+                  <span class="tag">Actualmente usando Unity</span>
+                  <span class="tag">Apps Android</span>
+                  <span class="tag">Usando Android Studio</span>
+                  <span class="tag">Peshi Studios</span>
+                  <span class="tag">Estudio creativo orientado a videojuegos</span>
+                </div>
+              </section>
+
+              <section class="section" id="herramientas">
+                <h3>¿Qué herramientas de trabajo uso?</h3>
+                <div class="tools-split">
+                  <div>
+                    <p>
+                      Herramientas: Vs Code, Visual Studio, Notepad, Firebase Cloud, Firebase Studio (para autenticación), Antigravity, Office (Access, Word, Excel), Photoshop, Xampp, Unity, Krita, Blockbench.
+                    </p>
+                    <p>Aprendiendo a usar: After Effects, Adobe Premiere, Blender, FL Studio.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section" id="proyectos">
+                <div class="project-block">
+                  <h4>Todos mis proyectos</h4>
+                  <p><strong>-My Library<br>-Tonic! Series<br>-Keke-Fit<br>-Space Monkis</strong></p>
+                  <p>
+                    Pagina "My Library", para guardar series, o películas vistas, Tonic! Series un sitio con animes no alojados, además "Keke-Fit" una aplicación que funciona como contador de calorias personal y con un plan de comidas, luego SpaceMonkis es un proyecto a largo plazo el cual no se puede dar mucha información, actualmente estoy trabajando en un descargador multimedia con soporte MP3 / MP4 / OGG.
+                  </p>
+                  <div class="project-links">
+                    <a href="https://pecsitonic.github.io/Tonic-Anime-archives/" target="_blank" rel="noopener noreferrer">Entrar a Tonic! series</a>
+                    <a href="https://pecsitonic.github.io/your-library/" target="_blank" rel="noopener noreferrer">Entrar a Your Library</a>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section" id="perfil">
+                <h2>FAQ</h2>
+                <p><strong>Mi trabajo en comisiones</strong></p>
+                <p>Me interesa hacer proyectos que funcionen bien, además con el cliente voy mostrandole todo el proceso (por ejemplo en blockbench con respecto a los modelos 3d).</p>
+                <p>En el apartado de páginas webs, lo mismo voy preguntando siempre como voy yendo y si el usuario quiere algún cambio.</p>
+                <p>La forma de pago que acepto solamente es por paypal, primeramente pido el 50% y luego lo cerramos con el 100%.</p>
+                <p><strong>Uso Discord para hacer todo este proceso.</strong></p>
+
+                <div class="accordion-wrap">
+                  <details class="retro-accordion">
+                    <summary>Cuanto puede salir una comisión?</summary>
+                    <div class="accordion-content">Esto depende de lo que tu quieras. Si quieres saber mas información contactame.</div>
+                  </details>
+                  <details class="retro-accordion">
+                    <summary>Hace cuanto ofreces comisiones?</summary>
+                    <div class="accordion-content">Empece hacer comisiones durante 2024, adémas por ese tiempo trabaje en la plataforma Fiverr con el servicio de miniaturas para YouTube.</div>
+                  </details>
+                  <details class="retro-accordion">
+                    <summary>que requiero para trabajar contigo?</summary>
+                    <div class="accordion-content">Necesito un boceto primeramente de lo que va a querer el usuario y una buena comunicación.</div>
+                  </details>
+                </div>
+              </section>
+
+              <section class="section contact-box" id="contacto">
+                <h3>Contacto</h3>
+                <p><strong>Disponible para colaboraciones, comisiones y propuestas serias</strong></p>
+                <p>Si te interesa trabajar conmigo puedes contactarme por Discord o por email.</p>
+                <div class="simple-grid">
+                  <div class="simple-card">
+                    <strong>Contacto directo</strong>
+                    Contacto directo<br>
+                    Reddit: pecsitonic<br>
+                    MD Discord: pecsitonic_<br>
+                    contactopecsitonic@gmail.com
+                  </div>
+                </div>
+              </section>
+            </div>
+          </main>
+        </div>
+      </div>
+
+      <section id="modelsView" class="view commission-page">
+        <div class="commission-page-head">
+          <button class="back-button" type="button" data-open-view="homeView">← Regresar</button>
+          <div class="commission-title">
+            <h2>Planes de comisión</h2>
+            <p>Modelos 3D, mods y animaciones de modelos.</p>
+          </div>
+          <div class="commission-status">● cupos limitados</div>
+        </div>
+
+        <div class="commission-body">
+          <hr class="dotted-separator">
+
+          <div class="price-grid">
+            <div class="price-row header">
+              <div class="price-cell">Tipo de modelo</div>
+              <div class="price-cell">Incluye</div>
+              <div class="price-cell">Base</div>
+              <div class="price-cell">Con 6 anim.</div>
+            </div>
+            <div class="price-row">
+              <div class="price-cell price-name">Modelo chico</div>
+              <div class="price-cell">Criatura, mob o asset simple con textura básica.</div>
+              <div class="price-cell"><span class="price-amount">$10 USD</span></div>
+              <div class="price-cell"><span class="price-amount">$15 USD</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-cell price-name">Modelo medio</div>
+              <div class="price-cell">Modelo con más piezas, más detalle y textura personalizada.</div>
+              <div class="price-cell"><span class="price-amount">$25 USD</span></div>
+              <div class="price-cell"><span class="price-amount">$32 USD</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-cell price-name">Modelo grande</div>
+              <div class="price-cell">Criatura compleja, jefe, montura o modelo de mayor tamaño.</div>
+              <div class="price-cell"><span class="price-amount">$45 USD</span></div>
+              <div class="price-cell"><span class="price-amount">$52 USD</span></div>
+            </div>
+          </div>
+
+          <div class="service-note">
+            Los precios son una base aproximada. Pueden cambiar según complejidad, cantidad de detalles, cantidad de revisiones y tipo de uso del modelo. La fecha estimada de la entrega de los modelos se dicen luego de la comunicación.
+          </div>
+
+          <div class="model-preview-card">
+            <h3>Cerberus minecraft model - ejemplo de modelo 3D</h3>
+            <p>Preview interactiva del modelo publicado en Sketchfab. Puede no verse exactamente igual al modelo final (ya que fue subida desde una cuenta de sketchfab básica).</p>
+            <div class="sketchfab-preview">
+              <iframe
+                title="Cerberus 3D model"
+                src="https://sketchfab.com/models/d4df1f1353b6425e8fadc5315dc48749/embed?autostart=0&ui_theme=dark"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+
+        
+        </div>
+      </section>
+
+      <section id="webView" class="view commission-page">
+        <div class="commission-page-head">
+          <button class="back-button" type="button" data-open-view="homeView">← Regresar</button>
+          <div class="commission-title">
+            <h2>Web, thumbnails e ilustración</h2>
+            <p>Diseños visuales, páginas simples y piezas para redes.</p>
+          </div>
+          <div class="commission-status">● consultar disponibilidad</div>
+        </div>
+
+        <div class="commission-body">
+          <hr class="dotted-separator">
+
+          <div class="price-grid">
+            <div class="price-row header">
+              <div class="price-cell">Servicio</div>
+              <div class="price-cell">Incluye</div>
+              <div class="price-cell">Estado</div>
+              <div class="price-cell">Precio</div>
+            </div>
+            <div class="price-row">
+              <div class="price-cell price-name">Página simple</div>
+              <div class="price-cell">Landing, portfolio o página personal con HTML, CSS y JS básico.</div>
+              <div class="price-cell">A pedido</div>
+              <div class="price-cell"><span class="price-amount">a cotizar</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-cell price-name">Thumbnail</div>
+              <div class="price-cell">Miniatura para YouTube, proyecto o publicación.</div>
+              <div class="price-cell">A pedido</div>
+              <div class="price-cell"><span class="price-amount">a cotizar</span></div>
+            </div>
+            <div class="price-row">
+              <div class="price-cell price-name">Ilustración</div>
+              <div class="price-cell">Arte simple, iconos o assets</div>
+              <div class="price-cell">A pedido</div>
+              <div class="price-cell"><span class="price-amount">a cotizar</span></div>
+            </div>
+          </div>
+
+          <div class="service-note">
+            Estos trabajos se cotizan según tamaño, cantidad de piezas, nivel de detalle y tiempo de entrega.
+          </div>
+
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        © 2026 Pecsitonic · Portfolio personal · Peshi Studios<br>
+        Contacto: Discord pecsitonic_ · Mail contactopecsitonic@gmail.com
+      </footer>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">X</button>
+      <img id="lightboxImage" src="" alt="Imagen ampliada">
+      <div class="lightbox-description" id="lightboxDescription"></div>
+    </div>
+  </div>
+
+  <script>
+    const views = document.querySelectorAll(".view");
+    const openViewButtons = document.querySelectorAll("[data-open-view]");
+    const commissionButtons = document.querySelectorAll(".commission-button");
+
+    function openView(viewId) {
+      views.forEach(view => {
+        view.classList.toggle("active", view.id === viewId);
+      });
+
+      commissionButtons.forEach(button => {
+        button.classList.toggle("active", button.getAttribute("data-open-view") === viewId);
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    openViewButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("data-open-view");
+        openView(target);
+      });
+    });
+
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxDescription = document.getElementById("lightboxDescription");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    galleryItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const fullImage = item.getAttribute("data-full");
+        const description = item.getAttribute("data-description");
+
+        lightboxImage.src = fullImage;
+        lightboxDescription.textContent = description;
+        lightbox.classList.add("active");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightboxImage.src = "";
+      lightboxDescription.textContent = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
