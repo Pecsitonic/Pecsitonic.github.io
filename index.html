@@ -80,6 +80,7 @@
     }
 
     .hero {
+      position: relative;
       border: 1px solid #b8b1b4;
       border-radius: 6px;
       overflow: hidden;
@@ -707,6 +708,362 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+
+
+    .skill-group {
+      margin: 14px 0 18px;
+      text-align: center;
+    }
+
+    .skill-group h4 {
+      margin: 0 0 9px;
+      color: #4f4852;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .skill-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      padding: 6px 10px;
+      color: #fff;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.16);
+      cursor: default;
+      transition: transform 0.18s ease, filter 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.12);
+      box-shadow: 3px 4px 0 rgba(0,0,0,0.2);
+    }
+
+    .python { background: #285b7d; }
+    .js { background: #2f2a14; color: #ffe45c; }
+    .csharp { background: #24913a; }
+    .php { background: #7778aa; }
+    .html { background: #e54c21; }
+    .css { background: #1673b7; }
+    .react { background: #20242c; color: #61dafb; }
+    .electron { background: #303846; color: #9feaf9; }
+    .node { background: #2f9b3d; }
+    .firebase { background: #f7a313; }
+    .git { background: #e84e31; }
+    .github { background: #171717; }
+    .vscode { background: #007acc; }
+    .visualstudio { background: #6546a5; }
+    .jira { background: #0752cc; }
+    .unity { background: #222; }
+    .android { background: #3ddc84; color: #17251b; }
+    .xampp { background: #fb7a24; }
+    .blockbench { background: #4d6f9f; }
+    .krita { background: #7756b5; }
+    .office { background: #c74621; }
+    .antigravity { background: #7d24d8; }
+    .ae { background: #48318f; }
+    .premiere { background: #5144b8; }
+    .blender { background: #e87d0d; }
+    .flstudio { background: #d96b28; }
+
+    .learning {
+      border-top: 1px dotted #c9c1c6;
+      padding-top: 12px;
+    }
+
+    .box,
+    .project-block,
+    .news-item,
+    .simple-card,
+    .commission-nav,
+    .intro-bar {
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .box:hover,
+    .project-block:hover,
+    .simple-card:hover,
+    .commission-nav:hover {
+      transform: translateY(-1px);
+      box-shadow: 3px 4px 0 rgba(100, 30, 60, 0.12);
+      border-color: #a98f9a;
+    }
+
+    .news-item:hover {
+      background: #fbf4f7;
+    }
+
+    .menu-buttons a,
+    .menu-buttons button,
+    .commission-button,
+    .retro-button,
+    .back-button {
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .menu-buttons a:hover,
+    .menu-buttons button:hover,
+    .commission-button:hover,
+    .retro-button:hover,
+    .back-button:hover {
+      transform: translateX(2px);
+      filter: brightness(1.08);
+      text-decoration: none;
+    }
+
+
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 45%, transparent 62%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .hero:hover::after {
+      opacity: 1;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 150px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(17, 13, 20, 0.82);
+      color: #d7c9e5;
+      padding: 7px 9px;
+      font-size: 10px;
+      line-height: 1.35;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.35);
+    }
+
+    .hero-badge strong {
+      display: block;
+      color: #fff;
+      font-size: 11px;
+      margin-bottom: 2px;
+      letter-spacing: 0.6px;
+    }
+
+    .status-strip {
+      margin-top: 8px;
+      border: 1px solid #c2bcc0;
+      background: linear-gradient(to bottom, #ffffff, #f0ecef);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      font-size: 11px;
+      color: #6a626e;
+    }
+
+    .status-item {
+      padding: 7px 10px;
+      border-right: 1px dotted #cfc8cd;
+      text-align: center;
+    }
+
+    .status-item:last-child {
+      border-right: none;
+    }
+
+    .status-item strong {
+      color: #9b1230;
+    }
+
+    .news-thumb,
+    .mail-banner,
+    .hero-side-image,
+    .player-screen-image {
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .news-item:hover .news-thumb,
+    .box:hover .mail-banner,
+    .hero:hover .hero-side-image,
+    .webcore-player:hover .player-screen-image {
+      filter: brightness(1.05) contrast(1.04);
+    }
+
+    .news-item:hover .news-thumb {
+      transform: translateX(2px);
+    }
+
+    .counter,
+    .price-amount {
+      transition: letter-spacing 0.2s ease, filter 0.2s ease;
+    }
+
+    .mini-banner {
+      transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+      transform-origin: left center;
+    }
+
+    .intro-bar:hover .counter,
+    .price-amount:hover {
+      letter-spacing: 2.5px;
+      filter: brightness(1.08);
+    }
+
+    .mini-banner:hover {
+      transform: scale(1.045);
+      filter: brightness(1.08);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    }
+
+    .retro-accordion summary:hover {
+      background: linear-gradient(to bottom, #ffffff, #f7eef2);
+      color: #8b2746;
+    }
+
+    .player-contact-card,
+    .control-btn,
+    .mini-links span,
+    .tag {
+      transition: transform 0.16s ease, filter 0.16s ease, background 0.16s ease;
+    }
+
+    .player-contact-card:hover,
+    .tag:hover,
+    .mini-links span:hover {
+      transform: translateX(2px);
+      filter: brightness(1.04);
+    }
+
+    .control-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.96);
+    }
+
+    .hero-side-image {
+      animation: profileGlow 4.5s ease-in-out infinite;
+    }
+
+    @keyframes profileGlow {
+      0% {
+        box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 8px rgba(116, 32, 189, 0.35);
+        border-color: #c8bec4;
+      }
+      50% {
+        box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 14px rgba(218, 45, 126, 0.55);
+        border-color: #d567b0;
+      }
+      100% {
+        box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 8px rgba(116, 32, 189, 0.35);
+        border-color: #c8bec4;
+      }
+    }
+
+    .project-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 8px 0 10px;
+    }
+
+    .project-mini-card {
+      border: 1px solid #d7d1d4;
+      background: linear-gradient(to bottom, #ffffff, #f8f5f7);
+      padding: 8px;
+      min-height: 78px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .project-mini-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 4px 0 rgba(100, 30, 60, 0.12);
+      border-color: #a98f9a;
+    }
+
+    .project-mini-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #5e5662;
+      font-size: 12px;
+    }
+
+    .project-mini-card span {
+      display: block;
+      color: #786f79;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .compact-note {
+      border-left: 3px solid #9b1230;
+      background: #fbf4f7;
+      padding: 8px 10px;
+      margin: 8px 0 10px;
+      color: #6f6570;
+      font-size: 11px;
+    }
+
+    .work-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 9px 0 10px;
+    }
+
+    .flow-card {
+      border: 1px solid #d7d1d4;
+      background: #fcfcfc;
+      padding: 8px;
+      font-size: 11px;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .flow-card:hover {
+      transform: translateY(-1px);
+      background: #fbf4f7;
+    }
+
+    .flow-card strong {
+      display: block;
+      color: #8b2746;
+      margin-bottom: 3px;
+    }
+
+    .contact-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .contact-mini-card {
+      border: 1px solid #d7d1d4;
+      background: linear-gradient(to bottom, #ffffff, #f7f3f5);
+      padding: 8px;
+      font-size: 11px;
+      min-height: 62px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .contact-mini-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 4px 0 rgba(100, 30, 60, 0.12);
+    }
+
+    .contact-mini-card strong {
+      display: block;
+      color: #5e5662;
+      margin-bottom: 4px;
+    }
+
+
     .tools-split {
       display: grid;
       grid-template-columns: 1fr 215px;
@@ -1245,11 +1602,17 @@
       .plans-grid,
       .price-grid,
       .featured-grid,
-      .process-steps {
+      .process-steps,
+      .project-mini-grid,
+      .contact-mini-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .simple-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-flow {
         grid-template-columns: 1fr;
       }
 
@@ -1282,6 +1645,7 @@
       }
 
       .intro-bar,
+      .status-strip,
       .commission-nav,
       .gallery,
       .news-item,
@@ -1298,6 +1662,12 @@
         bottom: 16px;
         width: 105px;
         height: 120px;
+      }
+
+      .hero-badge {
+        right: 14px;
+        bottom: 16px;
+        width: 135px;
       }
     }
   </style>
@@ -1332,6 +1702,11 @@
               </div>
 
               <div class="hero-side-image" title="Pecsitonic"></div>
+
+              <div class="hero-badge">
+                <strong>NOW BUILDING</strong>
+                Mods · apps · web · SpaceMonkis
+              </div>
             </div>
           </div>
         </section>
@@ -1500,12 +1875,54 @@
 
               <section class="section" id="herramientas">
                 <h3>¿Qué herramientas de trabajo uso?</h3>
-                <div class="tools-split">
-                  <div>
-                    <p>
-                      Herramientas: Vs Code, Visual Studio, Notepad, Firebase Cloud, Firebase Studio (para autenticación), Antigravity, Office (Access, Word, Excel), Photoshop, Xampp, Unity, Krita, Blockbench.
-                    </p>
-                    <p>Aprendiendo a usar: After Effects, Adobe Premiere, Blender, FL Studio.</p>
+
+                <div class="skill-group">
+                  <h4>Lenguajes</h4>
+                  <div class="skill-badges">
+                    <span class="skill-badge python">PYTHON</span>
+                    <span class="skill-badge js">JAVASCRIPT</span>
+                    <span class="skill-badge csharp">C#</span>
+                    <span class="skill-badge php">PHP</span>
+                    <span class="skill-badge html">HTML5</span>
+                    <span class="skill-badge css">CSS3</span>
+                  </div>
+                </div>
+
+                <div class="skill-group">
+                  <h4>Frameworks & Servicios</h4>
+                  <div class="skill-badges">
+                    <span class="skill-badge react">REACT NATIVE</span>
+                    <span class="skill-badge electron">SUPABASE</span>
+                    <span class="skill-badge node">NODE.JS</span>
+                    <span class="skill-badge firebase">FIREBASE</span>
+                  </div>
+                </div>
+
+                <div class="skill-group">
+                  <h4>Herramientas & Entorno</h4>
+                  <div class="skill-badges">
+                    <span class="skill-badge git">GIT</span>
+                    <span class="skill-badge github">GITHUB</span>
+                    <span class="skill-badge vscode">VISUAL STUDIO CODE</span>
+                    <span class="skill-badge visualstudio">VISUAL STUDIO</span>
+                    <span class="skill-badge jira">JIRA</span>
+                    <span class="skill-badge unity">UNITY</span>
+                    <span class="skill-badge android">ANDROID STUDIO</span>
+                    <span class="skill-badge xampp">XAMPP</span>
+                    <span class="skill-badge blockbench">BLOCKBENCH</span>
+                    <span class="skill-badge krita">KRITA</span>
+                    <span class="skill-badge office">OFFICE</span>
+                    <span class="skill-badge antigravity">ANTIGRAVITY</span>
+                  </div>
+                </div>
+
+                <div class="skill-group learning">
+                  <h4>Aprendiendo</h4>
+                  <div class="skill-badges">
+                    <span class="skill-badge ae">AFTER EFFECTS</span>
+                    <span class="skill-badge premiere">ADOBE PREMIERE</span>
+                    <span class="skill-badge blender">BLENDER</span>
+                    <span class="skill-badge flstudio">FL STUDIO</span>
                   </div>
                 </div>
               </section>
@@ -1513,10 +1930,25 @@
               <section class="section" id="proyectos">
                 <div class="project-block">
                   <h4>Todos mis proyectos</h4>
-                  <p><strong>-My Library<br>-Tonic! Series<br>-Keke-Fit<br>-Space Monkis</strong></p>
-                  <p>
-                    Pagina "My Library", para guardar series, o películas vistas, Tonic! Series un sitio con animes no alojados, además "Keke-Fit" una aplicación que funciona como contador de calorias personal y con un plan de comidas, luego SpaceMonkis es un proyecto a largo plazo el cual no se puede dar mucha información, actualmente estoy trabajando en un descargador multimedia con soporte MP3 / MP4 / OGG.
-                  </p>
+                  <div class="project-mini-grid">
+                    <div class="project-mini-card">
+                      <strong>My Library</strong>
+                      <span>Biblioteca personal para guardar series o películas vistas.</span>
+                    </div>
+                    <div class="project-mini-card">
+                      <strong>Tonic! Series</strong>
+                      <span>Sitio de archivo para animes no alojados directamente.</span>
+                    </div>
+                    <div class="project-mini-card">
+                      <strong>Keke-Fit</strong>
+                      <span>App de calorías, perfil personal y plan de comidas.</span>
+                    </div>
+                    <div class="project-mini-card">
+                      <strong>Space Monkis</strong>
+                      <span>Videojuego móvil en desarrollo junto a Peshi Studios.</span>
+                    </div>
+                  </div>
+                  <div class="compact-note">Actualmente también estoy trabajando en un descargador multimedia con soporte MP3 / MP4 / OGG.</div>
                   <div class="project-links">
                     <a href="https://pecsitonic.github.io/Tonic-Anime-archives/" target="_blank" rel="noopener noreferrer">Entrar a Tonic! series</a>
                     <a href="https://pecsitonic.github.io/your-library/" target="_blank" rel="noopener noreferrer">Entrar a Your Library</a>
@@ -1527,10 +1959,21 @@
               <section class="section" id="perfil">
                 <h2>FAQ</h2>
                 <p><strong>Mi trabajo en comisiones</strong></p>
-                <p>Me interesa hacer proyectos que funcionen bien, además con el cliente voy mostrandole todo el proceso (por ejemplo en blockbench con respecto a los modelos 3d).</p>
-                <p>En el apartado de páginas webs, lo mismo voy preguntando siempre como voy yendo y si el usuario quiere algún cambio.</p>
-                <p>La forma de pago que acepto solamente es por paypal, primeramente pido el 50% y luego lo cerramos con el 100%.</p>
-                <p><strong>Uso Discord para hacer todo este proceso.</strong></p>
+
+                <div class="work-flow">
+                  <div class="flow-card">
+                    <strong>Proceso visible</strong>
+                    Voy mostrando avances y cambios durante el trabajo.
+                  </div>
+                  <div class="flow-card">
+                    <strong>Comunicación</strong>
+                    Uso Discord para organizar ideas, bocetos y revisiones.
+                  </div>
+                  <div class="flow-card">
+                    <strong>Pago</strong>
+                    PayPal: 50% al iniciar y 50% al cerrar el trabajo.
+                  </div>
+                </div>
 
                 <div class="accordion-wrap">
                   <details class="retro-accordion">
@@ -1550,15 +1993,19 @@
 
               <section class="section contact-box" id="contacto">
                 <h3>Contacto</h3>
-                <p><strong>Disponible para colaboraciones, comisiones y propuestas serias</strong></p>
-                <p>Si te interesa trabajar conmigo puedes contactarme por Discord o por email.</p>
-                <div class="simple-grid">
-                  <div class="simple-card">
-                    <strong>Contacto directo</strong>
-                    Contacto directo<br>
-                    Reddit: pecsitonic<br>
-                    MD Discord: pecsitonic_<br>
+                <p><strong>Disponible para colaboraciones, comisiones y propuestas serias.</strong></p>
+                <div class="contact-mini-grid">
+                  <div class="contact-mini-card">
+                    <strong>Discord</strong>
+                    pecsitonic_
+                  </div>
+                  <div class="contact-mini-card">
+                    <strong>Email</strong>
                     contactopecsitonic@gmail.com
+                  </div>
+                  <div class="contact-mini-card">
+                    <strong>Reddit</strong>
+                    pecsitonic
                   </div>
                 </div>
               </section>
