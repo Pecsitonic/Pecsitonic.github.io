@@ -66,16 +66,14 @@
     }
 
     .container {
-      width: 760px;
+      width: 820px;
       margin: 0 auto;
       padding: 8px 0 18px;
       position: relative;
     }
 
     .hero-row {
-      display: grid;
-      grid-template-columns: 1fr 158px;
-      gap: 8px;
+      display: block;
       align-items: start;
     }
 
@@ -90,7 +88,7 @@
 
     .hero-image {
       position: relative;
-      height: 470px;
+      height: 360px;
       background:
         linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.06)),
         url("hero.png") center center / cover no-repeat;
@@ -157,13 +155,45 @@
       position: absolute;
       left: 22px;
       bottom: 18px;
-      width: 145px;
-      height: 160px;
+      width: 120px;
+      height: 132px;
       border: 1px solid #c8bec4;
       background:
         linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
         url("side-image.png") center/cover no-repeat;
       box-shadow: 0 0 0 4px rgba(255,255,255,0.18);
+    }
+
+
+    .commission-top-nav {
+      margin-bottom: 8px;
+      border: 1px solid #b8b1b4;
+      border-radius: 4px;
+      background: linear-gradient(to bottom, #fbfbfb, #e7e3e5);
+      padding: 7px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+    }
+
+    .commission-top-nav .commission-button {
+      margin-bottom: 0;
+      min-height: 42px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .commission-top-nav .commission-button.featured {
+      background: linear-gradient(to bottom, #c31637, #8d0824);
+      border-color: #8f1931;
+    }
+
+    .commission-top-nav .commission-button.dark {
+      background: linear-gradient(to bottom, #2d2930, #141116);
+      border-color: #4d4650;
     }
 
     .commission-nav {
@@ -540,6 +570,30 @@
       background:
         linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)),
         url("news3.png") center/cover no-repeat;
+    }
+
+    .news-item.highlight-news {
+      grid-template-columns: 150px 1fr;
+      background: linear-gradient(to bottom, #fff, #fbf4f7);
+    }
+
+    .news-item.highlight-news .news-thumb {
+      height: 118px;
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("stonefall-commission.png") center/cover no-repeat;
+    }
+
+    .news-item.commission-extra-1 .news-thumb {
+      background:
+        linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)),
+        url("commission-extra-1.png") center/cover no-repeat;
+    }
+
+    .news-item.commission-extra-2 .news-thumb {
+      background:
+        linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)),
+        url("commission-extra-2.png") center/cover no-repeat;
     }
 
     .news-date {
@@ -1491,6 +1545,148 @@
       border: 0;
     }
 
+
+    .commission-showcase-intro {
+      border-left: 3px solid #9b1230;
+      background: #fbf4f7;
+      padding: 8px 10px;
+      margin: 0 0 12px;
+      color: #6f6570;
+      font-size: 11px;
+    }
+
+    .showcase-featured {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 10px;
+      align-items: stretch;
+      margin-bottom: 12px;
+    }
+
+    .showcase-main-image,
+    .commission-image-preview {
+      border: 1px solid #c2bcc0;
+      background:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        #1a161b;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 2px 2px 0 #e7e0e4;
+    }
+
+    .showcase-main-image {
+      min-height: 250px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("stonefall-commission.png");
+    }
+
+    .showcase-main-image span,
+    .commission-image-preview span {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      padding: 4px 7px;
+      background: rgba(17, 13, 20, 0.82);
+      color: #fff;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
+    }
+
+    .showcase-text {
+      border: 1px solid #d1c9ce;
+      background: linear-gradient(to bottom, #ffffff, #f7f5f6);
+      padding: 12px;
+      box-shadow: 2px 2px 0 #e7e0e4;
+    }
+
+    .showcase-text h3 {
+      margin: 0 0 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #66289d;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .showcase-text p {
+      margin: 0 0 8px;
+      color: #5f5862;
+    }
+
+    .showcase-highlight {
+      border: 1px dotted #c9c1c6;
+      background: #fbfbfb;
+      padding: 8px;
+      margin-top: 8px;
+      color: #5f5862;
+      font-size: 11px;
+    }
+
+    .showcase-highlight strong {
+      color: #9b1230;
+    }
+
+    .commission-image-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .commission-image-card {
+      border: 1px solid #c2bcc0;
+      background: #fbfbfb;
+      overflow: hidden;
+      box-shadow: 2px 2px 0 #e7e0e4;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .commission-image-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 4px 0 rgba(100, 30, 60, 0.12);
+      border-color: #a98f9a;
+    }
+
+    .commission-image-preview {
+      height: 170px;
+      border: none;
+      border-bottom: 1px solid #c2bcc0;
+      box-shadow: none;
+    }
+
+    .commission-image-preview.one {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-extra-1.png");
+    }
+
+    .commission-image-preview.two {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+        url("commission-extra-2.png");
+    }
+
+    .commission-image-info {
+      padding: 8px 9px 10px;
+    }
+
+    .commission-image-info h3 {
+      margin: 0 0 4px;
+      font-family: Georgia, serif;
+      color: #66289d;
+      font-size: 17px;
+      line-height: 1.1;
+    }
+
+    .commission-image-info p {
+      margin: 0;
+      color: #5f5862;
+      font-size: 11px;
+    }
+
     .footer {
       margin-top: 10px;
       border: 1px solid #c2bcc0;
@@ -1569,20 +1765,13 @@
     }
 
     @media (max-width: 820px) {
-      .hero-row,
       .content,
       .tools-split {
         grid-template-columns: 1fr;
       }
 
-      .commission-nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-
-      .commission-nav-title {
-        grid-column: 1 / -1;
+      .commission-top-nav {
+        grid-template-columns: 1fr;
       }
 
       .commission-button {
@@ -1590,12 +1779,12 @@
       }
 
       .hero-image {
-        height: 430px;
+        height: 330px;
       }
 
       .hero-side-image {
-        width: 120px;
-        height: 138px;
+        width: 105px;
+        height: 116px;
       }
 
       .gallery,
@@ -1604,7 +1793,9 @@
       .featured-grid,
       .process-steps,
       .project-mini-grid,
-      .contact-mini-grid {
+      .contact-mini-grid,
+      .showcase-featured,
+      .commission-image-row {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1641,18 +1832,20 @@
       }
 
       .hero-image {
-        height: 390px;
+        height: 300px;
       }
 
       .intro-bar,
       .status-strip,
-      .commission-nav,
+      .commission-top-nav,
       .gallery,
       .news-item,
       .plans-grid,
       .price-grid,
       .featured-grid,
-      .process-steps {
+      .process-steps,
+      .showcase-featured,
+      .commission-image-row {
         grid-template-columns: 1fr;
       }
 
@@ -1660,8 +1853,8 @@
         position: absolute;
         left: 16px;
         bottom: 16px;
-        width: 105px;
-        height: 120px;
+        width: 92px;
+        height: 105px;
       }
 
       .hero-badge {
@@ -1685,6 +1878,10 @@
     </div>
 
     <div class="container">
+      <nav class="commission-top-nav" aria-label="Navegación de costos">
+        <button class="commission-button featured" type="button" data-open-view="costosView">▶ Costos</button>
+      </nav>
+
       <div class="hero-row">
         <section class="hero">
           <div class="hero-image">
@@ -1710,12 +1907,6 @@
             </div>
           </div>
         </section>
-
-        <aside class="commission-nav" aria-label="Navegación de comisiones">
-          <p class="commission-nav-title">Comisiones</p>
-          <button class="commission-button" type="button" data-open-view="modelsView">▶ Modelos, mods y animación</button>
-          <button class="commission-button dark" type="button" data-open-view="webView">▶ Web, thumbnails e ilustración</button>
-        </aside>
       </div>
 
       <div id="homeView" class="view active">
@@ -1741,7 +1932,7 @@
                 <a href="#proyectos">Proyectos</a>
                 <a href="#perfil">Perfil</a>
                 <a href="#contacto">Contacto</a>
-                <button type="button" data-open-view="modelsView">Ver comisiones</button>
+                <a href="#destacados">Destacados</a>
               </div>
               <div class="side-description">
                 Portfolio personal, apps, arte digital, interfaces y mini proyectos.
@@ -1815,44 +2006,65 @@
 
           <main class="main">
             <div class="box">
-              <div class="news-header">
-                <h2>WHAT'S NEW</h2>
-                <div class="mini-links">
-                  <span>RSS</span>
-                  <span>XML</span>
-                </div>
+              <div class="news-header" id="destacados">
+                <h2>DESTACADOS</h2>
               </div>
 
-              <div class="news-list">
-                <article class="news-item">
-                  <div class="news-thumb"></div>
-                  <div>
-                    <div class="news-date">09.06 update</div>
-                    <div class="news-title">Ver proyectos</div>
-                    <p>Mods · apps · Art · Projects</p>
-                    <a href="#proyectos">Ir a proyectos »</a>
+              <div class="commission-body home-showcase">
+                <hr class="dotted-separator">
+
+                <div class="commission-showcase-intro">
+                  En esta sección puedo mostrar trabajos ya realizados para otros estudios, equipos o creadores.
+                </div>
+
+                <article class="showcase-featured">
+                  <div class="showcase-main-image" title="">
+                    <span></span>
+                  </div>
+
+                  <div class="showcase-text">
+                    <h3>Hytale ModJam 2026</h3>
+                    <p>
+                      Realicé comisiones para <strong>StonefallStudio</strong>, un estudio dedicado a la creación de mods para <strong>Hytale</strong>.
+                    </p>
+                    <p>
+                      Me dedique a la parte de animaciones para el jefe del mod Below Every Heaven (un total de diez animaciones)
+                    </p>
+
+                    <div class="showcase-highlight">
+                      <strong>Destacado:</strong> el estudio quedó <strong>Top 2</strong> en la <strong>ModJam de CurseForge</strong>, https://www.curseforge.com/hytale/mods/below-every-heaven
+                    </div>
+
+                    <div class="tags">
+                      <span class="tag">Hytale mods</span>
+                      <span class="tag">StonefallStudio</span>
+                      <span class="tag">CurseForge ModJam</span>
+                      <span class="tag">Top 2</span>
+                    </div>
                   </div>
                 </article>
 
-                <article class="news-item alt-1">
-                  <div class="news-thumb"></div>
-                  <div>
-                    <div class="news-date">08.30 update</div>
-                    <div class="news-title">INFO - Peshi Studios</div>
-                    <p>Peshi Studios · Estudio creativo orientado a videojuegos</p>
-                    <a href="#perfil">Más información »</a>
-                  </div>
-                </article>
+                <h3 class="commission-subtitle">Otras comisiones</h3>
 
-                <article class="news-item alt-2">
-                  <div class="news-thumb"></div>
-                  <div>
-                    <div class="news-date">08.20 update</div>
-                    <div class="news-title">Contactame</div>
-                    <p>Formas de contactarme</p>
-                    <a href="#contacto">Contacto directo »</a>
-                  </div>
-                </article>
+                <div class="commission-image-row">
+                  <article class="commission-image-card">
+                    <div class="commission-image-preview one" title="">
+                    </div>
+                    <div class="commission-image-info">
+                      <h3>Mc Model - Cerberus</h3>
+                      <p>Es el perro guardián del Inframundo en la mitología griega, descrito comúnmente como un can de tres cabezas</p>
+                    </div>
+                  </article>
+
+                  <article class="commission-image-card">
+                    <div class="commission-image-preview two" title="">
+                    </div>
+                    <div class="commission-image-info">
+                      <h3>Indev Collection</h3>
+                      <p>Cuatro modelos de Mc Indev para un addon de minecraft bedrock</p>
+                    </div>
+                  </article>
+                </div>
               </div>
 
               <section class="section" id="presentacion">
@@ -1861,7 +2073,7 @@
                 <p>Desarrollador independiente dispuesto a colaboraciones, y comisiones.</p>
                 <div class="project-links">
                   <a href="#proyectos">Ver proyectos</a>
-                  <button class="retro-button" type="button" data-open-view="modelsView">Comisiones abiertas</button>
+                  <button class="retro-button" type="button" data-open-view="costosView">Ver costos</button>
                 </div>
                 <div class="tags">
                   <span class="tag">Mods de videojuegos</span>
@@ -2014,18 +2226,20 @@
         </div>
       </div>
 
-      <section id="modelsView" class="view commission-page">
+      <section id="costosView" class="view commission-page">
         <div class="commission-page-head">
           <button class="back-button" type="button" data-open-view="homeView">← Regresar</button>
           <div class="commission-title">
-            <h2>Planes de comisión</h2>
-            <p>Modelos 3D, mods y animaciones de modelos.</p>
+            <h2>Costos</h2>
+            <p>Modelos, mods, animación, web, thumbnails e ilustración.</p>
           </div>
-          <div class="commission-status">● cupos limitados</div>
+          <div class="commission-status">● consultar disponibilidad</div>
         </div>
 
         <div class="commission-body">
           <hr class="dotted-separator">
+
+          <h3 class="commission-subtitle">Modelos, mods y animación</h3>
 
           <div class="price-grid">
             <div class="price-row header">
@@ -2055,38 +2269,10 @@
           </div>
 
           <div class="service-note">
-            Los precios son una base aproximada. Pueden cambiar según complejidad, cantidad de detalles, cantidad de revisiones y tipo de uso del modelo. La fecha estimada de la entrega de los modelos se dicen luego de la comunicación.
+            Los precios son una base aproximada. Pueden cambiar según complejidad, cantidad de detalles, cantidad de revisiones y tipo de uso del modelo. La fecha estimada de entrega se define luego de conversar el pedido.
           </div>
 
-          <div class="model-preview-card">
-            <h3>Cerberus minecraft model - ejemplo de modelo 3D</h3>
-            <p>Preview interactiva del modelo publicado en Sketchfab. Puede no verse exactamente igual al modelo final (ya que fue subida desde una cuenta de sketchfab básica).</p>
-            <div class="sketchfab-preview">
-              <iframe
-                title="Cerberus 3D model"
-                src="https://sketchfab.com/models/d4df1f1353b6425e8fadc5315dc48749/embed?autostart=0&ui_theme=dark"
-                allow="autoplay; fullscreen; xr-spatial-tracking"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-
-        
-        </div>
-      </section>
-
-      <section id="webView" class="view commission-page">
-        <div class="commission-page-head">
-          <button class="back-button" type="button" data-open-view="homeView">← Regresar</button>
-          <div class="commission-title">
-            <h2>Web, thumbnails e ilustración</h2>
-            <p>Diseños visuales, páginas simples y piezas para redes.</p>
-          </div>
-          <div class="commission-status">● consultar disponibilidad</div>
-        </div>
-
-        <div class="commission-body">
-          <hr class="dotted-separator">
+          <h3 class="commission-subtitle">Web, thumbnails e ilustración</h3>
 
           <div class="price-grid">
             <div class="price-row header">
@@ -2109,7 +2295,7 @@
             </div>
             <div class="price-row">
               <div class="price-cell price-name">Ilustración</div>
-              <div class="price-cell">Arte simple, iconos o assets</div>
+              <div class="price-cell">Arte simple, iconos o assets personalizados.</div>
               <div class="price-cell">A pedido</div>
               <div class="price-cell"><span class="price-amount">a cotizar</span></div>
             </div>
@@ -2118,8 +2304,6 @@
           <div class="service-note">
             Estos trabajos se cotizan según tamaño, cantidad de piezas, nivel de detalle y tiempo de entrega.
           </div>
-
-
         </div>
       </section>
 
