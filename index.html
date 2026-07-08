@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pecsitonic Official Homepage</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    *{ box-sizing:border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
-    body {
+    body{
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;
@@ -23,26 +19,23 @@
         linear-gradient(to right, #f3d9dd 0, #f3d9dd 58px, #f8f8f8 58px, #f8f8f8 calc(100% - 58px), #f3d9dd calc(100% - 58px), #f3d9dd 100%);
     }
 
-    a {
-      color: #8b2746;
-      text-decoration: none;
+    a{
+      color:#8b2746;
+      text-decoration:none;
+    }
+    a:hover { text-decoration: underline; }
+
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      width: 860px;
-      margin: 0 auto;
-      background: #f8f8f8;
-      min-height: 100vh;
-      position: relative;
+    .page{
+      width:860px;
+      margin:0 auto;
+      background:#f8f8f8;
+      min-height:100vh;
+      position:relative;
     }
 
     .topbar {
@@ -57,33 +50,32 @@
       font-size: 11px;
     }
 
-    .topbar-left,
-    .topbar-right {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      white-space: nowrap;
+    .topbar-left,.topbar-right{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      white-space:nowrap;
     }
 
-    .container {
-      width: 820px;
-      margin: 0 auto;
-      padding: 8px 0 18px;
-      position: relative;
+    .container{
+      width:820px;
+      margin:0 auto;
+      padding:8px 0 18px;
+      position:relative;
     }
 
-    .hero-row {
-      display: block;
-      align-items: start;
+    .hero-row{
+      display:block;
+      align-items:start;
     }
 
-    .hero {
-      position: relative;
-      border: 1px solid #b8b1b4;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset;
+    .hero{
+      position:relative;
+      border:1px solid #b8b1b4;
+      border-radius:6px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 0 0 1px rgba(255,255,255,0.6) inset;
     }
 
     .hero-image {
@@ -2323,64 +2315,65 @@
   </div>
 
   <script>
-    const views = document.querySelectorAll(".view");
-    const openViewButtons = document.querySelectorAll("[data-open-view]");
-    const commissionButtons = document.querySelectorAll(".commission-button");
+    var vistas = document.querySelectorAll(".view"),
+        botonesVista = document.querySelectorAll("[data-open-view]"),
+        btnComision = document.querySelectorAll(".commission-button");
 
-    function openView(viewId) {
-      views.forEach(view => {
-        view.classList.toggle("active", view.id === viewId);
+    function mostrar_pantalla(cual) {
+        vistas.forEach(function(vista){
+          vista.classList.toggle("active", vista.id == cual);
+        });
+
+      btnComision.forEach(function(btn){
+          var vaA = btn.getAttribute("data-open-view");
+          btn.classList.toggle("active", vaA == cual);
       });
 
-      commissionButtons.forEach(button => {
-        button.classList.toggle("active", button.getAttribute("data-open-view") === viewId);
-      });
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({top:0, behavior:"smooth"});
     }
 
-    openViewButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const target = button.getAttribute("data-open-view");
-        openView(target);
+    botonesVista.forEach(function(elBtn) {
+      elBtn.addEventListener("click", function() {
+        var destino = elBtn.getAttribute("data-open-view");
+
+        mostrar_pantalla(destino);
       });
     });
 
-    const galleryItems = document.querySelectorAll(".gallery-item");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxDescription = document.getElementById("lightboxDescription");
-    const lightboxClose = document.getElementById("lightboxClose");
 
-    galleryItems.forEach(item => {
-      item.addEventListener("click", () => {
-        const fullImage = item.getAttribute("data-full");
-        const description = item.getAttribute("data-description");
+    var itemsGaleria = document.querySelectorAll(".gallery-item");
+    var cajaFoto = document.getElementById("lightbox"),
+        fotoGrande = document.getElementById("lightboxImage"),
+        textoFoto = document.getElementById("lightboxDescription"),
+        cerrarCaja = document.getElementById("lightboxClose");
 
-        lightboxImage.src = fullImage;
-        lightboxDescription.textContent = description;
-        lightbox.classList.add("active");
+    itemsGaleria.forEach(function(cosita) {
+      cosita.addEventListener("click", function() {
+          var imgFinal = cosita.getAttribute("data-full");
+        var txt = cosita.getAttribute("data-description");
+
+        fotoGrande.src = imgFinal;
+        textoFoto.textContent = txt;
+        cajaFoto.classList.add("active");
       });
     });
 
-    function closeLightbox() {
-      lightbox.classList.remove("active");
-      lightboxImage.src = "";
-      lightboxDescription.textContent = "";
+    function cerrar_foto() {
+       cajaFoto.classList.remove("active");
+       fotoGrande.src = "";
+      textoFoto.textContent = "";
     }
 
-    lightboxClose.addEventListener("click", closeLightbox);
+    cerrarCaja.addEventListener("click", cerrar_foto);
 
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
+    cajaFoto.addEventListener("click", function(e) {
+      if(e.target == cajaFoto) {
+          cerrar_foto();
       }
     });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeLightbox();
-      }
+    document.addEventListener("keydown", function(e) {
+      if (e.key == "Escape") cerrar_foto();
     });
   </script>
 </body>
