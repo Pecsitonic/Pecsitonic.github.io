@@ -1,0 +1,1071 @@
+(() => {
+  "use strict";
+
+  window.PortfolioContent = {
+    supported: ["es", "en", "pt", "fr", "ru", "ja"],
+    translations: {
+      es: {
+        "aria.navigation": "Navegación principal",
+        "aria.language": "Cambiar idioma",
+        "aria.github": "Abrir GitHub",
+        "aria.close": "Cerrar",
+        "aria.contributions": "Calendario de contribuciones de GitHub",
+        "nav.overview": "Overview",
+        "nav.commissions": "Comisiones",
+        "common.contact": "Contactarme",
+        "common.github": "Ver GitHub",
+        "profile.role": "Modder · Game Developer · Artista digital",
+        "achievements.since": "Modder since 28 Nov 2023",
+        "achievements.title": "Achievements",
+        "achievements.stonefall": "[Commision to StonefallStudio]",
+        "overview.title": "¡Hola! Soy Pecsitonic",
+        "overview.aboutTitle": "Sobre mí",
+        "overview.aboutOne": "Me especializo en modding para Minecraft y Hytale, desarrollo web, ports y producción de recursos visuales para proyectos digitales.",
+        "overview.aboutTwo": "Creo criaturas, animaciones, interfaces y herramientas. Actualmente también desarrollo un videojuego para Android utilizando Unity.",
+        "overview.projectsTitle": "Proyectos",
+        "project.tonic": "Archivo web para series de anime.",
+        "project.library": "Biblioteca personal de series y películas.",
+        "project.kekefit": "Aplicación Android de calorías y comidas.",
+        "project.cardjitsu": "Port nativo realizado con VitaSDK.",
+        "github.loading": "Cargando contribuciones…",
+        "github.loaded": "{total} contributions in the last year",
+        "github.error": "No se pudo actualizar el calendario.",
+        "github.settings": "Contribution settings⌄",
+        "github.learn": "Learn how we count contributions",
+        "github.less": "Less",
+        "github.more": "More",
+        "commissions.title": "Comisiones",
+        "commissions.costs": "Costos",
+        "commissions.services": "Servicios",
+        "tools.languages": "Lenguajes",
+        "tools.frameworks": "Frameworks & Servicios",
+        "tools.environment": "Herramientas & Entorno",
+        "costTabs.models": "Modelos",
+        "costTabs.ui": "UI/Ilustracion",
+        "costTabs.stickers": "Stickers",
+        "costTabs.thumbnails": "Thumbnails",
+        "costTabs.mods": "Custom Mods",
+        "costs.title": "¿Cuáles son mis precios?",
+        "costs.modelsTitle": "Modelos",
+        "costs.type": "Tipo de modelo",
+        "costs.base": "Base",
+        "costs.anim": "Con 6 anim.",
+        "costs.small": "Modelo chico",
+        "costs.medium": "Modelo medio",
+        "costs.large": "Modelo grande",
+        "costs.smallText": "Criatura, mob o asset simple con textura básica.",
+        "costs.mediumText": "Más piezas, detalle y textura personalizada.",
+        "costs.largeText": "Criatura compleja, jefe, montura o modelo grande.",
+        "costs.ask": "El precio depende del tamaño, la complejidad y el uso. Consultame con referencias.",
+        "services.title": "¿Qué Ofrezco?",
+        "services.models": "Modelos, mods y animación",
+        "services.modelsText": "Criaturas, mobs, props, assets y animaciones para Minecraft o Hytale.",
+        "services.emotes": "Stickers y emotes",
+        "services.emotesText": "Emotes para Twitch, Discord, videojuegos y comunidades.",
+        "services.banners": "Banners y miniaturas",
+        "services.bannersText": "Diseños para canales, videos, anuncios y redes.",
+        "services.illustrations": "Ilustraciones",
+        "services.illustrationsText": "Dibujos, conceptos y piezas visuales realizadas con Krita.",
+        "services.crowdfunding": "Diseño para crowdfunding",
+        "services.crowdfundingText": "Encabezados, recompensas, tablas y gráficos para campañas.",
+        "faq.title": "Preguntas Frecuentes",
+        "faq.define": "Definimos el pedido",
+        "faq.defineText": "Idea, referencias, formato y plazo.",
+        "faq.progress": "Muestro avances",
+        "faq.progressText": "Comparto cambios y revisiones por Discord.",
+        "faq.delivery": "Entrega y pago",
+        "faq.deliveryText": "PayPal: 50% al iniciar y 50% al finalizar.",
+        "faq.priceQuestion": "¿Cuánto cuesta una comisión?",
+        "faq.priceAnswer": "Depende del alcance, la complejidad y el plazo. Enviame una descripción y referencias para preparar un presupuesto.",
+        "faq.startQuestion": "¿Qué necesitás para empezar?",
+        "faq.startAnswer": "Una explicación clara, referencias o un boceto y una buena comunicación.",
+        "contact.label": "Contacto",
+        "contact.title": "¿Dónde podés encontrarme?",
+        "contact.text": "Para presupuestos, enviame una descripción breve, referencias y el plazo aproximado."
+      },
+
+      en: {
+        "aria.navigation": "Main navigation",
+        "aria.language": "Change language",
+        "aria.github": "Open GitHub",
+        "aria.close": "Close",
+        "aria.contributions": "GitHub contribution calendar",
+        "nav.overview": "Overview",
+        "nav.commissions": "Commissions",
+        "common.contact": "Contact me",
+        "common.github": "View GitHub",
+        "profile.role": "Modder · Game Developer · Digital artist",
+        "achievements.since": "Modder since 28 Nov 2023",
+        "achievements.title": "Achievements",
+        "achievements.stonefall": "[Commission for StonefallStudio]",
+        "overview.title": "Hi! I'm Pecsitonic",
+        "overview.aboutTitle": "About me",
+        "overview.aboutOne": "I specialize in Minecraft and Hytale modding, web development, ports and visual assets for digital projects.",
+        "overview.aboutTwo": "I create creatures, animations, interfaces and tools. I am also developing an Android game with Unity.",
+        "overview.projectsTitle": "Projects",
+        "project.tonic": "Web archive for anime series.",
+        "project.library": "Personal library for movies and series.",
+        "project.kekefit": "Android calorie and meal application.",
+        "project.cardjitsu": "Native port built with VitaSDK.",
+        "github.loading": "Loading contributions…",
+        "github.loaded": "{total} contributions in the last year",
+        "github.error": "The calendar could not be updated.",
+        "github.settings": "Contribution settings⌄",
+        "github.learn": "Learn how we count contributions",
+        "github.less": "Less",
+        "github.more": "More",
+        "commissions.title": "Commissions",
+        "commissions.costs": "Costs",
+        "commissions.services": "Services",
+        "tools.languages": "Languages",
+        "tools.frameworks": "Frameworks & Services",
+        "tools.environment": "Tools & Environment",
+        "costTabs.models": "Models",
+        "costTabs.ui": "UI/Illustration",
+        "costTabs.stickers": "Stickers",
+        "costTabs.thumbnails": "Thumbnails",
+        "costTabs.mods": "Custom Mods",
+        "costs.title": "What are my prices?",
+        "costs.modelsTitle": "Models",
+        "costs.type": "Model type",
+        "costs.base": "Base",
+        "costs.anim": "With 6 anim.",
+        "costs.small": "Small model",
+        "costs.medium": "Medium model",
+        "costs.large": "Large model",
+        "costs.smallText": "Creature, mob or simple asset with a basic texture.",
+        "costs.mediumText": "More pieces, detail and a custom texture.",
+        "costs.largeText": "Complex creature, boss, mount or larger model.",
+        "costs.ask": "Pricing depends on size, complexity and use. Send references for a quote.",
+        "services.title": "What do I offer?",
+        "services.models": "Models, mods and animation",
+        "services.modelsText": "Creatures, mobs, props, assets and animations for Minecraft or Hytale.",
+        "services.emotes": "Stickers and emotes",
+        "services.emotesText": "Emotes for Twitch, Discord, games and communities.",
+        "services.banners": "Banners and thumbnails",
+        "services.bannersText": "Designs for channels, videos, announcements and social media.",
+        "services.illustrations": "Illustrations",
+        "services.illustrationsText": "Drawings, concepts and visual pieces created with Krita.",
+        "services.crowdfunding": "Crowdfunding design",
+        "services.crowdfundingText": "Headers, rewards, tables and campaign graphics.",
+        "faq.title": "Frequently Asked Questions",
+        "faq.define": "Define the request",
+        "faq.defineText": "Idea, references, format and deadline.",
+        "faq.progress": "Progress updates",
+        "faq.progressText": "I share changes and revisions through Discord.",
+        "faq.delivery": "Delivery and payment",
+        "faq.deliveryText": "PayPal: 50% to begin and 50% on completion.",
+        "faq.priceQuestion": "How much does a commission cost?",
+        "faq.priceAnswer": "It depends on scope, complexity and deadline. Send a description and references so I can prepare a quote.",
+        "faq.startQuestion": "What do you need to get started?",
+        "faq.startAnswer": "A clear explanation, references or a sketch, and good communication.",
+        "contact.label": "Contact",
+        "contact.title": "Where can you find me?",
+        "contact.text": "For quotes, send a short description, references and an approximate deadline."
+      },
+
+      pt: {
+        "nav.overview": "Visão geral", "nav.commissions": "Comissões", "common.contact": "Entrar em contato", "common.github": "Ver GitHub",
+        "profile.role": "Modder · Game Developer · Artista digital", "overview.title": "Olá! Sou Pecsitonic", "overview.aboutTitle": "Sobre mim",
+        "overview.aboutOne": "Sou especializado em mods para Minecraft e Hytale, desenvolvimento web, ports e recursos visuais para projetos digitais.",
+        "overview.aboutTwo": "Crio criaturas, animações, interfaces e ferramentas. Também desenvolvo um jogo Android com Unity.",
+        "overview.projectsTitle": "Projetos", "project.tonic": "Arquivo web para séries de anime.", "project.library": "Biblioteca pessoal de filmes e séries.",
+        "project.kekefit": "Aplicativo Android de calorias e refeições.", "project.cardjitsu": "Port nativo desenvolvido com VitaSDK.",
+        "github.loading": "Carregando contribuições…", "github.loaded": "{total} contribuições no último ano", "github.error": "Não foi possível atualizar o calendário.",
+        "commissions.title": "Comissões", "commissions.costs": "Custos", "commissions.services": "Serviços", "tools.languages": "Linguagens",
+        "tools.frameworks": "Frameworks & Serviços", "tools.environment": "Ferramentas & Ambiente", "costs.title": "Quais são meus preços?",
+        "services.title": "O que ofereço?", "faq.title": "Perguntas Frequentes", "contact.label": "Contato", "contact.title": "Onde você pode me encontrar?"
+      },
+
+      fr: {
+        "nav.overview": "Aperçu", "nav.commissions": "Commissions", "common.contact": "Me contacter", "common.github": "Voir GitHub",
+        "profile.role": "Modder · Game Developer · Artiste numérique", "overview.title": "Bonjour ! Je suis Pecsitonic", "overview.aboutTitle": "À propos",
+        "overview.aboutOne": "Je me spécialise dans le modding Minecraft et Hytale, le développement web, les ports et les ressources visuelles.",
+        "overview.aboutTwo": "Je crée des créatures, des animations, des interfaces et des outils. Je développe aussi un jeu Android avec Unity.",
+        "overview.projectsTitle": "Projets", "project.tonic": "Archive web pour séries animées.", "project.library": "Bibliothèque personnelle de films et séries.",
+        "project.kekefit": "Application Android de calories et repas.", "project.cardjitsu": "Port natif créé avec VitaSDK.",
+        "github.loading": "Chargement des contributions…", "github.loaded": "{total} contributions au cours de la dernière année", "github.error": "Le calendrier n'a pas pu être mis à jour.",
+        "commissions.title": "Commissions", "commissions.costs": "Coûts", "commissions.services": "Services", "tools.languages": "Langages",
+        "tools.frameworks": "Frameworks & Services", "tools.environment": "Outils & Environnement", "costs.title": "Quels sont mes tarifs ?",
+        "services.title": "Que puis-je proposer ?", "faq.title": "Questions Fréquentes", "contact.label": "Contact", "contact.title": "Où pouvez-vous me trouver ?"
+      },
+
+      ru: {
+        "nav.overview": "Обзор", "nav.commissions": "Заказы", "common.contact": "Связаться", "common.github": "Открыть GitHub",
+        "profile.role": "Моддер · Разработчик игр · Цифровой художник", "overview.title": "Привет! Я Pecsitonic", "overview.aboutTitle": "Обо мне",
+        "overview.aboutOne": "Я занимаюсь моддингом Minecraft и Hytale, веб-разработкой, портами и визуальными материалами.",
+        "overview.aboutTwo": "Я создаю существ, анимации, интерфейсы и инструменты. Также разрабатываю Android-игру на Unity.",
+        "overview.projectsTitle": "Проекты", "project.tonic": "Веб-архив аниме-сериалов.", "project.library": "Личная библиотека фильмов и сериалов.",
+        "project.kekefit": "Android-приложение для калорий и питания.", "project.cardjitsu": "Нативный порт на VitaSDK.",
+        "github.loading": "Загрузка вкладов…", "github.loaded": "{total} вкладов за последний год", "github.error": "Не удалось обновить календарь.",
+        "commissions.title": "Заказы", "commissions.costs": "Цены", "commissions.services": "Услуги", "tools.languages": "Языки",
+        "tools.frameworks": "Фреймворки и сервисы", "tools.environment": "Инструменты и среда", "costs.title": "Сколько это стоит?",
+        "services.title": "Что я предлагаю?", "faq.title": "Частые вопросы", "contact.label": "Контакты", "contact.title": "Где со мной связаться?"
+      },
+
+      ja: {
+        "nav.overview": "概要", "nav.commissions": "制作依頼", "common.contact": "連絡する", "common.github": "GitHubを見る",
+        "profile.role": "Mod制作者 · ゲーム開発者 · デジタルアーティスト", "overview.title": "こんにちは！Pecsitonicです", "overview.aboutTitle": "自己紹介",
+        "overview.aboutOne": "MinecraftとHytaleのMod制作、Web開発、移植、ビジュアル素材制作を行っています。",
+        "overview.aboutTwo": "クリーチャー、アニメーション、UI、ツールを制作しています。現在はUnityでAndroidゲームも開発中です。",
+        "overview.projectsTitle": "プロジェクト", "project.tonic": "アニメシリーズ用Webアーカイブ。", "project.library": "映画・シリーズの個人ライブラリ。",
+        "project.kekefit": "カロリーと食事管理のAndroidアプリ。", "project.cardjitsu": "VitaSDKによるネイティブ移植。",
+        "github.loading": "コントリビューションを読み込み中…", "github.loaded": "過去1年間で{total}件のコントリビューション", "github.error": "カレンダーを更新できませんでした。",
+        "commissions.title": "制作依頼", "commissions.costs": "料金", "commissions.services": "サービス", "tools.languages": "言語",
+        "tools.frameworks": "フレームワーク・サービス", "tools.environment": "ツール・開発環境", "costs.title": "料金はいくらですか？",
+        "services.title": "何を制作できますか？", "faq.title": "よくある質問", "contact.label": "連絡先", "contact.title": "どこから連絡できますか？"
+      }
+    }
+  };
+
+  const extraTranslations = {
+  "pt": {
+    "aria.navigation": "Navegação principal",
+    "aria.language": "Mudar idioma",
+    "aria.github": "Abrir GitHub",
+    "aria.close": "Fechar",
+    "aria.contributions": "Calendário de contribuições do GitHub",
+    "achievements.since": "Modder desde 28 nov 2023",
+    "achievements.title": "Conquistas",
+    "achievements.stonefall": "[Comissão para StonefallStudio]",
+    "github.settings": "Configurações de contribuições⌄",
+    "github.learn": "Saiba como contamos as contribuições",
+    "github.less": "Menos",
+    "github.more": "Mais",
+    "costTabs.models": "Modelos",
+    "costTabs.ui": "UI/Ilustração",
+    "costTabs.stickers": "Stickers",
+    "costTabs.thumbnails": "Thumbnails",
+    "costTabs.mods": "Mods personalizados",
+    "costs.modelsTitle": "Modelos",
+    "costs.type": "Tipo de modelo",
+    "costs.base": "Base",
+    "costs.anim": "Com 6 anim.",
+    "costs.small": "Modelo pequeno",
+    "costs.medium": "Modelo médio",
+    "costs.large": "Modelo grande",
+    "costs.smallText": "Criatura, mob ou asset simples com textura básica.",
+    "costs.mediumText": "Mais peças, detalhes e textura personalizada.",
+    "costs.largeText": "Criatura complexa, chefe, montaria ou modelo grande.",
+    "costs.ask": "O preço depende do tamanho, complexidade e uso. Envie referências para um orçamento.",
+    "services.models": "Modelos, mods e animação",
+    "services.modelsText": "Criaturas, mobs, props, assets e animações para Minecraft ou Hytale.",
+    "services.emotes": "Stickers e emotes",
+    "services.emotesText": "Emotes para Twitch, Discord, jogos e comunidades.",
+    "services.banners": "Banners e thumbnails",
+    "services.bannersText": "Designs para canais, vídeos, anúncios e redes.",
+    "services.illustrations": "Ilustrações",
+    "services.illustrationsText": "Desenhos, conceitos e peças visuais feitas com Krita.",
+    "services.crowdfunding": "Design para crowdfunding",
+    "services.crowdfundingText": "Cabeçalhos, recompensas, tabelas e gráficos para campanhas.",
+    "faq.define": "Definimos o pedido",
+    "faq.defineText": "Ideia, referências, formato e prazo.",
+    "faq.progress": "Mostro os avanços",
+    "faq.progressText": "Compartilho mudanças e revisões pelo Discord.",
+    "faq.delivery": "Entrega e pagamento",
+    "faq.deliveryText": "PayPal: 50% no início e 50% na conclusão.",
+    "faq.priceQuestion": "Quanto custa uma comissão?",
+    "faq.priceAnswer": "Depende do escopo, complexidade e prazo. Envie uma descrição e referências para eu preparar um orçamento.",
+    "faq.startQuestion": "O que você precisa para começar?",
+    "faq.startAnswer": "Uma explicação clara, referências ou um esboço e boa comunicação.",
+    "contact.text": "Para orçamentos, envie uma breve descrição, referências e um prazo aproximado."
+  },
+  "fr": {
+    "aria.navigation": "Navigation principale",
+    "aria.language": "Changer de langue",
+    "aria.github": "Ouvrir GitHub",
+    "aria.close": "Fermer",
+    "aria.contributions": "Calendrier des contributions GitHub",
+    "achievements.since": "Modder depuis le 28 nov. 2023",
+    "achievements.title": "Réalisations",
+    "achievements.stonefall": "[Commande pour StonefallStudio]",
+    "github.settings": "Paramètres des contributions⌄",
+    "github.learn": "Comprendre le calcul des contributions",
+    "github.less": "Moins",
+    "github.more": "Plus",
+    "costTabs.models": "Modèles",
+    "costTabs.ui": "UI/Illustration",
+    "costTabs.stickers": "Stickers",
+    "costTabs.thumbnails": "Miniatures",
+    "costTabs.mods": "Mods personnalisés",
+    "costs.modelsTitle": "Modèles",
+    "costs.type": "Type de modèle",
+    "costs.base": "Base",
+    "costs.anim": "Avec 6 anim.",
+    "costs.small": "Petit modèle",
+    "costs.medium": "Modèle moyen",
+    "costs.large": "Grand modèle",
+    "costs.smallText": "Créature, mob ou asset simple avec texture de base.",
+    "costs.mediumText": "Plus de pièces, de détails et une texture personnalisée.",
+    "costs.largeText": "Créature complexe, boss, monture ou grand modèle.",
+    "costs.ask": "Le prix dépend de la taille, de la complexité et de l’utilisation. Envoyez des références pour un devis.",
+    "services.models": "Modèles, mods et animation",
+    "services.modelsText": "Créatures, mobs, accessoires, assets et animations pour Minecraft ou Hytale.",
+    "services.emotes": "Stickers et emotes",
+    "services.emotesText": "Emotes pour Twitch, Discord, jeux et communautés.",
+    "services.banners": "Bannières et miniatures",
+    "services.bannersText": "Designs pour chaînes, vidéos, annonces et réseaux.",
+    "services.illustrations": "Illustrations",
+    "services.illustrationsText": "Dessins, concepts et visuels réalisés avec Krita.",
+    "services.crowdfunding": "Design de crowdfunding",
+    "services.crowdfundingText": "En-têtes, récompenses, tableaux et graphiques pour campagnes.",
+    "faq.define": "Définition de la demande",
+    "faq.defineText": "Idée, références, format et délai.",
+    "faq.progress": "Suivi des avancées",
+    "faq.progressText": "Je partage les changements et révisions sur Discord.",
+    "faq.delivery": "Livraison et paiement",
+    "faq.deliveryText": "PayPal : 50 % au début et 50 % à la fin.",
+    "faq.priceQuestion": "Combien coûte une commission ?",
+    "faq.priceAnswer": "Cela dépend de la portée, de la complexité et du délai. Envoyez une description et des références pour obtenir un devis.",
+    "faq.startQuestion": "De quoi avez-vous besoin pour commencer ?",
+    "faq.startAnswer": "Une explication claire, des références ou un croquis et une bonne communication.",
+    "contact.text": "Pour un devis, envoyez une courte description, des références et un délai approximatif."
+  },
+  "ru": {
+    "aria.navigation": "Основная навигация",
+    "aria.language": "Сменить язык",
+    "aria.github": "Открыть GitHub",
+    "aria.close": "Закрыть",
+    "aria.contributions": "Календарь вкладов GitHub",
+    "achievements.since": "Моддер с 28 ноября 2023",
+    "achievements.title": "Достижения",
+    "achievements.stonefall": "[Заказ для StonefallStudio]",
+    "github.settings": "Настройки вкладов⌄",
+    "github.learn": "Как учитываются вклады",
+    "github.less": "Меньше",
+    "github.more": "Больше",
+    "costTabs.models": "Модели",
+    "costTabs.ui": "UI/Иллюстрация",
+    "costTabs.stickers": "Стикеры",
+    "costTabs.thumbnails": "Превью",
+    "costTabs.mods": "Пользовательские моды",
+    "costs.modelsTitle": "Модели",
+    "costs.type": "Тип модели",
+    "costs.base": "База",
+    "costs.anim": "С 6 аним.",
+    "costs.small": "Маленькая модель",
+    "costs.medium": "Средняя модель",
+    "costs.large": "Большая модель",
+    "costs.smallText": "Существо, моб или простой ассет с базовой текстурой.",
+    "costs.mediumText": "Больше частей, деталей и индивидуальная текстура.",
+    "costs.largeText": "Сложное существо, босс, маунт или крупная модель.",
+    "costs.ask": "Цена зависит от размера, сложности и использования. Пришлите референсы для расчёта.",
+    "services.models": "Модели, моды и анимация",
+    "services.modelsText": "Существа, мобы, пропсы, ассеты и анимации для Minecraft или Hytale.",
+    "services.emotes": "Стикеры и эмоуты",
+    "services.emotesText": "Эмоуты для Twitch, Discord, игр и сообществ.",
+    "services.banners": "Баннеры и превью",
+    "services.bannersText": "Дизайн для каналов, видео, объявлений и соцсетей.",
+    "services.illustrations": "Иллюстрации",
+    "services.illustrationsText": "Рисунки, концепты и визуальные материалы в Krita.",
+    "services.crowdfunding": "Дизайн для краудфандинга",
+    "services.crowdfundingText": "Заголовки, награды, таблицы и графика кампаний.",
+    "faq.define": "Обсуждение заказа",
+    "faq.defineText": "Идея, референсы, формат и срок.",
+    "faq.progress": "Показ прогресса",
+    "faq.progressText": "Изменения и правки обсуждаются в Discord.",
+    "faq.delivery": "Передача и оплата",
+    "faq.deliveryText": "PayPal: 50% в начале и 50% после завершения.",
+    "faq.priceQuestion": "Сколько стоит заказ?",
+    "faq.priceAnswer": "Цена зависит от объёма, сложности и срока. Пришлите описание и референсы для расчёта.",
+    "faq.startQuestion": "Что нужно для начала?",
+    "faq.startAnswer": "Понятное описание, референсы или эскиз и хорошая коммуникация.",
+    "contact.text": "Для оценки пришлите краткое описание, референсы и примерный срок."
+  },
+  "ja": {
+    "aria.navigation": "メインナビゲーション",
+    "aria.language": "言語を変更",
+    "aria.github": "GitHubを開く",
+    "aria.close": "閉じる",
+    "aria.contributions": "GitHubコントリビューションカレンダー",
+    "achievements.since": "2023年11月28日からMod制作",
+    "achievements.title": "実績",
+    "achievements.stonefall": "[StonefallStudioからの依頼]",
+    "github.settings": "コントリビューション設定⌄",
+    "github.learn": "コントリビューションの集計方法",
+    "github.less": "少ない",
+    "github.more": "多い",
+    "costTabs.models": "モデル",
+    "costTabs.ui": "UI/イラスト",
+    "costTabs.stickers": "ステッカー",
+    "costTabs.thumbnails": "サムネイル",
+    "costTabs.mods": "カスタムMod",
+    "costs.modelsTitle": "モデル",
+    "costs.type": "モデル種別",
+    "costs.base": "基本",
+    "costs.anim": "6アニメ付き",
+    "costs.small": "小型モデル",
+    "costs.medium": "中型モデル",
+    "costs.large": "大型モデル",
+    "costs.smallText": "基本テクスチャ付きのシンプルなクリーチャー、Mob、素材。",
+    "costs.mediumText": "パーツ、ディテール、カスタムテクスチャを追加。",
+    "costs.largeText": "複雑なクリーチャー、ボス、マウント、大型モデル。",
+    "costs.ask": "料金はサイズ、複雑さ、使用目的によって変わります。参考資料を添えてご相談ください。",
+    "services.models": "モデル・Mod・アニメーション",
+    "services.modelsText": "MinecraftやHytale向けのクリーチャー、Mob、プロップ、素材、アニメーション。",
+    "services.emotes": "ステッカー・エモート",
+    "services.emotesText": "Twitch、Discord、ゲーム、コミュニティ向け。",
+    "services.banners": "バナー・サムネイル",
+    "services.bannersText": "チャンネル、動画、告知、SNS向けデザイン。",
+    "services.illustrations": "イラスト",
+    "services.illustrationsText": "Kritaで制作するイラスト、コンセプト、ビジュアル素材。",
+    "services.crowdfunding": "クラウドファンディング用デザイン",
+    "services.crowdfundingText": "見出し、リワード、表、キャンペーン用グラフィック。",
+    "faq.define": "内容の確認",
+    "faq.defineText": "アイデア、参考資料、形式、納期。",
+    "faq.progress": "進捗共有",
+    "faq.progressText": "Discordで変更や修正を共有します。",
+    "faq.delivery": "納品・支払い",
+    "faq.deliveryText": "PayPal：開始時50%、完成時50%。",
+    "faq.priceQuestion": "料金はいくらですか？",
+    "faq.priceAnswer": "範囲、複雑さ、納期によって異なります。説明と参考資料を送っていただければ見積もりを作成します。",
+    "faq.startQuestion": "開始に必要なものは？",
+    "faq.startAnswer": "明確な説明、参考資料またはスケッチ、十分なコミュニケーションです。",
+    "contact.text": "見積もりには、短い説明、参考資料、おおよその納期を記載してください。"
+  }
+};
+  for (const [language, values] of Object.entries(extraTranslations)) {
+    Object.assign(window.PortfolioContent.translations[language], values);
+  }
+
+  const pricingPlaceholders = {
+    es: {
+      "costs.uiTitle": "UI / Ilustración",
+      "costs.stickersTitle": "Stickers",
+      "costs.thumbnailsTitle": "Thumbnails",
+      "costs.modsTitle": "Custom Mods",
+      "costs.service": "Servicio",
+      "costs.complete": "Completo",
+      "costs.uiSimple": "UI simple",
+      "costs.illustration": "Ilustración",
+      "costs.uiPack": "Pack de UI",
+      "costs.oneSticker": "1 sticker",
+      "costs.threeStickers": "3 stickers",
+      "costs.fiveStickers": "5 stickers",
+      "costs.thumbnail": "Thumbnail",
+      "costs.banner": "Banner",
+      "costs.visualPack": "Pack visual",
+      "costs.smallMod": "Mod chico",
+      "costs.mediumMod": "Mod medio",
+      "costs.largeMod": "Mod grande"
+    },
+    en: {
+      "costs.uiTitle": "UI / Illustration",
+      "costs.stickersTitle": "Stickers",
+      "costs.thumbnailsTitle": "Thumbnails",
+      "costs.modsTitle": "Custom Mods",
+      "costs.service": "Service",
+      "costs.complete": "Complete",
+      "costs.uiSimple": "Simple UI",
+      "costs.illustration": "Illustration",
+      "costs.uiPack": "UI pack",
+      "costs.oneSticker": "1 sticker",
+      "costs.threeStickers": "3 stickers",
+      "costs.fiveStickers": "5 stickers",
+      "costs.thumbnail": "Thumbnail",
+      "costs.banner": "Banner",
+      "costs.visualPack": "Visual pack",
+      "costs.smallMod": "Small mod",
+      "costs.mediumMod": "Medium mod",
+      "costs.largeMod": "Large mod"
+    },
+    pt: {
+      "costs.uiTitle": "UI / Ilustração",
+      "costs.stickersTitle": "Stickers",
+      "costs.thumbnailsTitle": "Thumbnails",
+      "costs.modsTitle": "Mods personalizados",
+      "costs.service": "Serviço",
+      "costs.complete": "Completo",
+      "costs.uiSimple": "UI simples",
+      "costs.illustration": "Ilustração",
+      "costs.uiPack": "Pack de UI",
+      "costs.oneSticker": "1 sticker",
+      "costs.threeStickers": "3 stickers",
+      "costs.fiveStickers": "5 stickers",
+      "costs.thumbnail": "Thumbnail",
+      "costs.banner": "Banner",
+      "costs.visualPack": "Pack visual",
+      "costs.smallMod": "Mod pequeno",
+      "costs.mediumMod": "Mod médio",
+      "costs.largeMod": "Mod grande"
+    },
+    fr: {
+      "costs.uiTitle": "UI / Illustration",
+      "costs.stickersTitle": "Stickers",
+      "costs.thumbnailsTitle": "Miniatures",
+      "costs.modsTitle": "Mods personnalisés",
+      "costs.service": "Service",
+      "costs.complete": "Complet",
+      "costs.uiSimple": "UI simple",
+      "costs.illustration": "Illustration",
+      "costs.uiPack": "Pack UI",
+      "costs.oneSticker": "1 sticker",
+      "costs.threeStickers": "3 stickers",
+      "costs.fiveStickers": "5 stickers",
+      "costs.thumbnail": "Miniature",
+      "costs.banner": "Bannière",
+      "costs.visualPack": "Pack visuel",
+      "costs.smallMod": "Petit mod",
+      "costs.mediumMod": "Mod moyen",
+      "costs.largeMod": "Grand mod"
+    },
+    ru: {
+      "costs.uiTitle": "UI / Иллюстрация",
+      "costs.stickersTitle": "Стикеры",
+      "costs.thumbnailsTitle": "Превью",
+      "costs.modsTitle": "Пользовательские моды",
+      "costs.service": "Услуга",
+      "costs.complete": "Полный",
+      "costs.uiSimple": "Простой UI",
+      "costs.illustration": "Иллюстрация",
+      "costs.uiPack": "Набор UI",
+      "costs.oneSticker": "1 стикер",
+      "costs.threeStickers": "3 стикера",
+      "costs.fiveStickers": "5 стикеров",
+      "costs.thumbnail": "Превью",
+      "costs.banner": "Баннер",
+      "costs.visualPack": "Визуальный набор",
+      "costs.smallMod": "Маленький мод",
+      "costs.mediumMod": "Средний мод",
+      "costs.largeMod": "Большой мод"
+    },
+    ja: {
+      "costs.uiTitle": "UI / イラスト",
+      "costs.stickersTitle": "ステッカー",
+      "costs.thumbnailsTitle": "サムネイル",
+      "costs.modsTitle": "カスタムMod",
+      "costs.service": "サービス",
+      "costs.complete": "完成版",
+      "costs.uiSimple": "シンプルUI",
+      "costs.illustration": "イラスト",
+      "costs.uiPack": "UIパック",
+      "costs.oneSticker": "ステッカー1個",
+      "costs.threeStickers": "ステッカー3個",
+      "costs.fiveStickers": "ステッカー5個",
+      "costs.thumbnail": "サムネイル",
+      "costs.banner": "バナー",
+      "costs.visualPack": "ビジュアルパック",
+      "costs.smallMod": "小規模Mod",
+      "costs.mediumMod": "中規模Mod",
+      "costs.largeMod": "大規模Mod"
+    }
+  };
+
+  for (const [language, values] of Object.entries(pricingPlaceholders)) {
+    Object.assign(window.PortfolioContent.translations[language], values);
+  }
+
+
+  const extraCosts = {
+    es: {
+      "costs.uiNoteOne": "Interfaz simple o elemento visual individual.",
+      "costs.uiNoteTwo": "Ilustración adaptada al estilo solicitado.",
+      "costs.uiNoteThree": "Conjunto de elementos para una misma interfaz.",
+      "costs.stickerNoteOne": "Un sticker o emote en los tamaños acordados.",
+      "costs.stickerNoteTwo": "Pack pequeño con tres expresiones.",
+      "costs.stickerNoteThree": "Pack completo con cinco expresiones.",
+      "costs.thumbNoteOne": "Miniatura individual para video o publicación.",
+      "costs.thumbNoteTwo": "Banner adaptado a la plataforma indicada.",
+      "costs.thumbNoteThree": "Conjunto de piezas visuales para un proyecto.",
+      "costs.modNoteOne": "Cambio pequeño o contenido de alcance limitado.",
+      "costs.modNoteTwo": "Proyecto con varios assets o comportamientos.",
+      "costs.modNoteThree": "Proyecto amplio definido después de revisar el pedido."
+    },
+    en: {
+      "costs.uiNoteOne": "A simple interface or an individual visual element.",
+      "costs.uiNoteTwo": "Illustration adapted to the requested style.",
+      "costs.uiNoteThree": "A set of elements for the same interface.",
+      "costs.stickerNoteOne": "One sticker or emote in the agreed sizes.",
+      "costs.stickerNoteTwo": "Small pack with three expressions.",
+      "costs.stickerNoteThree": "Complete pack with five expressions.",
+      "costs.thumbNoteOne": "One thumbnail for a video or post.",
+      "costs.thumbNoteTwo": "Banner adapted to the selected platform.",
+      "costs.thumbNoteThree": "A set of visual pieces for one project.",
+      "costs.modNoteOne": "Small change or limited-scope content.",
+      "costs.modNoteTwo": "Project with several assets or behaviors.",
+      "costs.modNoteThree": "Large project defined after reviewing the request."
+    }
+  };
+  Object.entries(extraCosts).forEach(([lang, values]) => Object.assign(window.PortfolioContent.translations[lang], values));
+
+})();
+
+(() => {
+  const translatedNotes = {
+    pt: {
+      "costs.uiNoteOne": "Interface simples ou elemento visual individual.",
+      "costs.uiNoteTwo": "Ilustração adaptada ao estilo solicitado.",
+      "costs.uiNoteThree": "Conjunto de elementos para a mesma interface.",
+      "costs.stickerNoteOne": "Um sticker ou emote nos tamanhos combinados.",
+      "costs.stickerNoteTwo": "Pack pequeno com três expressões.",
+      "costs.stickerNoteThree": "Pack completo com cinco expressões.",
+      "costs.thumbNoteOne": "Uma thumbnail para vídeo ou publicação.",
+      "costs.thumbNoteTwo": "Banner adaptado à plataforma indicada.",
+      "costs.thumbNoteThree": "Conjunto de peças visuais para um projeto.",
+      "costs.modNoteOne": "Mudança pequena ou conteúdo de alcance limitado.",
+      "costs.modNoteTwo": "Projeto com vários assets ou comportamentos.",
+      "costs.modNoteThree": "Projeto amplo definido após revisar o pedido."
+    },
+    fr: {
+      "costs.uiNoteOne": "Interface simple ou élément visuel individuel.",
+      "costs.uiNoteTwo": "Illustration adaptée au style demandé.",
+      "costs.uiNoteThree": "Ensemble d'éléments pour une même interface.",
+      "costs.stickerNoteOne": "Un sticker ou emote dans les tailles convenues.",
+      "costs.stickerNoteTwo": "Petit pack de trois expressions.",
+      "costs.stickerNoteThree": "Pack complet de cinq expressions.",
+      "costs.thumbNoteOne": "Une miniature pour une vidéo ou publication.",
+      "costs.thumbNoteTwo": "Bannière adaptée à la plateforme choisie.",
+      "costs.thumbNoteThree": "Ensemble de visuels pour un projet.",
+      "costs.modNoteOne": "Petit changement ou contenu à portée limitée.",
+      "costs.modNoteTwo": "Projet avec plusieurs assets ou comportements.",
+      "costs.modNoteThree": "Grand projet défini après étude de la demande."
+    },
+    ru: {
+      "costs.uiNoteOne": "Простой интерфейс или отдельный визуальный элемент.",
+      "costs.uiNoteTwo": "Иллюстрация в запрошенном стиле.",
+      "costs.uiNoteThree": "Набор элементов для одного интерфейса.",
+      "costs.stickerNoteOne": "Один стикер или эмоут в согласованных размерах.",
+      "costs.stickerNoteTwo": "Небольшой набор из трёх эмоций.",
+      "costs.stickerNoteThree": "Полный набор из пяти эмоций.",
+      "costs.thumbNoteOne": "Одна обложка для видео или публикации.",
+      "costs.thumbNoteTwo": "Баннер под выбранную платформу.",
+      "costs.thumbNoteThree": "Набор визуальных материалов для проекта.",
+      "costs.modNoteOne": "Небольшое изменение или ограниченный объём.",
+      "costs.modNoteTwo": "Проект с несколькими ассетами или механиками.",
+      "costs.modNoteThree": "Большой проект после изучения запроса."
+    },
+    ja: {
+      "costs.uiNoteOne": "シンプルなUIまたは単体のビジュアル要素。",
+      "costs.uiNoteTwo": "希望するスタイルに合わせたイラスト。",
+      "costs.uiNoteThree": "同じUIで使用する要素のセット。",
+      "costs.stickerNoteOne": "指定サイズのステッカーまたはエモート1点。",
+      "costs.stickerNoteTwo": "表情3種類の小さなセット。",
+      "costs.stickerNoteThree": "表情5種類の完全セット。",
+      "costs.thumbNoteOne": "動画または投稿用サムネイル1点。",
+      "costs.thumbNoteTwo": "指定プラットフォーム向けバナー。",
+      "costs.thumbNoteThree": "1つのプロジェクト用ビジュアルセット。",
+      "costs.modNoteOne": "小さな変更または限定的な内容。",
+      "costs.modNoteTwo": "複数のアセットや動作を含むプロジェクト。",
+      "costs.modNoteThree": "依頼確認後に定義する大規模プロジェクト。"
+    }
+  };
+  Object.entries(translatedNotes).forEach(([lang, values]) => Object.assign(window.PortfolioContent.translations[lang], values));
+})();
+
+(() => {
+  "use strict";
+
+  const content = window.PortfolioContent;
+  const storageKey = "pecsitonic-language";
+  let currentLanguage = "es";
+
+  function browserLanguage() {
+    const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
+
+    for (const candidate of candidates) {
+      const short = String(candidate || "").toLowerCase().split("-")[0];
+      if (content.supported.includes(short)) return short;
+    }
+
+    return "es";
+  }
+
+  function text(key) {
+    return content.translations[currentLanguage]?.[key]
+      ?? content.translations.es[key]
+      ?? key;
+  }
+
+  function format(key, values = {}) {
+    let result = text(key);
+    for (const [name, value] of Object.entries(values)) {
+      result = result.replaceAll(`{${name}}`, String(value));
+    }
+    return result;
+  }
+
+  function apply() {
+    document.documentElement.lang = currentLanguage;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      element.textContent = text(element.dataset.i18n);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+      element.setAttribute("aria-label", text(element.dataset.i18nAria));
+    });
+
+    window.dispatchEvent(new CustomEvent("portfolio:language", {
+      detail: { language: currentLanguage }
+    }));
+  }
+
+  function setMode(mode) {
+    const safeMode = mode === "auto" || content.supported.includes(mode) ? mode : "auto";
+    currentLanguage = safeMode === "auto" ? browserLanguage() : safeMode;
+    localStorage.setItem(storageKey, safeMode);
+    apply();
+  }
+
+  function initialize(select) {
+    const saved = localStorage.getItem(storageKey) || "auto";
+    select.value = saved;
+    setMode(saved);
+    select.addEventListener("change", () => setMode(select.value));
+  }
+
+  window.PortfolioI18n = {
+    initialize,
+    text,
+    format,
+    language: () => currentLanguage
+  };
+})();
+
+
+(() => {
+  "use strict";
+
+  const username = "Pecsitonic";
+  const grid = document.querySelector("#contribution-grid");
+  const months = document.querySelector("#month-labels");
+  const summary = document.querySelector("#contribution-summary");
+  const yearButtons = [...document.querySelectorAll("[data-year]")];
+
+  let selectedYear = "last";
+  let lastCalendar = null;
+
+  function endpoint(year) {
+    return `https://github-contributions-api.jogruber.de/v4/${username}?y=${year}&t=${Date.now()}`;
+  }
+
+  function normalizeTotal(payload, contributions) {
+    if (Number.isFinite(Number(payload.total))) {
+      return Number(payload.total);
+    }
+
+    if (payload.total && typeof payload.total === "object") {
+      if (Number.isFinite(Number(payload.total.lastYear))) {
+        return Number(payload.total.lastYear);
+      }
+
+      return Object.values(payload.total).reduce(
+        (sum, value) => sum + (Number(value) || 0),
+        0
+      );
+    }
+
+    return contributions.reduce(
+      (sum, item) => sum + (Number(item.count) || 0),
+      0
+    );
+  }
+
+  function normalize(payload) {
+    const contributions = (
+      Array.isArray(payload.contributions)
+        ? payload.contributions
+        : []
+    )
+      .filter((item) => item && item.date)
+      .map((item) => ({
+        date: item.date,
+        count: Number(item.count) || 0,
+        level: Math.max(0, Math.min(4, Number(item.level) || 0))
+      }))
+      .sort((first, second) => first.date.localeCompare(second.date));
+
+    return {
+      total: normalizeTotal(payload, contributions),
+      contributions
+    };
+  }
+
+  async function fetchCalendar(year) {
+    const response = await fetch(endpoint(year), {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+      credentials: "omit",
+      referrerPolicy: "no-referrer"
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const calendar = normalize(await response.json());
+
+    if (!calendar.contributions.length) {
+      throw new Error("Empty contribution calendar");
+    }
+
+    return calendar;
+  }
+
+  function createCell(item, placeholder = false) {
+    const cell = document.createElement("span");
+
+    cell.className = placeholder
+      ? "contribution-cell is-placeholder"
+      : `contribution-cell level-${item.level}`;
+
+    if (!placeholder) {
+      cell.title =
+        `${item.date}: ${item.count} contribution${item.count === 1 ? "" : "s"}`;
+    }
+
+    cell.setAttribute("aria-hidden", "true");
+    return cell;
+  }
+
+  function renderMonths(contributions, offset) {
+    months.innerHTML = "";
+
+    const seen = new Set();
+    let lastColumn = -10;
+
+    contributions.forEach((item, index) => {
+      const date = new Date(`${item.date}T12:00:00`);
+
+      if (Number.isNaN(date.getTime())) {
+        return;
+      }
+
+      const key = `${date.getFullYear()}-${date.getMonth()}`;
+
+      if (seen.has(key)) {
+        return;
+      }
+
+      seen.add(key);
+
+      const column = Math.floor((offset + index) / 7) + 1;
+
+      if (column - lastColumn < 3) {
+        return;
+      }
+
+      lastColumn = column;
+
+      const label = document.createElement("span");
+      label.textContent = date
+        .toLocaleDateString(window.PortfolioI18n.language(), {
+          month: "short"
+        })
+        .replace(".", "");
+
+      label.style.gridColumn = String(column);
+      months.append(label);
+    });
+  }
+
+  function render(calendar) {
+    lastCalendar = calendar;
+    grid.innerHTML = "";
+
+    const firstDate = new Date(
+      `${calendar.contributions[0].date}T12:00:00`
+    );
+
+    const offset = Number.isNaN(firstDate.getTime())
+      ? 0
+      : firstDate.getDay();
+
+    for (let index = 0; index < offset; index += 1) {
+      grid.append(createCell({}, true));
+    }
+
+    calendar.contributions.forEach((item) => {
+      grid.append(createCell(item));
+    });
+
+    renderMonths(calendar.contributions, offset);
+
+    summary.textContent = window.PortfolioI18n.format(
+      "github.loaded",
+      {
+        total: calendar.total.toLocaleString(
+          window.PortfolioI18n.language()
+        )
+      }
+    );
+  }
+
+  function renderFallback() {
+    grid.innerHTML = "";
+    months.innerHTML = "";
+
+    for (let index = 0; index < 371; index += 1) {
+      grid.append(
+        createCell({
+          level: 0,
+          count: 0,
+          date: ""
+        })
+      );
+    }
+
+    summary.textContent =
+      window.PortfolioI18n.text("github.error");
+  }
+
+  async function load(year) {
+    selectedYear = year;
+    summary.textContent =
+      window.PortfolioI18n.text("github.loading");
+
+    try {
+      render(await fetchCalendar(year));
+    } catch (error) {
+      console.warn("GitHub contributions:", error);
+      lastCalendar = null;
+      renderFallback();
+    }
+  }
+
+  yearButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      yearButtons.forEach((item) => {
+        item.classList.toggle("is-active", item === button);
+      });
+
+      load(button.dataset.year);
+    });
+  });
+
+  window.addEventListener("portfolio:language", () => {
+    if (lastCalendar) {
+      render(lastCalendar);
+    }
+  });
+
+  window.PortfolioGithub = {
+    initialize() {
+      load(selectedYear);
+    }
+  };
+})();
+
+
+(() => {
+  "use strict";
+
+  const overlay = document.querySelector("[data-modal-overlay]");
+  const modals = [...document.querySelectorAll("[data-modal]")];
+  const openButtons = [...document.querySelectorAll("[data-open-commission]")];
+  const closeButtons = [...document.querySelectorAll("[data-close-modal]")];
+  const costTabs = [...document.querySelectorAll("[data-cost-tab]")];
+  const costPanes = [...document.querySelectorAll("[data-cost-pane]")];
+
+  let currentModal = null;
+  let previousFocus = null;
+
+  function open(name) {
+    const modal = modals.find((item) => item.dataset.modal === name);
+    if (!modal) return;
+
+    close(false);
+    previousFocus = document.activeElement;
+    currentModal = modal;
+
+    overlay.hidden = false;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    modal.querySelector("[data-close-modal]")?.focus();
+  }
+
+  function close(restoreFocus = true) {
+    if (!currentModal) return;
+
+    currentModal.classList.remove("is-open");
+    currentModal.setAttribute("aria-hidden", "true");
+    overlay.hidden = true;
+    document.body.style.overflow = "";
+    currentModal = null;
+
+    if (restoreFocus) previousFocus?.focus?.();
+  }
+
+  function showCostPane(name) {
+    costTabs.forEach((button) => {
+      button.classList.toggle("is-active", button.dataset.costTab === name);
+    });
+
+    costPanes.forEach((pane) => {
+      pane.classList.toggle("is-active", pane.dataset.costPane === name);
+    });
+  }
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => open(button.dataset.openCommission));
+  });
+
+  closeButtons.forEach((button) => button.addEventListener("click", () => close()));
+  overlay.addEventListener("click", () => close());
+
+  costTabs.forEach((button) => {
+    button.addEventListener("click", () => showCostPane(button.dataset.costTab));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && currentModal) close();
+  });
+
+  window.PortfolioModals = { open, close };
+})();
+
+
+(() => {
+  "use strict";
+
+  const drawer = document.querySelector("[data-contact-drawer]");
+  const overlay = document.querySelector("[data-contact-overlay]");
+  const openButtons = [...document.querySelectorAll("[data-open-contact]")];
+  const closeButton = document.querySelector("[data-close-contact]");
+
+  let previousFocus = null;
+
+  function open() {
+    previousFocus = document.activeElement;
+    overlay.hidden = false;
+    drawer.classList.add("is-open");
+    drawer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    closeButton.focus();
+  }
+
+  function close() {
+    drawer.classList.remove("is-open");
+    drawer.setAttribute("aria-hidden", "true");
+    overlay.hidden = true;
+    document.body.style.overflow = "";
+    previousFocus?.focus?.();
+  }
+
+  openButtons.forEach((button) => button.addEventListener("click", open));
+  closeButton.addEventListener("click", close);
+  overlay.addEventListener("click", close);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drawer.classList.contains("is-open")) close();
+  });
+})();
+
+
+(() => {
+  "use strict";
+
+  const languageSelect = document.querySelector("#language-select");
+  const homeLinks = [...document.querySelectorAll("[data-home-link]")];
+
+  homeLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.querySelector("#overview")?.scrollIntoView({ block: "start" });
+    });
+  });
+
+  window.PortfolioI18n.initialize(languageSelect);
+  window.PortfolioGithub.initialize();
+})();

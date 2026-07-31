@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Pecsitonic: modding, videojuegos, ports y comisiones.">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://github.com https://avatars.githubusercontent.com; style-src 'self'; script-src 'self'; connect-src https://github-contributions-api.jogruber.de; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+  <title>Pecsitonic — Portfolio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#overview" data-home-link>
+        <img class="brand-icon" src="github-mark.svg" alt="" aria-hidden="true">
+        <span>Pecsitonic</span>
+      </a>
+
+      <nav class="top-nav" aria-label="Navegación principal" data-i18n-aria="aria.navigation">
+        <button class="top-nav__button is-active" type="button" data-home-link>
+          <span data-i18n="nav.overview">Overview</span>
+        </button>
+      </nav>
+
+      <div class="topbar-actions">
+        <label class="language-picker" for="language-select">
+          <img class="language-icon" src="globe-icon.svg" alt="" aria-hidden="true">
+          <select id="language-select" aria-label="Cambiar idioma" data-i18n-aria="aria.language">
+            <option value="auto">Auto</option>
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="pt">Português</option>
+            <option value="fr">Français</option>
+            <option value="ru">Русский</option>
+            <option value="ja">日本語</option>
+          </select>
+        </label>
+
+        <a class="github-button" href="https://github.com/Pecsitonic" target="_blank" rel="noopener noreferrer" aria-label="Abrir GitHub" data-i18n-aria="aria.github"><img src="github-mark.svg" alt="" aria-hidden="true"></a>
+      </div>
+    </header>
+
+    <div class="page-layout">
+      <aside class="profile-column">
+        <div class="avatar-wrap">
+          <img class="avatar" src="https://github.com/Pecsitonic.png" alt="Avatar de Pecsitonic" width="210" height="210" referrerpolicy="no-referrer">
+          <span class="status-dot" aria-hidden="true"></span>
+        </div>
+
+        <h1>Pecsitonic</h1>
+        <p class="profile-handle">@Pecsitonic</p>
+        <p class="profile-role" data-i18n="profile.role">Modder · Game Developer · Artista digital</p>
+
+        <div class="profile-modding">
+          <div class="download-lines">
+            <a href="https://www.curseforge.com/members/pecsitonic/projects" target="_blank" rel="noopener noreferrer">
+              <img class="platform-mini" src="curseforge-logo.png" alt="" aria-hidden="true">
+              <span>+1.4M Downloads</span>
+            </a>
+            <a href="https://modrinth.com/user/Pecsitonic" target="_blank" rel="noopener noreferrer">
+              <img class="platform-mini" src="modrinth-logo.png" alt="" aria-hidden="true">
+              <span>+7.3K Downloads</span>
+            </a>
+          </div>
+
+          <div class="modding-logos">
+            <img class="hytale-logo" src="HytaleLogo_DiscordBannerV6.png" alt="Hytale Modding">
+            <img class="crafter-icon" src="high-crafter-icon.svg" alt="High Crafter">
+          </div>
+        </div>
+
+        <p class="profile-location">
+          <img class="location-icon" src="pin-icon.svg" alt="" aria-hidden="true">
+          Argentina
+        </p>
+
+        <div class="profile-actions">
+          <button class="profile-primary" type="button" data-open-contact data-i18n="common.contact">Contactarme</button>
+          <a class="profile-secondary" href="https://github.com/Pecsitonic" target="_blank" rel="noopener noreferrer" data-i18n="common.github">Ver GitHub</a>
+        </div>
+
+        <div class="achievements">
+          <span class="achievements-since" data-i18n="achievements.since">Modder since 28 Nov 2023</span>
+          <span class="achievements-title" data-i18n="achievements.title">Achievements</span>
+          <p>Hytale New Worlds ModJam 2026</p>
+          <p data-i18n="achievements.stonefall">[Commision to StonefallStudio]</p>
+          <p>Port Card-Jitsu to PSVita</p>
+        </div>
+      </aside>
+
+      <main class="main-overview" id="overview">
+        <h2 data-i18n="overview.title">¡Hola! Soy Pecsitonic</h2>
+
+        <div class="top-cards">
+          <section class="github-card about-card">
+            <header><h3 data-i18n="overview.aboutTitle">Sobre mí</h3></header>
+            <div class="about-card__body">
+              <p data-i18n="overview.aboutOne">Me especializo en modding para Minecraft y Hytale, desarrollo web, ports y producción de recursos visuales para proyectos digitales.</p>
+              <p data-i18n="overview.aboutTwo">Creo criaturas, animaciones, interfaces y herramientas. Actualmente también desarrollo un videojuego para Android utilizando Unity.</p>
+              <div class="about-links">
+                <a href="https://www.curseforge.com/members/pecsitonic/projects" target="_blank" rel="noopener noreferrer">CurseForge ↗</a>
+                <a href="https://modrinth.com/user/Pecsitonic" target="_blank" rel="noopener noreferrer">Modrinth ↗</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="github-card projects-card">
+            <header><h3 data-i18n="overview.projectsTitle">Proyectos</h3></header>
+            <div class="projects-scroll">
+              <article>
+                <a href="https://pecsitonic.github.io/Tonic-Anime-archives/" target="_blank" rel="noopener noreferrer">Tonic! Series</a>
+                <p data-i18n="project.tonic">Archivo web para series de anime.</p>
+              </article>
+              <article>
+                <a href="https://pecsitonic.github.io/your-library/" target="_blank" rel="noopener noreferrer">My Library</a>
+                <p data-i18n="project.library">Biblioteca personal de series y películas.</p>
+              </article>
+              <article>
+                <strong>Keke-Fit</strong>
+                <p data-i18n="project.kekefit">Aplicación Android de calorías y comidas.</p>
+              </article>
+              <article>
+                <a href="https://github.com/Pecsitonic/cardjitsu-vita" target="_blank" rel="noopener noreferrer">Card-Jitsu PS Vita</a>
+                <p data-i18n="project.cardjitsu">Port nativo realizado con VitaSDK.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <section class="contribution-section">
+          <div class="contribution-title-row">
+            <h3 id="contribution-summary" data-i18n="github.loading">Cargando contribuciones…</h3>
+          </div>
+
+          <div class="contribution-box">
+            <div class="calendar-body">
+              <div class="day-labels" aria-hidden="true">
+                <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+              </div>
+              <div class="calendar-area">
+                <div id="month-labels" class="month-labels" aria-hidden="true"></div>
+                <div id="contribution-grid" class="contribution-grid" role="img" aria-label="Calendario de contribuciones de GitHub" data-i18n-aria="aria.contributions"></div>
+              </div>
+            </div>
+
+            <div class="calendar-footer">
+              <a href="https://docs.github.com/en/account-and-profile/reference/profile-contributions-reference" target="_blank" rel="noopener noreferrer" data-i18n="github.learn">Learn how we count contributions</a>
+              <div class="legend" aria-hidden="true">
+                <span data-i18n="github.less">Less</span>
+                <i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i>
+                <span data-i18n="github.more">More</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="year-tabs" aria-label="Años de contribuciones">
+            <button class="is-active" type="button" data-year="last">2026</button>
+            <button type="button" data-year="2025">2025</button>
+            <button type="button" data-year="2024">2024</button>
+          </div>
+        </section>
+      </main>
+
+      <aside class="right-column">
+        <section class="commissions-panel">
+          <header><h2 data-i18n="commissions.title">Comisiones</h2></header>
+          <div class="commission-buttons">
+            <button class="is-cost" type="button" data-open-commission="costs" data-i18n="commissions.costs">Costos</button>
+            <button type="button" data-open-commission="services" data-i18n="commissions.services">Servicios</button>
+            <button type="button" data-open-commission="faq">FAQ</button>
+          </div>
+        </section>
+
+        <section class="tools-section">
+          <div class="tool-group">
+            <h3 data-i18n="tools.languages">Lenguajes</h3>
+            <div class="tags">
+              <span class="tag blue">PYTHON</span><span class="tag ochre">JAVASCRIPT</span><span class="tag green">C#</span><span class="tag purple">PHP</span><span class="tag red">HTML5</span><span class="tag blue">CSS3</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3 data-i18n="tools.frameworks">Frameworks &amp; Servicios</h3>
+            <div class="tags">
+              <span class="tag navy">REACT NATIVE</span><span class="tag teal">SUPABASE</span><span class="tag green">NODE.JS</span><span class="tag amber">FIREBASE</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3 data-i18n="tools.environment">Herramientas &amp; Entorno</h3>
+            <div class="tags">
+              <span class="tag red">GIT</span><span class="tag dark">GITHUB</span><span class="tag blue wide">VISUAL STUDIO CODE</span><span class="tag purple">VISUAL STUDIO</span><span class="tag blue">JIRA</span>
+              <span class="tag dark">UNITY</span><span class="tag green wide">ANDROID STUDIO</span><span class="tag red">XAMPP</span><span class="tag steel">BLOCKBENCH</span><span class="tag purple">KRITA</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div class="modal-overlay" data-modal-overlay hidden></div>
+
+  <section class="commission-modal costs-modal" data-modal="costs" aria-hidden="true" aria-labelledby="costs-title">
+    <aside class="cost-tabs">
+      <button class="is-active" type="button" data-cost-tab="models" data-i18n="costTabs.models">Modelos</button>
+      <button type="button" data-cost-tab="ui" data-i18n="costTabs.ui">UI/Ilustracion</button>
+      <button type="button" data-cost-tab="stickers" data-i18n="costTabs.stickers">Stickers</button>
+      <button type="button" data-cost-tab="thumbnails" data-i18n="costTabs.thumbnails">Thumbnails</button>
+      <button type="button" data-cost-tab="mods" data-i18n="costTabs.mods">Custom Mods</button>
+    </aside>
+
+    <div class="modal-content cost-content">
+      <button class="modal-close" type="button" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close">×</button>
+      <span class="modal-kicker" data-i18n="commissions.costs">Costos</span>
+      <h2 id="costs-title" data-i18n="costs.title">¿Cuáles son mis precios?</h2>
+      <div class="modal-separator"></div>
+
+      <div class="cost-pane is-active" data-cost-pane="models">
+        <h3 data-i18n="costs.modelsTitle">Modelos</h3>
+        <table class="cost-table">
+          <thead><tr><th data-i18n="costs.type">Tipo de modelo</th><th data-i18n="costs.base">Base</th><th data-i18n="costs.anim">Con 6 anim.</th><th></th></tr></thead>
+          <tbody>
+            <tr><td data-i18n="costs.small">Modelo chico</td><td>$10 USD</td><td>$15 USD</td><td><i class="price-dot yellow"></i></td></tr>
+            <tr><td data-i18n="costs.medium">Modelo medio</td><td>$25 USD</td><td>$32 USD</td><td><i class="price-dot lime"></i></td></tr>
+            <tr><td data-i18n="costs.large">Modelo grande</td><td>$45 USD</td><td>$52 USD</td><td><i class="price-dot violet"></i></td></tr>
+          </tbody>
+        </table>
+        <ul class="cost-notes">
+          <li class="yellow" data-i18n="costs.smallText">Criatura, mob o asset simple con textura básica.</li>
+          <li class="lime" data-i18n="costs.mediumText">Más piezas, detalle y textura personalizada.</li>
+          <li class="violet" data-i18n="costs.largeText">Criatura compleja, jefe, montura o modelo grande.</li>
+        </ul>
+      </div>
+
+      <div class="cost-pane" data-cost-pane="ui">
+        <h3 data-i18n="costs.uiTitle">UI / Ilustración</h3>
+        <table class="cost-table">
+          <colgroup><col class="cost-col-name"><col class="cost-col-price"><col class="cost-col-price"><col class="cost-col-dot"></colgroup>
+          <thead><tr><th data-i18n="costs.service">Servicio</th><th data-i18n="costs.base">Base</th><th data-i18n="costs.complete">Completo</th><th></th></tr></thead>
+          <tbody><tr><td data-i18n="costs.uiSimple">UI simple</td><td>$5 USD</td><td>$8 USD</td><td><i class="price-dot yellow"></i></td></tr><tr><td data-i18n="costs.illustration">Ilustración</td><td>$15 USD</td><td>$25 USD</td><td><i class="price-dot lime"></i></td></tr><tr><td data-i18n="costs.uiPack">Pack de UI</td><td>$45 USD</td><td>$65 USD</td><td><i class="price-dot violet"></i></td></tr></tbody>
+        </table>
+        <ul class="cost-notes"><li class="yellow" data-i18n="costs.uiNoteOne">Interfaz simple o elemento visual individual.</li><li class="lime" data-i18n="costs.uiNoteTwo">Ilustración adaptada al estilo solicitado.</li><li class="violet" data-i18n="costs.uiNoteThree">Conjunto de elementos para una misma interfaz.</li></ul>
+      </div>
+
+      <div class="cost-pane" data-cost-pane="stickers">
+        <h3 data-i18n="costs.stickersTitle">Stickers</h3>
+        <table class="cost-table">
+          <colgroup><col class="cost-col-name"><col class="cost-col-price"><col class="cost-col-price"><col class="cost-col-dot"></colgroup>
+          <thead><tr><th data-i18n="costs.service">Servicio</th><th data-i18n="costs.base">Base</th><th data-i18n="costs.complete">Completo</th><th></th></tr></thead>
+          <tbody><tr><td data-i18n="costs.oneSticker">1 sticker</td><td>$5 USD</td><td>$5 USD</td><td><i class="price-dot yellow"></i></td></tr><tr><td data-i18n="costs.threeStickers">3 stickers</td><td>$12.5 USD</td><td>$12.5 USD</td><td><i class="price-dot lime"></i></td></tr><tr><td data-i18n="costs.fiveStickers">5 stickers</td><td>$23.5 USD</td><td>$23.5 USD</td><td><i class="price-dot violet"></i></td></tr></tbody>
+        </table>
+        <ul class="cost-notes"><li class="yellow" data-i18n="costs.stickerNoteOne">Un sticker o emote en los tamaños acordados.</li><li class="lime" data-i18n="costs.stickerNoteTwo">Pack pequeño con tres expresiones.</li><li class="violet" data-i18n="costs.stickerNoteThree">Pack completo con cinco expresiones.</li></ul>
+      </div>
+
+      <div class="cost-pane" data-cost-pane="thumbnails">
+        <h3 data-i18n="costs.thumbnailsTitle">Thumbnails</h3>
+        <table class="cost-table">
+          <colgroup><col class="cost-col-name"><col class="cost-col-price"><col class="cost-col-price"><col class="cost-col-dot"></colgroup>
+          <thead><tr><th data-i18n="costs.service">Servicio</th><th data-i18n="costs.base">Base</th><th data-i18n="costs.complete">Completo</th><th></th></tr></thead>
+          <tbody><tr><td data-i18n="costs.thumbnail">Thumbnail</td><td>$5 USD</td><td>$20 USD</td><td><i class="price-dot yellow"></i></td></tr><tr><td data-i18n="costs.banner">Banner</td><td>$10 USD</td><td>$30 USD</td><td><i class="price-dot lime"></i></td></tr><tr><td data-i18n="costs.visualPack">-</td><td>-</td><td>-</td><td><i class="price-dot violet"></i></td></tr></tbody>
+        </table>
+        <ul class="cost-notes"><li class="yellow" data-i18n="costs.thumbNoteOne">Miniatura individual para video</li><li class="lime" data-i18n="costs.thumbNoteTwo">Banner adaptado a la plataforma indicada como X o YT</li><li class="violet" data-i18n="costs.thumbNoteThree">Conjunto de piezas visuales para un proyecto</li></ul>
+      </div>
+
+      <div class="cost-pane" data-cost-pane="mods">
+        <h3 data-i18n="costs.modsTitle">Custom Mods</h3>
+        <table class="cost-table">
+          <colgroup><col class="cost-col-name"><col class="cost-col-price"><col class="cost-col-price"><col class="cost-col-dot"></colgroup>
+          <thead><tr><th data-i18n="costs.service">Servicio</th><th data-i18n="costs.base">Base</th><th data-i18n="costs.complete">Completo</th><th></th></tr></thead>
+          <tbody><tr><td data-i18n="costs.smallMod">Mod chico</td><td>$15 USD</td><td>$35 USD</td><td><i class="price-dot yellow"></i></td></tr><tr><td data-i18n="costs.mediumMod">Mod medio</td><td>$45 USD</td><td>$75 USD</td><td><i class="price-dot lime"></i></td></tr><tr><td data-i18n="costs.largeMod">Mod grande</td><td>$125 USD</td><td>$150 USD</td><td><i class="price-dot violet"></i></td></tr></tbody>
+        </table>
+        <ul class="cost-notes"><li class="yellow" data-i18n="costs.modNoteOne">Cambio pequeño o contenido de alcance limitado.</li><li class="lime" data-i18n="costs.modNoteTwo">Proyecto con varios assets o comportamientos.</li><li class="violet" data-i18n="costs.modNoteThree">Proyecto amplio definido después de revisar el pedido.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="commission-modal simple-modal" data-modal="services" aria-hidden="true" aria-labelledby="services-title">
+    <div class="simple-modal__content">
+      <div class="simple-modal__inner">
+      <button class="modal-close" type="button" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close">×</button>
+      <span class="modal-kicker" data-i18n="commissions.services">Servicios</span>
+      <h2 id="services-title" data-i18n="services.title">¿Qué Ofrezco?</h2>
+      <div class="modal-separator"></div>
+      <div class="service-modal-list">
+        <article><strong data-i18n="services.models">Modelos, mods y animación</strong><p data-i18n="services.modelsText">Criaturas, mobs, props, assets y animaciones para Minecraft o Hytale.</p></article>
+        <article><strong data-i18n="services.emotes">Stickers y emotes</strong><p data-i18n="services.emotesText">Emotes para Twitch, Discord, videojuegos y comunidades.</p></article>
+        <article><strong data-i18n="services.banners">Banners y miniaturas</strong><p data-i18n="services.bannersText">Diseños para canales, videos, anuncios y redes.</p></article>
+        <article><strong data-i18n="services.illustrations">Ilustraciones</strong><p data-i18n="services.illustrationsText">Dibujos, conceptos y piezas visuales realizadas con Krita.</p></article>
+        <article><strong data-i18n="services.crowdfunding">Diseño para crowdfunding</strong><p data-i18n="services.crowdfundingText">Encabezados, recompensas, tablas y gráficos para campañas.</p></article>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="commission-modal simple-modal faq-modal" data-modal="faq" aria-hidden="true" aria-labelledby="faq-title">
+    <div class="simple-modal__content">
+      <div class="simple-modal__inner">
+      <button class="modal-close" type="button" data-close-modal aria-label="Cerrar" data-i18n-aria="aria.close">×</button>
+      <span class="modal-kicker">FAQ</span>
+      <h2 id="faq-title" data-i18n="faq.title">Preguntas Frecuentes</h2>
+      <div class="modal-separator"></div>
+
+      <div class="faq-process">
+        <div><strong data-i18n="faq.define">Definimos el pedido</strong><p data-i18n="faq.defineText">Idea, referencias, formato y plazo.</p></div>
+        <div><strong data-i18n="faq.progress">Muestro avances</strong><p data-i18n="faq.progressText">Comparto cambios y revisiones por Discord.</p></div>
+        <div><strong data-i18n="faq.delivery">Entrega y pago</strong><p data-i18n="faq.deliveryText">PayPal: 50% al iniciar y 50% al finalizar.</p></div>
+      </div>
+
+      <div class="faq-details">
+        <details><summary data-i18n="faq.priceQuestion">¿Cuánto cuesta una comisión?</summary><p data-i18n="faq.priceAnswer">Depende del alcance, la complejidad y el plazo. Enviame una descripción y referencias para preparar un presupuesto.</p></details>
+        <details><summary data-i18n="faq.startQuestion">¿Qué necesitás para empezar?</summary><p data-i18n="faq.startAnswer">Una explicación clara, referencias o un boceto y una buena comunicación.</p></details>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-overlay" data-contact-overlay hidden></div>
+  <aside class="contact-drawer" data-contact-drawer aria-hidden="true">
+    <div class="contact-drawer__header">
+      <div><span data-i18n="contact.label">Contacto</span><h2 data-i18n="contact.title">¿Dónde podés encontrarme?</h2></div>
+      <button type="button" data-close-contact aria-label="Cerrar" data-i18n-aria="aria.close">×</button>
+    </div>
+    <p data-i18n="contact.text">Para presupuestos, enviame una descripción breve, referencias y el plazo aproximado.</p>
+    <div class="contact-links">
+      <a href="mailto:contactopecsitonic@gmail.com"><span>Email</span><strong>contactopecsitonic@gmail.com</strong></a>
+      <a href="https://discord.com" target="_blank" rel="noopener noreferrer"><span>Discord</span><strong>pecsitonic_</strong></a>
+      <a href="https://www.reddit.com/user/Juandada77/" target="_blank" rel="noopener noreferrer"><span>Reddit</span><strong>u/Juandada77</strong></a>
+      <a href="https://x.com/Pecsitonic" target="_blank" rel="noopener noreferrer"><span>X</span><strong>@Pecsitonic</strong></a>
+      <a href="https://github.com/Pecsitonic" target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>@Pecsitonic</strong></a>
+    </div>
+  </aside>
+
+  <script src="portfolio.min.js" defer></script>
+</body>
+</html>
